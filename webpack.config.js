@@ -20,24 +20,15 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'happypack/loader',
 				include: path.resolve(__dirname, 'src'),
-				query: {
-					presets: ['react-hmre'],
-				},
+				query: { presets: ['react-hmre'] },
 			},
-			{
-				test: /\.scss$/,
-				loaders: ['style', 'css', 'sass'],
-			},
+			{ test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
 			{ test: /\.svg$/, loader: 'raw-loader' },
 		],
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new HappyPack({
-			loaders: [
-				'babel',
-			],
-		}),
+		new HappyPack({ loaders: ['babel'] }),
 	],
 	resolve: {
 		extensions: ['', '.js', '.jsx'],

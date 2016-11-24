@@ -1,9 +1,13 @@
 # React Redux Boilerplate
 * React
+* React Router
 * Redux
-* Redux-Saga
-* Hot reload
-* React-router
+* Redux Saga
+* Redux Router
+* Redux Dev Tools
 * Webpack
-* ESLint
+* Webpack Hot Middleware
+* Webpack Dev Middleware
 * Babel
+* Express
+* ESLint

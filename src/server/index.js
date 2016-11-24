@@ -2,12 +2,14 @@ import store from 'app/store';
 import getRoutes from 'app/utils/getRoutes';
 import express from 'express';
 import React from 'react';
+import path from 'path';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
 import renderFullPage from 'server/utils/renderFullPage';
 
 const app = express();
+app.use(express.static(path.resolve(__dirname, 'dist')));
 
 app.use((req, res, next) => {
 	const routes = getRoutes();

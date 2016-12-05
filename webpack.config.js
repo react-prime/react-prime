@@ -32,7 +32,13 @@ module.exports = {
 	],
 	resolve: {
 		extensions: ['', '.js', '.jsx'],
-		root: [path.resolve('./src')],
+		alias: {
+			app: path.resolve(__dirname, './src/app'),
+			ducks: path.resolve(__dirname, './src/app/ducks'),
+			sagas: path.resolve(__dirname, './src/app/sagas'),
+			components: path.resolve(__dirname, './src/app/components'),
+			server: path.resolve(__dirname, './src/server'),
+		},
 	},
 	devtool: 'eval',
 };

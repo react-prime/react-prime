@@ -1,7 +1,6 @@
-import * as c from 'app/constants';
 import { takeEvery } from 'redux-saga';
 import { fork, put } from 'redux-saga/effects';
-import { signInSuccess, signInFailed } from 'app/actions/auth';
+import { signInSuccess, signInFailed, AUTH_SIGNIN } from 'app/ducks/auth';
 import 'babel-polyfill';
 
 function* signIn() {
@@ -14,7 +13,7 @@ function* signIn() {
 
 // WATCHERS
 function* watchSignIn() {
-	yield* takeEvery(c.AUTH_SIGNIN, signIn);
+	yield* takeEvery(AUTH_SIGNIN, signIn);
 }
 
 export const authSagas = [

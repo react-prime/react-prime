@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signIn } from 'app/actions/auth';
+import { signIn } from 'app/ducks/auth';
 
 const Login = ({ signIn, auth }) => (
 	<div className="login">

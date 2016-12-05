@@ -1,24 +1,25 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-	name: 'client',
+	name: 'server',
+	target: 'node',
+	node: {
+		__dirname: true,
+	},
+	externals: [nodeExternals()],
 	entry: [
-		path.resolve(__dirname, 'src'),
+		'./src/server/index.js',
 	],
 	output: {
-		path: path.resolve(__dirname, 'dist/public'),
-		filename: 'bundle.js',
-		publicPath: '/dist/public',
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'server.js',
+		publicPath: '/dist',
 	},
 	module: {
 		loaders: [
-			{
-				test: /\.jsx?$/,
-				exclude: /node_modules/,
-				loader: 'babel-loader',
-				include: path.resolve(__dirname, 'src'),
-			},
-			{ test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
+			{ test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
+			{ test: /\.json$/, loader: 'json-loader' },
 			{ test: /\.svg$/, loader: 'raw-loader' },
 		],
 	},
@@ -32,5 +33,4 @@ module.exports = {
 			server: path.resolve(__dirname, './src/server'),
 		},
 	},
-	devtool: 'eval',
 };

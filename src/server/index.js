@@ -1,5 +1,5 @@
 import store from 'app/store';
-import getRoutes from 'app/utils/getRoutes';
+import routes from 'app/utils/routes';
 import express from 'express';
 import React from 'react';
 import path from 'path';
@@ -9,11 +9,9 @@ import { match, RouterContext } from 'react-router';
 import renderFullPage from 'server/utils/renderFullPage';
 
 const app = express();
-app.use(express.static(path.resolve(__dirname, 'dist')));
+app.use(express.static(path.resolve(__dirname, '../../dist/public')));
 
 app.use((req, res, next) => {
-	const routes = getRoutes();
-
 	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
 		if (error) {
 			return next(error);
@@ -35,6 +33,6 @@ app.use((req, res, next) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.info('Listening on port 3000');
+app.listen(4000, () => {
+	console.info('Listening on port 4000');
 });

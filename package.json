@@ -1,12 +1,14 @@
 {
-  "name": "React-boilerplare",
+  "name": "React-Boilerplare",
   "version": "0.1.0",
   "description": "",
   "author": "jornbostelaar",
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
-    "build": "webpack --config webpack.config.server.js"
+    "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
+    "build-server": "NODE_ENV=production webpack --config webpack.config.server.js",
+    "start-prod": "NODE_ENV=production node dist/server.js"
   },
   "keywords": [
     "react",

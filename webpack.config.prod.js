@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	name: 'client',
@@ -32,5 +33,15 @@ module.exports = {
 			server: path.resolve(__dirname, './src/server'),
 		},
 	},
+	plugins: [
+		new webpack.optimize.DedupePlugin(),
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				screw_ie8: true,
+				warnings: false,
+			},
+		}),
+	],
 	devtool: 'eval',
 };

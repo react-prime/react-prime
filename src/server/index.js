@@ -7,9 +7,11 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
 import renderFullPage from 'server/utils/renderFullPage';
+import compress from 'compression';
 
 const app = express();
 app.use(express.static(path.resolve(__dirname, '../../dist/public')));
+app.use(compress());
 
 app.use((req, res, next) => {
 	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {

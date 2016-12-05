@@ -21,6 +21,7 @@
     "babel"
   ],
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.13.4",
     "history": "^2.1.1",
     "normalize.css": "^3.0.3",
@@ -36,7 +37,6 @@
     "babel-core": "^6.18.2",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.8",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-regenerator": "^6.16.1",
     "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.18.0",

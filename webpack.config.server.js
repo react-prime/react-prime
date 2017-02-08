@@ -21,6 +21,7 @@ module.exports = {
 			{ test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
 			{ test: /\.json$/, loader: 'json-loader' },
 			{ test: /\.svg$/, loader: 'raw-loader' },
+			{ test: /\.css$/, loader: 'isomorphic-style-loader!css-loader?modules' },
 		],
 	},
 	resolve: {

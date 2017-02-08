@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	name: 'client',
@@ -19,7 +21,13 @@ module.exports = {
 				loader: 'babel-loader',
 				include: path.resolve(__dirname, 'src'),
 			},
-			{ test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract(
+					'style-loader',
+					'css-loader?modules!postcss-loader'
+				),
+			},
 			{ test: /\.svg$/, loader: 'raw-loader' },
 		],
 	},
@@ -45,6 +53,8 @@ module.exports = {
 				warnings: false,
 			},
 		}),
+		new ExtractTextPlugin('style.css', { allChunks: true }),
 	],
+	postcss: [autoprefixer({ browsers: ['last 2 versions'] })],
 	devtool: 'source-map',
 };

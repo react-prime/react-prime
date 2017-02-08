@@ -22,7 +22,11 @@ module.exports = {
 				include: path.resolve(__dirname, 'src'),
 				query: { presets: ['react-hmre'] },
 			},
-			{ test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
+			{
+				test: /\.css$/,
+				exclude: /node_modules/,
+				loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+			},
 			{ test: /\.svg$/, loader: 'raw-loader' },
 		],
 	},

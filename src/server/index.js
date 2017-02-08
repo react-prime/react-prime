@@ -1,5 +1,5 @@
 import store from 'app/store';
-import routes from 'app/utils/routes';
+import routes from 'app/routes';
 import express from 'express';
 import React from 'react';
 import path from 'path';

@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signIn } from 'app/ducks/auth';
+import cssModules from 'react-css-modules';
+
+import styles from './Login.css';
 
 const Login = ({ signIn, auth }) => (
-	<div className="login">
+	<div styleName="login">
 		{auth.authenticated ? (
 			<p>User is loggedin</p>
 		) : null}
-		<button onClick={signIn}>Login</button>
+		<button onClick={signIn} styleName="button">Login</button>
 	</div>
 );
 
@@ -18,4 +21,4 @@ Login.propTypes = {
 
 export default connect(state => ({
 	auth: state.auth,
-}), { signIn })(Login);
+}), { signIn })(cssModules(styles)(Login));

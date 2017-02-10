@@ -1,5 +1,4 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
-import { routerReducer } from 'react-router-redux';
 import * as appReducers from 'app/ducks';
 import createSagaMiddleware from 'redux-saga';
 import sagas from 'app/sagas';
@@ -16,7 +15,6 @@ if (process.env.NODE_ENV !== 'production' && typeof window === 'object' && typeo
 
 export default createStore(combineReducers({
 	...appReducers,
-	routing: routerReducer,
 }), middleware);
 
 sagaMiddleware.run(sagas);

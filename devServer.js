@@ -7,6 +7,7 @@ const config = require('./webpack.config.js');
 
 const app = express();
 const compiler = webpack(config);
+
 const middleware = webpackMiddleware(compiler, {
 	publicPath: config.output.publicPath,
 	historyApiFallback: true,

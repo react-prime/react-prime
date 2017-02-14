@@ -1,6 +1,7 @@
 :root {
 	/* COLORS */
 	--c-primary: #2ecc71;
+	--c-text: #2F3F42;
 }
 
 /* BREAKPOINTS AS QUERIES */

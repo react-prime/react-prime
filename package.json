@@ -35,7 +35,6 @@
     "redux-saga": "^0.12.1"
   },
   "devDependencies": {
-    "autoprefixer": "^6.5.3",
     "babel-core": "^6.18.2",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.8",
@@ -62,6 +61,8 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "svg-react-loader": "^0.3.7",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2",

@@ -2,15 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signIn } from 'app/ducks/auth';
 import cssModules from 'react-css-modules';
-
+import LogoIcon from '-!babel!svg-react!vectors/logo.svg';
 import styles from './Login.css';
 
 const Login = ({ signIn, auth }) => (
 	<div styleName="login">
+		<LogoIcon styleName="logo" />
 		{auth.authenticated ? (
-			<p>User is loggedin</p>
-		) : null}
-		<button onClick={signIn} styleName="button">Login</button>
+			<p styleName="message">User is loggedin</p>
+		) : (
+			<button onClick={signIn} styleName="button">Login</button>
+		)}
+
 	</div>
 );
 

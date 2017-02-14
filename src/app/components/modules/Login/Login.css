@@ -4,6 +4,13 @@
 	text-align: center;
 }
 
+.message {
+	font-size: 18px;
+	margin-top: 0;
+	color: var(--c-text);
+	font-family: Futura-Medium, Futura;
+}
+
 .button {
 	background: var(--c-primary);
 	padding: 10px 20px;
@@ -12,4 +19,11 @@
 	font-size: 16px;
 	outline: none;
 	border-radius: 5px;
+	cursor: pointer;
+}
+
+.logo {
+	width: 200px;
+	display: block;
+	margin: 0 auto;
 }

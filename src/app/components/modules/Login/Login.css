@@ -1,9 +1,11 @@
+@import 'variables.css';
+
 .login {
 	text-align: center;
 }
 
 .button {
-	background: #2ecc71;
+	background: var(--c-primary);
 	padding: 10px 20px;
 	border: none;
 	color: #fff;

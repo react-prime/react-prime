@@ -1,6 +1,8 @@
 const path = require('path');
 const HappyPack = require('happypack');
 const webpack = require('webpack');
+const CSSnext = require('postcss-cssnext');
+const CSSimport = require('postcss-import');
 
 module.exports = {
 	name: 'client',
@@ -25,7 +27,12 @@ module.exports = {
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
-				loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+				loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1!postcss-loader',
+			},
+			{
+				test: /\.css$/,
+				include: /node_modules/,
+				loader: 'style-loader!css-loader',
 			},
 			{ test: /\.svg$/, loader: 'raw-loader' },
 		],
@@ -33,6 +40,12 @@ module.exports = {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new HappyPack({ loaders: ['babel'] }),
+	],
+	postcss: [
+		CSSimport({
+			path: ['./src/app/styles'],
+		}),
+		CSSnext,
 	],
 	resolve: {
 		extensions: ['', '.js', '.jsx'],

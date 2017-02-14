@@ -6,7 +6,7 @@ import path from 'path';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
-import renderFullPage from 'server/utils/renderFullPage';
+import renderFullPage from 'server/helpers/renderFullPage';
 import compress from 'compression';
 
 const app = express();

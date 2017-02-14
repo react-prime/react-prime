@@ -56,6 +56,8 @@
     "happypack": "^2.2.1",
     "isomorphic-style-loader": "^1.1.0",
     "json-loader": "^0.5.4",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.2",

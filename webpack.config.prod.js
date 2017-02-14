@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CSSnext = require('postcss-cssnext');
+const CSSimport = require('postcss-import');
 
 module.exports = {
 	name: 'client',
@@ -38,6 +39,7 @@ module.exports = {
 			ducks: path.resolve(__dirname, './src/app/ducks'),
 			sagas: path.resolve(__dirname, './src/app/sagas'),
 			components: path.resolve(__dirname, './src/app/components'),
+			styles: path.resolve(__dirname, './src/app/styles'),
 			server: path.resolve(__dirname, './src/server'),
 		},
 	},
@@ -55,6 +57,11 @@ module.exports = {
 		}),
 		new ExtractTextPlugin('style.css', { allChunks: true }),
 	],
-	postcss: [autoprefixer({ browsers: ['last 2 versions'] })],
+	postcss: [
+		CSSimport({
+			path: ['./src/app/styles'],
+		}),
+		CSSnext,
+	],
 	devtool: 'source-map',
 };

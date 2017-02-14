@@ -1,5 +1,7 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const CSSnext = require('postcss-cssnext');
+const CSSimport = require('postcss-import');
 
 module.exports = {
 	name: 'server',
@@ -21,9 +23,15 @@ module.exports = {
 			{ test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
 			{ test: /\.json$/, loader: 'json-loader' },
 			{ test: /\.svg$/, loader: 'raw-loader' },
-			{ test: /\.css$/, loader: 'isomorphic-style-loader!css-loader?modules' },
+			{ test: /\.css$/, loader: 'isomorphic-style-loader!css-loader?modules!postcss-loader' },
 		],
 	},
+	postcss: [
+		CSSimport({
+			path: ['./src/app/styles'],
+		}),
+		CSSnext,
+	],
 	resolve: {
 		extensions: ['', '.js', '.jsx'],
 		alias: {
@@ -32,6 +40,7 @@ module.exports = {
 			sagas: path.resolve(__dirname, './src/app/sagas'),
 			components: path.resolve(__dirname, './src/app/components'),
 			server: path.resolve(__dirname, './src/server'),
+			styles: path.resolve(__dirname, './src/server'),
 		},
 	},
 };

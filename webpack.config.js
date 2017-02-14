@@ -42,6 +42,10 @@ module.exports = {
 				test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
 				loader: 'file-loader',
 			},
+			{
+				test: /\.(jpe?g|png|gif)$/i,
+				loader: 'url-loader?limit=10000',
+			},
 		],
 	},
 	plugins: [

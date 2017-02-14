@@ -6,6 +6,7 @@ const CSSimport = require('postcss-import');
 module.exports = {
 	name: 'server',
 	target: 'node',
+	eval: 'source-map',
 	node: {
 		__dirname: true,
 	},
@@ -16,7 +17,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'server.js',
-		publicPath: '/dist',
+		publicPath: '/',
 	},
 	module: {
 		loaders: [
@@ -24,6 +25,10 @@ module.exports = {
 			{ test: /\.json$/, loader: 'json-loader' },
 			{ test: /\.svg$/, loader: 'url-loader' },
 			{ test: /\.css$/, loader: 'isomorphic-style-loader!css-loader?modules!postcss-loader' },
+			{
+				test: /\.(jpe?g|png|gif)$/i,
+				loader: 'url-loader?limit=10000&name=images/[name].[ext]',
+			},
 		],
 	},
 	postcss: [

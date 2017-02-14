@@ -10,7 +10,7 @@ import renderFullPage from 'server/helpers/renderFullPage';
 import compress from 'compression';
 
 const app = express();
-app.use(express.static(path.resolve(__dirname, '../../dist/public')));
+app.use(express.static(path.resolve(__dirname, '../../dist')));
 app.use(compress());
 
 app.use((req, res, next) => {

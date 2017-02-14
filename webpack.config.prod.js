@@ -10,9 +10,9 @@ module.exports = {
 		path.resolve(__dirname, 'src'),
 	],
 	output: {
-		path: path.resolve(__dirname, 'dist/public'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: '/dist/public',
+		publicPath: '/',
 	},
 	module: {
 		loaders: [
@@ -30,6 +30,10 @@ module.exports = {
 				),
 			},
 			{ test: /\.svg$/, loader: 'url-loader' },
+			{
+				test: /\.(jpe?g|png|gif)$/i,
+				loader: 'url-loader?limit=10000&name=images/[name].[ext]',
+			},
 		],
 	},
 	resolve: {

@@ -1,5 +1,5 @@
 {
-  "name": "React-Boilerplare",
+  "name": "React-Boilerplate",
   "version": "0.1.0",
   "description": "",
   "author": "jornbostelaar",
@@ -8,8 +8,8 @@
     "start": "node devServer.js",
     "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
     "build-server": "NODE_ENV=production webpack --config webpack.config.server.js",
-    "clean": "rm -rf dist/",
-    "start-prod": "NODE_ENV=production node dist/server.js"
+    "start-prod": "NODE_ENV=production node dist/server.js",
+    "clean": "rm -rf dist/"
   },
   "keywords": [
     "react",
@@ -58,8 +58,6 @@
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.0",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "svg-react-loader": "^0.3.7",
     "url-loader": "^0.5.7",

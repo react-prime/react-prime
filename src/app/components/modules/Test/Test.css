@@ -9,6 +9,11 @@
 	margin-top: 0;
 	color: var(--c-text);
 	font-family: Futura-Medium, Futura;
+	line-height: 30px;
+}
+
+.confetti {
+	width: 22px;
 }
 
 .button {

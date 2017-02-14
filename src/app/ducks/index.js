@@ -1,1 +1,1 @@
-export auth from './auth';
+export test from './test';

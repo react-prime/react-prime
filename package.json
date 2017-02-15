@@ -9,6 +9,7 @@
     "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
     "build-server": "NODE_ENV=production webpack --config webpack.config.server.js",
     "start-prod": "NODE_ENV=production node dist/server.js",
+    "prod": "npm-run-all clean build build-server start-prod",
     "clean": "rm -rf dist/"
   },
   "keywords": [
@@ -56,6 +57,7 @@
     "happypack": "^2.2.1",
     "isomorphic-style-loader": "^1.1.0",
     "json-loader": "^0.5.4",
+    "npm-run-all": "^4.0.1",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.0",

@@ -25,6 +25,7 @@
     "compression": "^1.6.2",
     "express": "^4.13.4",
     "history": "^4.4.1",
+    "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^3.0.3",
     "react": "^15.0.1",
     "react-css-modules": "^4.1.0",

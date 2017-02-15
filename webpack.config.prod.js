@@ -1,17 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CSSnext = require('postcss-cssnext');
-const CSSimport = require('postcss-import');
+const webpackConfig = require('./webpack.config');
 
 module.exports = {
 	name: 'client',
+	devtool: 'source-map',
 	entry: [
 		path.resolve(__dirname, 'src'),
 	],
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
+		path: webpackConfig.output.path,
+		filename: webpackConfig.output.filename,
 		publicPath: '/',
 	},
 	module: {
@@ -22,6 +22,7 @@ module.exports = {
 				loader: 'babel-loader',
 				include: path.resolve(__dirname, 'src'),
 			},
+			{ test: /\.json$/, loader: 'json-loader' },
 			{
 				test: /\.css$/,
 				loader: ExtractTextPlugin.extract(
@@ -29,30 +30,19 @@ module.exports = {
 					'css-loader?modules!postcss-loader'
 				),
 			},
-			{ test: /\.svg$/, loader: 'url-loader' },
+			{
+				test: /\.svg$/,
+				loader: 'babel-loader!svg-react-loader',
+			},
+			{
+				test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
+				loader: 'file-loader',
+			},
 			{
 				test: /\.(jpe?g|png|gif)$/i,
 				loader: 'url-loader?limit=10000&name=images/[name].[ext]',
 			},
 		],
-	},
-	resolve: {
-		extensions: ['', '.js', '.jsx'],
-		alias: {
-			app: path.resolve(__dirname, './src/app'),
-			common: path.resolve(__dirname, './src/components/common'),
-			components: path.resolve(__dirname, './src/app/components'),
-			config: path.resolve(__dirname, './src/config'),
-			ducks: path.resolve(__dirname, './src/app/ducks'),
-			fonts: path.resolve(__dirname, './src/app/static/fonts'),
-			images: path.resolve(__dirname, './src/app/static/images'),
-			helpers: path.resolve(__dirname, './src/app/helpers'),
-			modules: path.resolve(__dirname, './src/components/modules'),
-			sagas: path.resolve(__dirname, './src/app/sagas'),
-			server: path.resolve(__dirname, './src/server'),
-			styles: path.resolve(__dirname, './src/app/styles'),
-			vectors: path.resolve(__dirname, './src/app/static/vectors'),
-		},
 	},
 	plugins: [
 		new webpack.optimize.DedupePlugin(),
@@ -68,11 +58,6 @@ module.exports = {
 		}),
 		new ExtractTextPlugin('style.css', { allChunks: true }),
 	],
-	postcss: [
-		CSSimport({
-			path: ['./src/app/styles'],
-		}),
-		CSSnext,
-	],
-	devtool: 'source-map',
+	postcss: webpackConfig.postcss,
+	resolve: webpackConfig.resolve,
 };

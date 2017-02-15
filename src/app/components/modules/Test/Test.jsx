@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { testInstallation } from 'ducks/test';
 import cssModules from 'react-css-modules';
-import LogoIcon from '-!babel!svg-react!vectors/logo.svg';
+import LogoIcon from 'vectors/logo.svg';
 import confetti from 'images/confetti.png';
 import styles from './Test.css';
 

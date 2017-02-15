@@ -1,11 +1,12 @@
 const path = require('path');
 const HappyPack = require('happypack');
 const webpack = require('webpack');
-const CSSnext = require('postcss-cssnext');
-const CSSimport = require('postcss-import');
+const cssNext = require('postcss-cssnext');
+const cssImport = require('postcss-import');
 
 module.exports = {
 	name: 'client',
+	devtool: 'eval',
 	entry: [
 		'webpack-hot-middleware/client',
 		path.resolve(__dirname, 'src'),
@@ -24,6 +25,7 @@ module.exports = {
 				include: path.resolve(__dirname, 'src'),
 				query: { presets: ['react-hmre'] },
 			},
+			{ test: /\.json$/, loader: 'json-loader' },
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
@@ -36,7 +38,7 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
-				loader: 'url-loader',
+				loader: 'babel-loader!svg-react-loader',
 			},
 			{
 				test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
@@ -53,10 +55,10 @@ module.exports = {
 		new HappyPack({ loaders: ['babel'] }),
 	],
 	postcss: [
-		CSSimport({
+		cssImport({
 			path: ['./src/app/styles'],
 		}),
-		CSSnext,
+		cssNext,
 	],
 	resolve: {
 		extensions: ['', '.js', '.jsx'],
@@ -76,5 +78,4 @@ module.exports = {
 			vectors: path.resolve(__dirname, './src/app/static/vectors'),
 		},
 	},
-	devtool: 'eval',
 };

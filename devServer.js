@@ -21,19 +21,15 @@ app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
 
 app.get('*', function response(req, res) {
-	res.send(`<!doctype html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title>App</title>
-			<meta name="apple-mobile-web-app-capable" content="yes">
-			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		</head>
-		<body>
-			<div id="app"></div>
-			<script src="/dist/bundle.js"></script>
-		</body>
-	</html>`);
+	res.send(`
+		<meta charset="utf-8">
+		<title>React Redux Boilerplate</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+		<div id="app"></div>
+		<script src="/dist/bundle.js"></script>
+	`);
 });
 
 app.listen(3000, function () {

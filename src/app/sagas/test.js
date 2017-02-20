@@ -4,18 +4,18 @@ import { testInstallationSuccess, testInstallationFailed, TEST } from 'app/ducks
 import 'babel-polyfill';
 
 function* testInstallation() {
-	try {
-		yield put(testInstallationSuccess());
-	} catch (error) {
-		yield put(testInstallationFailed(error));
-	}
+    try {
+        yield put(testInstallationSuccess());
+    } catch (error) {
+        yield put(testInstallationFailed(error));
+    }
 }
 
 // WATCHERS
 function* watchSignIn() {
-	yield* takeEvery(TEST, testInstallation);
+    yield* takeEvery(TEST, testInstallation);
 }
 
 export const testSagas = [
-	fork(watchSignIn),
+    fork(watchSignIn),
 ];

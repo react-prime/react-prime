@@ -14,27 +14,27 @@ app.use(express.static(path.resolve(__dirname, '../../dist')));
 app.use(compress());
 
 app.use((req, res, next) => {
-	match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-		if (error) {
-			return next(error);
-		}
+    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+        if (error) {
+            return next(error);
+        }
 
-		if (redirectLocation) {
-			return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-		}
+        if (redirectLocation) {
+            return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+        }
 
-		if (!renderProps) {
-			return res.status(404).send('Not found');
-		}
+        if (!renderProps) {
+            return res.status(404).send('Not found');
+        }
 
-		res.status(200).send(renderFullPage(renderToString(
-			<Provider store={store}>
-				<RouterContext {...renderProps} />
-			</Provider>
-		)));
-	});
+        res.status(200).send(renderFullPage(renderToString(
+            <Provider store={store}>
+                <RouterContext {...renderProps} />
+            </Provider>
+        )));
+    });
 });
 
 app.listen(3000, () => {
-	console.info('Listening on port 3000');
+    console.info('Listening on port 3000');
 });

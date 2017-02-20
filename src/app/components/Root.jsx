@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
 const Root = () => (
-	<Provider store={store}>
-		<Router children={routes} history={browserHistory} />
-	</Provider>
+    <Provider store={store}>
+    <Router children={routes} history={browserHistory} />
+    </Provider>
 );
 
 export default Root;

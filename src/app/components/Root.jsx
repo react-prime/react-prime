@@ -4,9 +4,11 @@ import routes from 'app/routes';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 
+import 'styles/global.css';
+
 const Root = () => (
     <Provider store={store}>
-    <Router children={routes} history={browserHistory} />
+        <Router children={routes} history={browserHistory} />
     </Provider>
 );
 

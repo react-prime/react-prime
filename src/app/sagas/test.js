@@ -1,5 +1,5 @@
-import { takeEvery } from 'redux-saga';
-import { fork, put } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga';
+import { call, put } from 'redux-saga/effects';
 import { testInstallationSuccess, testInstallationFailed, TEST } from 'app/ducks/test';
 import 'babel-polyfill';
 
@@ -11,11 +11,8 @@ function* testInstallation() {
     }
 }
 
-// WATCHERS
-function* watchSignIn() {
-    yield* takeEvery(TEST, testInstallation);
+export default function *rootSaga() {
+    yield [
+        call(takeLatest, TEST, testInstallation),
+    ];
 }
-
-export const testSagas = [
-    fork(watchSignIn),
-];

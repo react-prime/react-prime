@@ -7,7 +7,7 @@ const initialState = {
     error: false,
 };
 
-export default function authReducer(state = initialState, action) {
+export default function testReducer(state = initialState, action) {
     switch (action.type) {
     case TEST_SUCCESS:
         return {

@@ -8,9 +8,9 @@
     "start": "node devServer.js",
     "build": "webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
     "build-server": "webpack --config webpack.config.server.js",
-    "start-prod": "node dist/server.js",
-    "acc": "NODE_ENV=acceptation npm-run-all clean build build-server start-prod",
-    "prod": "NODE_ENV=production npm-run-all clean build build-server start-prod",
+    "server": "node dist/server.js",
+    "acc": "NODE_ENV=acceptation npm-run-all clean build build-server server",
+    "prod": "NODE_ENV=production npm-run-all clean build build-server server",
     "clean": "rm -rf dist/"
   },
   "keywords": [

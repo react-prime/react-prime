@@ -26,18 +26,18 @@
 * Start develop server: `$ npm start`
 * Build app for production: `$ npm run build`
 * Build server for production: `$ npm run build-server`
-* Start production server: `$ npm run start-prod`
+* Start production server: `$ npm run server`
 * Clean build folder: `$ npm run clean`
 
 **Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
 
-`$ npm run prod` (runs clean, build, build-server and start-prod from the npm scripts)
+`$ npm run prod` or `$ npm run acc` (runs clean, build, build-server and server from the npm scripts).
 
 Make sure you've installed npm-run-all globally. `$ npm i -g npm-run-all`.
 
 ## Development Workflow
 ### Components
-The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app. 
+The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
 
 ### Ducks
 This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.

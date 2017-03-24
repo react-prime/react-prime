@@ -20,7 +20,6 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
                 loader: 'happypack/loader',
                 include: path.resolve(__dirname, 'src'),
                 query: { presets: ['react-hmre'] },

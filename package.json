@@ -6,10 +6,11 @@
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
-    "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
-    "build-server": "NODE_ENV=production webpack --config webpack.config.server.js",
-    "start-prod": "NODE_ENV=production node dist/server.js",
-    "prod": "npm-run-all clean build build-server start-prod",
+    "build": "webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
+    "build-server": "webpack --config webpack.config.server.js",
+    "start-prod": "node dist/server.js",
+    "acc": "NODE_ENV=acceptation npm-run-all clean build build-server start-prod",
+    "prod": "NODE_ENV=production npm-run-all clean build build-server start-prod",
     "clean": "rm -rf dist/"
   },
   "keywords": [

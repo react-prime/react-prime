@@ -1,5 +1,4 @@
 const path = require('path');
-const HappyPack = require('happypack');
 const webpack = require('webpack');
 const cssNext = require('postcss-cssnext');
 const cssImport = require('postcss-import');
@@ -9,8 +8,10 @@ module.exports = {
     name: 'client',
     devtool: 'eval',
     entry: [
+        'react-hot-loader/patch',
         'webpack-hot-middleware/client?reload=true&noInfo=true',
-        path.resolve(__dirname, 'src'),
+        'babel-polyfill',
+        path.resolve(__dirname, 'src/index.js'),
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -21,24 +22,39 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                loader: 'happypack/loader',
-                include: path.resolve(__dirname, 'src'),
-                query: { presets: ['react-hmre'] },
+                exclude: /node_modules/,
+                loaders: ['react-hot-loader/webpack', 'babel-loader'],
             },
-            { test: /\.json$/, loader: 'json-loader' },
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1!postcss-loader',
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]',
+                            importLoaders: 1,
+                        },
+                    },
+                    { loader: 'postcss-loader' },
+                ],
             },
             {
                 test: /\.css$/,
                 include: /node_modules/,
-                loader: 'style-loader!css-loader',
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                ],
             },
             {
-                test: /\.svg$/,
-                loader: 'babel-loader!svg-react-loader',
+                test: /\.svg/,
+                use: [
+                    { loader: 'babel-loader' },
+                    { loader: 'svg-react-loader' },
+                ],
             },
             {
                 test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
@@ -46,23 +62,30 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
-                loader: 'url-loader?limit=10000',
+                use: [{
+                    loader: 'url-loader',
+                    options: { limit: 10000 },
+                }],
             },
         ],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new HappyPack({ loaders: ['babel'] }),
         new webpack.DefinePlugin(globals('client')),
-    ],
-    postcss: [
-        cssImport({
-            path: ['./src/app/styles'],
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            postcss: () => [
+                cssImport({ path: ['./src/app/styles'] }),
+                cssNext,
+            ],
         }),
-        cssNext,
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['*', '.js', '.jsx'],
+        modules: [
+            path.resolve(__dirname, 'src'),
+            'node_modules',
+        ],
         alias: {
             app: path.resolve(__dirname, './src/app'),
             common: path.resolve(__dirname, './src/app/components/common'),

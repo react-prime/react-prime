@@ -3,6 +3,7 @@ node_modules/
 
 # OS generated files #
 ######################
+.AppleDouble/
 .DS_Store
 .DS_Store?
 ._*

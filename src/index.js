@@ -8,7 +8,7 @@ ReactDOM.render((
     <Root />
 ), APP_NODE);
 
-if (process.env.NODE_ENV !== 'production' && module.hot) {
+if (__DEV__ && module.hot) {
     module.hot.accept('./app/components/Root', () => {
         const NextRoot = require('./app/components/Root').default;
         ReactDOM.render((

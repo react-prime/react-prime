@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = require('./webpack.config');
+const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
@@ -53,9 +54,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
-        }),
+        new webpack.DefinePlugin(globals),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 screw_ie8: true,

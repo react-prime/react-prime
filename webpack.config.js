@@ -3,6 +3,7 @@ const HappyPack = require('happypack');
 const webpack = require('webpack');
 const cssNext = require('postcss-cssnext');
 const cssImport = require('postcss-import');
+const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
@@ -52,6 +53,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HappyPack({ loaders: ['babel'] }),
+        new webpack.DefinePlugin(globals),
     ],
     postcss: [
         cssImport({

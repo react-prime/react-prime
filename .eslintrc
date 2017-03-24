@@ -7,6 +7,11 @@
     'plugins': [
         'react'
     ],
+    'globals': {
+        '__DEV__': false,
+        '__ACC__': false,
+        '__PROD__': false,
+    },
     'rules': {
         'consistent-return': 0,
         'indent': ['error', 4],

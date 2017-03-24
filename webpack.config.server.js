@@ -6,7 +6,7 @@ module.exports = {
     devtool: 'source-map',
     target: 'node',
     node: { __dirname: true },
-    externals: [nodeExternals()],
+    externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
     entry: ['./src/server/index.js'],
     output: {
         path: webpackConfig.output.path,
@@ -17,7 +17,16 @@ module.exports = {
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
             { test: /\.json$/, loader: 'json-loader' },
-            { test: /\.css$/, loader: 'isomorphic-style-loader!css-loader?modules!postcss-loader' },
+            {
+                test: /\.css$/,
+                loader: 'css-loader/locals?modules!postcss-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/,
+                loader: 'css-loader',
+                include: /node_modules/,
+            },
             { test: /\.svg$/, loader: 'babel-loader!svg-react-loader' },
             {
                 test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,

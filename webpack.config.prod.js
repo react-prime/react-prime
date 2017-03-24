@@ -25,10 +25,16 @@ module.exports = {
             { test: /\.json$/, loader: 'json-loader' },
             {
                 test: /\.css$/,
+                include: path.resolve(__dirname, 'src'),
                 loader: ExtractTextPlugin.extract(
                     'style-loader',
                     'css-loader?modules!postcss-loader'
                 ),
+            },
+            {
+                test: /\.css$/,
+                exclude: path.resolve(__dirname, 'src'),
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
             },
             {
                 test: /\.svg$/,
@@ -48,7 +54,7 @@ module.exports = {
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

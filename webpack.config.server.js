@@ -1,5 +1,7 @@
+const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const webpackConfig = require('./webpack.config');
+const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'server',
@@ -38,6 +40,9 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new webpack.DefinePlugin(globals),
+    ],
     postcss: webpackConfig.postcss,
     resolve: webpackConfig.resolve,
 };

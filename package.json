@@ -8,7 +8,7 @@
     "start": "node devServer.js",
     "build": "webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
     "build-server": "webpack --config webpack.config.server.js",
-    "server": "node dist/server.js",
+    "server": "pm2 start dist/server.js -i 0 --name \"app\"",
     "acc": "NODE_ENV=acceptation npm-run-all clean build build-server server",
     "prod": "NODE_ENV=production npm-run-all clean build build-server server",
     "clean": "rm -rf dist/"
@@ -30,6 +30,7 @@
     "history": "^4.4.1",
     "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^3.0.3",
+    "pm2": "^2.4.2",
     "react": "^15.0.1",
     "react-css-modules": "^4.1.0",
     "react-dom": "^15.0.1",

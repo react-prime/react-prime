@@ -9,7 +9,7 @@ module.exports = {
     name: 'client',
     devtool: 'eval',
     entry: [
-        'webpack-hot-middleware/client',
+        'webpack-hot-middleware/client?reload=true&noInfo=true',
         path.resolve(__dirname, 'src'),
     ],
     output: {

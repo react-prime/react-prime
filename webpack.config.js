@@ -73,7 +73,6 @@ module.exports = {
             images: path.resolve(__dirname, './src/app/static/images'),
             helpers: path.resolve(__dirname, './src/app/helpers'),
             modules: path.resolve(__dirname, './src/app/components/modules'),
-            sagas: path.resolve(__dirname, './src/app/sagas'),
             server: path.resolve(__dirname, './src/server'),
             styles: path.resolve(__dirname, './src/app/styles'),
             vectors: path.resolve(__dirname, './src/app/static/vectors'),

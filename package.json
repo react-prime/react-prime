@@ -27,7 +27,6 @@
     "babel-polyfill": "^6.16.0",
     "compression": "^1.6.2",
     "express": "^4.13.4",
-    "history": "^4.4.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "normalize.css": "^3.0.3",

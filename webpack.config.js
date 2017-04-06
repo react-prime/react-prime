@@ -53,7 +53,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HappyPack({ loaders: ['babel'] }),
-        new webpack.DefinePlugin(globals),
+        new webpack.DefinePlugin(globals('client')),
     ],
     postcss: [
         cssImport({

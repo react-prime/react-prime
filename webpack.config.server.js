@@ -3,8 +3,6 @@ const nodeExternals = require('webpack-node-externals');
 const webpackConfig = require('./webpack.config');
 const globals = require('./src/config/globals');
 
-globals.__CLIENT__ = false;
-
 module.exports = {
     name: 'server',
     devtool: 'source-map',
@@ -43,7 +41,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new webpack.DefinePlugin(globals),
+        new webpack.DefinePlugin(globals('server')),
     ],
     postcss: webpackConfig.postcss,
     resolve: webpackConfig.resolve,

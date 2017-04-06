@@ -4,14 +4,13 @@
         'import/resolver': 'webpack',
     },
     'parser': 'babel-eslint',
-    'plugins': [
-        'react'
-    ],
+    'plugins': ['react'],
     'globals': {
         '__DEV__': false,
         '__ACC__': false,
         '__PROD__': false,
         '__CLIENT__': false,
+        '__SERVER__': false,
     },
     'rules': {
         'consistent-return': 0,

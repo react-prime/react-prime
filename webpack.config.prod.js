@@ -54,7 +54,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.DefinePlugin(globals),
+        new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 screw_ie8: true,

@@ -35,20 +35,20 @@ export default function testReducer(state = initialState, action) {
     }
 }
 
-export function testInstallationSuccess() {
+export function testInstallSuccess() {
     return { type: TEST_SUCCESS };
 }
 
-export function testInstallationFailed(payload) {
+export function testInstallFailed(payload) {
     return { type: TEST_FAILED, payload };
 }
 
-export function testInstallation() {
+export function testInstall() {
     return dispatch => {
         dispatch({ type: TEST_PENDING });
 
         setTimeout(() => {
-            dispatch(testInstallationSuccess());
+            dispatch(testInstallSuccess());
         }, 2000);
     };
 }

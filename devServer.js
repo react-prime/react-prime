@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
+const renderFullPage = require('./src/server/helpers/renderFullPage');
 
 const app = express();
 const compiler = webpack(config);
@@ -20,18 +21,10 @@ const middleware = webpackMiddleware(compiler, {
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
 
-app.get('*', function response(req, res) {
-    res.send(`
-        <meta charset="utf-8">
-        <title>React Redux Boilerplate</title>
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-        <div id="app"></div>
-        <script src="/dist/bundle.js"></script>
-    `);
+app.get('*', (req, res) => {
+    res.send(renderFullPage());
 });
 
-app.listen(3000, function () {
+app.listen(3000, () => {
     console.log('Listening at http://localhost:3000/');
 });

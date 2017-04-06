@@ -11,7 +11,7 @@
     "server": "node dist/server.js",
     "acc": "NODE_ENV=acceptation npm-run-all clean build build-server",
     "prod": "NODE_ENV=production npm-run-all clean build build-server",
-    "clean": "rm -rf dist/"
+    "clean": "rimraf dist/"
   },
   "keywords": [
     "react",
@@ -39,6 +39,7 @@
     "react-router": "^2.8.0",
     "redux": "^3.5.2",
     "redux-saga": "^0.12.1",
+    "rimraf": "^2.6.1",
     "svg-react-loader": "^0.3.7"
   },
   "devDependencies": {

@@ -3,6 +3,7 @@ import routes from 'app/routes';
 import express from 'express';
 import React from 'react';
 import path from 'path';
+import { port } from 'config/app';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
@@ -35,6 +36,6 @@ app.use((req, res, next) => {
     });
 });
 
-app.listen(3000, () => {
-    console.info('Listening on port 3000');
+app.listen(port, () => {
+    console.info(`Listening on port ${port}`);
 });

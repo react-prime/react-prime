@@ -30,7 +30,6 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "normalize.css": "^3.0.3",
-    "pm2": "^2.4.3",
     "react": "^15.0.1",
     "react-css-modules": "^4.1.0",
     "react-dom": "^15.0.1",
@@ -38,7 +37,6 @@
     "react-router": "^2.8.0",
     "redux": "^3.5.2",
     "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.1",
     "svg-react-loader": "^0.3.7"
   },
   "devDependencies": {
@@ -65,6 +63,7 @@
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.0",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",

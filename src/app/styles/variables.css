@@ -2,6 +2,9 @@
     /* COLORS */
     --c-primary: #2ecc71;
     --c-text: #2F3F42;
+
+    /* FONTS */
+    --f-futura: Futura-Medium, Futura;
 }
 
 /* BREAKPOINTS AS QUERIES */

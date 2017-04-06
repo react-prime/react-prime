@@ -8,7 +8,7 @@
     font-size: 18px;
     margin-top: 0;
     color: var(--c-text);
-    font-family: Futura-Medium, Futura;
+    font-family: var(--f-futura);
     line-height: 30px;
 }
 
@@ -25,6 +25,7 @@
     outline: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: var(--f-futura);
 }
 
 .logo {

@@ -18,7 +18,9 @@ const Test = ({ testInstallation, test }) => (
                 <p styleName="message">Good Luck!</p>
             </div>
         ) : (
-            <button onClick={testInstallation} styleName="button">Test installation</button>
+            <button onClick={testInstallation} styleName="button">
+                {test.loading ? 'Installing ...' : 'Test installation'}
+            </button>
         )}
 
     </div>

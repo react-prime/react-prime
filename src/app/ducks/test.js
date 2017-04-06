@@ -1,10 +1,12 @@
-export const TEST = 'installation/test';
-export const TEST_SUCCESS = 'installation/test.success';
-export const TEST_FAILED = 'installation/test.failed';
+export const TEST = 'TEST';
+export const TEST_PENDING = 'TEST_PENDING';
+export const TEST_SUCCESS = 'TEST_SUCCESS';
+export const TEST_FAILED = 'TEST_FAILED';
 
 const initialState = {
-    test_passed: false,
+    passed: false,
     error: false,
+    loading: false,
 };
 
 export default function testReducer(state = initialState, action) {
@@ -12,22 +14,25 @@ export default function testReducer(state = initialState, action) {
     case TEST_SUCCESS:
         return {
             ...state,
-            test_passed: true,
+            passed: true,
             error: false,
+            loading: false,
         };
     case TEST_FAILED:
         return {
             ...state,
-            test_passed: false,
+            passed: false,
             error: true,
+            loading: false,
+        };
+    case TEST_PENDING:
+        return {
+            ...state,
+            loading: true,
         };
     default:
         return state;
     }
-}
-
-export function testInstallation() {
-    return { type: TEST };
 }
 
 export function testInstallationSuccess() {
@@ -36,4 +41,14 @@ export function testInstallationSuccess() {
 
 export function testInstallationFailed(error) {
     return { type: TEST_FAILED, payload: error, error: true };
+}
+
+export function testInstallation() {
+    return dispatch => {
+        dispatch({ type: TEST_PENDING });
+
+        setTimeout(() => {
+            dispatch(testInstallationSuccess());
+        }, 2000);
+    };
 }

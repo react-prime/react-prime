@@ -43,7 +43,7 @@ export function testInstallFailed(payload) {
 }
 
 export function testInstall() {
-    return dispatch => {
+    return (dispatch) => {
         dispatch({ type: TEST_PENDING });
 
         setTimeout(() => {

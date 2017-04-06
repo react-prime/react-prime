@@ -14,8 +14,8 @@ const Test = ({ install, test }) => (
         {test.passed ? (
             <div>
                 <p styleName="message">
-                    The boilerplate is successfully installed, you're ready to start.
-                    <img src={confetti} styleName="confetti" role="presentation" />
+                    The boilerplate is successfully installed, you&apos;re ready to start.
+                    <img src={confetti} styleName="confetti" alt="confetti" />
                 </p>
                 <p styleName="message">Good Luck!</p>
             </div>
@@ -24,7 +24,6 @@ const Test = ({ install, test }) => (
                 {test.loading ? 'Installing ...' : 'Test installation'}
             </button>
         )}
-
     </div>
 );
 
@@ -37,7 +36,7 @@ const withHOCs = _.flow([
     cssModules(styles),
     connect(
         ({ test }) => ({ test }),
-        { install: testInstall }
+        { install: testInstall },
     ),
 ]);
 

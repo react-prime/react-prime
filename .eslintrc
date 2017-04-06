@@ -12,7 +12,14 @@
         '__CLIENT__': false,
         '__SERVER__': false,
     },
+    'env': {
+        'browser': true,
+        'node': true,
+    },
     'rules': {
+        'react/require-default-props': 0,
+        'react/forbid-prop-types': 0,
+        'react/no-children-prop': 0,
         'consistent-return': 0,
         'indent': ['error', 4],
         'max-len': 0,

@@ -10,7 +10,7 @@
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
 * [React](https://github.com/facebook/react) - latest version `^15.2.0`
 * [Redux](https://github.com/rackt/redux)'s futuristic [Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html) implementation
-* [Redux Saga](https://github.com/yelouafi/redux-saga) to handle all of your Side Effects logic in a central place
+* [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
 * [React Router](https://github.com/rackt/react-router)
 * [Express](http://expressjs.com)
 * [Babel](http://babeljs.io) for ES6 and ES7

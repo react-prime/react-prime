@@ -39,8 +39,8 @@ export function testInstallationSuccess() {
     return { type: TEST_SUCCESS };
 }
 
-export function testInstallationFailed(error) {
-    return { type: TEST_FAILED, payload: error, error: true };
+export function testInstallationFailed(payload) {
+    return { type: TEST_FAILED, payload };
 }
 
 export function testInstallation() {

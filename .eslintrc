@@ -11,6 +11,7 @@
         '__DEV__': false,
         '__ACC__': false,
         '__PROD__': false,
+        '__CLIENT__': false,
     },
     'rules': {
         'consistent-return': 0,

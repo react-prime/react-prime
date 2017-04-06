@@ -1,14 +1,13 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { call } from 'redux-saga/effects';
-import { isClient } from 'config/app';
 import * as appReducers from 'app/ducks';
 import * as appSagas from 'app/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 let middleware = applyMiddleware(sagaMiddleware);
 
-if (__DEV__ && isClient && typeof window.devToolsExtension === 'function') {
+if (__DEV__ && __CLIENT__ && typeof window.devToolsExtension === 'function') {
     middleware = compose(middleware, window.devToolsExtension());
 }
 

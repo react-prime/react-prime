@@ -8,7 +8,7 @@
     "start": "node devServer.js",
     "build": "webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
     "build-server": "webpack --config webpack.config.server.js",
-    "server": "pm2 start dist/server.js -i 0 --name \"app\"",
+    "server": "node dist/server.js",
     "acc": "NODE_ENV=acceptation npm-run-all clean build build-server",
     "prod": "NODE_ENV=production npm-run-all clean build build-server",
     "clean": "rm -rf dist/"

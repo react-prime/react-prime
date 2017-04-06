@@ -1,10 +1,11 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import * as appReducers from 'app/ducks';
 
-let middleware = null;
+let middleware = applyMiddleware(thunk);
 
 if (__DEV__ && __CLIENT__ && typeof window.devToolsExtension === 'function') {
-    middleware = window.devToolsExtension();
+    middleware = compose(middleware, window.devToolsExtension());
 }
 
 export default createStore(combineReducers({

@@ -1,4 +1,5 @@
 # React Redux Boilerplate
+[![Build Status](https://travis-ci.org/JBostelaar/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/JBostelaar/react-redux-boilerplate)
 [![dependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate)
 [![devDependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate?type=dev)
 

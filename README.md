@@ -1,4 +1,9 @@
 # React Redux Boilerplate
+[![dependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate)
+[![devDependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate?type=dev)
+
+---
+
 ## Getting Started
 `$ git clone https://github.com/JBostelaar/react-redux-boilerplate`
 

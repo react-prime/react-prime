@@ -1,9 +1,9 @@
 {
     'extends': 'airbnb',
+    'parser': 'babel-eslint',
     'settings': {
         'import/resolver': 'webpack',
     },
-    'parser': 'babel-eslint',
     'plugins': ['react'],
     'globals': {
         '__DEV__': false,
@@ -20,6 +20,9 @@
         'react/require-default-props': 0,
         'react/forbid-prop-types': 0,
         'react/no-children-prop': 0,
+        'react/jsx-indent': ['error', 4],
+        'react/jsx-indent-props': ['error', 4],
+        'react/jsx-filename-extension': 0,
         'consistent-return': 0,
         'indent': ['error', 4],
         'max-len': 0,
@@ -27,7 +30,9 @@
         'no-nested-ternary': 0,
         'no-param-reassign': 0,
         'no-underscore-dangle': 0,
-        'react/jsx-indent': ['error', 4],
-        'react/jsx-indent-props': ['error', 4],
+        "comma-dangle": ["error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+        }],
     }
 }

@@ -11,14 +11,13 @@
     "server": "node dist/server.js",
     "acc": "NODE_ENV=acceptation npm-run-all clean build build-server",
     "prod": "NODE_ENV=production npm-run-all clean build build-server",
-    "clean": "rimraf dist/"
+    "clean": "rimraf dist/",
+    "lint": "eslint src/"
   },
   "keywords": [
     "react",
     "webpack",
     "express",
-    "hot reloading",
-    "react-hot-reloader",
     "redux",
     "boilerplate",
     "babel"

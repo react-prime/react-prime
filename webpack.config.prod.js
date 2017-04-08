@@ -7,7 +7,7 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
-    devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     entry: [
         path.resolve(__dirname, 'src'),
     ],
@@ -58,9 +58,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new ExtractTextPlugin({ filename: 'style.css', allChunks: true }),
-        new webpack.LoaderOptionsPlugin({
-            postcss: () => [cssNext],
-        }),
+        new webpack.LoaderOptionsPlugin({ postcss: () => [cssNext] }),
     ],
     resolve: webpackConfig.resolve,
 };

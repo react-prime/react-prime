@@ -6,7 +6,7 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'server',
-    devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     target: 'node',
     node: { __dirname: true },
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
@@ -19,7 +19,6 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.json$/, loader: 'json-loader' },
             {
                 test: /\.css$/,
                 loader: 'css-loader/locals?modules!postcss-loader',
@@ -43,9 +42,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin(globals('server')),
-        new webpack.LoaderOptionsPlugin({
-            postcss: () => [cssNext],
-        }),
+        new webpack.LoaderOptionsPlugin({ postcss: () => [cssNext] }),
     ],
     resolve: webpackConfig.resolve,
 };

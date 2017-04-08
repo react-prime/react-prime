@@ -5,11 +5,11 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     entry: [
         'webpack-hot-middleware/client?reload=true&noInfo=true',
         'babel-polyfill',
-        path.resolve(__dirname, 'src/index.js'),
+        path.resolve(__dirname, 'src'),
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -26,33 +26,16 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                use: [
-                    { loader: 'style-loader' },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            localIdentName: '[name]__[local]___[hash:base64:5]',
-                            importLoaders: 1,
-                        },
-                    },
-                    { loader: 'postcss-loader' },
-                ],
+                loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1!postcss-loader',
             },
             {
                 test: /\.css$/,
                 include: /node_modules/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                ],
+                loader: 'style-loader!css-loader',
             },
             {
-                test: /\.svg/,
-                use: [
-                    { loader: 'babel-loader' },
-                    { loader: 'svg-react-loader' },
-                ],
+                test: /\.svg$/,
+                loader: 'babel-loader!svg-react-loader',
             },
             {
                 test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
@@ -60,10 +43,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
-                use: [{
-                    loader: 'url-loader',
-                    options: { limit: 10000 },
-                }],
+                loader: 'url-loader?limit=10000',
             },
         ],
     },
@@ -71,9 +51,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin(globals('client')),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.LoaderOptionsPlugin({
-            postcss: () => [cssNext],
-        }),
+        new webpack.LoaderOptionsPlugin({ postcss: () => [cssNext] }),
     ],
     resolve: {
         extensions: ['*', '.js', '.jsx'],

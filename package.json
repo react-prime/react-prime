@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
-    "build": "webpack -p --config webpack.config.prod.js",
-    "build-server": "webpack -p --config webpack.config.server.js",
+    "build": "webpack -p --hide-modules --config webpack.config.prod.js",
+    "build-server": "webpack -p --hide-modules --config webpack.config.server.js",
     "server": "node dist/server.js",
     "prod": "NODE_ENV=production run-p clean build build-server",
     "clean": "rimraf dist/",
@@ -55,7 +55,6 @@
     "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
-    "happypack": "^3.0.3",
     "json-loader": "^0.5.4",
     "npm-run-all": "^4.0.2",
     "postcss-cssnext": "^2.10.0",

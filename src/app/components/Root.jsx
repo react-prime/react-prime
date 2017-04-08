@@ -7,10 +7,9 @@ import { Router, browserHistory } from 'react-router';
 import 'styles/global.css';
 
 const Root = () => (
-    <div></div>
-    {/* <Provider store={store}>
+    <Provider store={store}>
         <Router children={routes} history={browserHistory} />
-    </Provider> */}
+    </Provider>
 );
 
 export default Root;

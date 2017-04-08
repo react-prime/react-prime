@@ -8,7 +8,6 @@ module.exports = {
     name: 'client',
     devtool: 'eval',
     entry: [
-        'react-hot-loader/patch',
         'webpack-hot-middleware/client?reload=true&noInfo=true',
         'babel-polyfill',
         path.resolve(__dirname, 'src/index.js'),
@@ -23,7 +22,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loaders: ['react-hot-loader/webpack', 'babel-loader'],
+                loader: 'babel-loader',
             },
             {
                 test: /\.css$/,
@@ -82,10 +81,6 @@ module.exports = {
     ],
     resolve: {
         extensions: ['*', '.js', '.jsx'],
-        modules: [
-            path.resolve(__dirname, 'src'),
-            'node_modules',
-        ],
         alias: {
             app: path.resolve(__dirname, './src/app'),
             common: path.resolve(__dirname, './src/app/components/common'),

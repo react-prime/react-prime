@@ -4,8 +4,6 @@
         "react", "stage-0"
     ],
     "plugins": [
-        "webpack-hot-middleware/client",
-        "react-hot-loader/babel",
         "lodash",
     ],
 }

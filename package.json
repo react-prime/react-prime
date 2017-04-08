@@ -9,8 +9,7 @@
     "build": "webpack --verbose --colors --display-error-details --config webpack.config.prod.js",
     "build-server": "webpack --config webpack.config.server.js",
     "server": "node dist/server.js",
-    "acc": "NODE_ENV=acceptation npm-run-all clean build build-server",
-    "prod": "NODE_ENV=production npm-run-all clean build build-server",
+    "prod": "NODE_ENV=production run-p clean build build-server",
     "clean": "rimraf dist/",
     "lint": "eslint src/"
   },

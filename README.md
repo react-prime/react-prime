@@ -37,9 +37,7 @@
 
 **Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
 
-`$ npm run prod` or `$ npm run acc` (runs clean, build, build-server and server from the npm scripts).
-
-Make sure you've installed npm-run-all globally. `$ npm i -g npm-run-all`.
+`$ npm run prod` (runs clean, build, build-server from the npm scripts).
 
 ## Development Workflow
 ### Components

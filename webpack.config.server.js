@@ -1,11 +1,12 @@
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
+const cssNext = require('postcss-cssnext');
 const webpackConfig = require('./webpack.config');
 const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'server',
-    devtool: 'source-map',
+    devtool: 'cheap-module-source-map',
     target: 'node',
     node: { __dirname: true },
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
@@ -17,7 +18,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
+            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
             { test: /\.json$/, loader: 'json-loader' },
             {
                 test: /\.css$/,
@@ -42,7 +43,9 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin(globals('server')),
+        new webpack.LoaderOptionsPlugin({
+            postcss: () => [cssNext],
+        }),
     ],
-    postcss: webpackConfig.postcss,
     resolve: webpackConfig.resolve,
 };

@@ -2,11 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = require('./webpack.config');
+const cssNext = require('postcss-cssnext');
 const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
-    devtool: 'source-map',
+    devtool: 'cheap-module-source-map',
     entry: [
         path.resolve(__dirname, 'src'),
     ],
@@ -27,15 +28,18 @@ module.exports = {
             {
                 test: /\.css$/,
                 include: path.resolve(__dirname, 'src'),
-                loader: ExtractTextPlugin.extract(
-                    'style-loader',
-                    'css-loader?modules!postcss-loader'
-                ),
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader?modules!postcss-loader',
+                }),
             },
             {
                 test: /\.css$/,
                 exclude: path.resolve(__dirname, 'src'),
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
             },
             {
                 test: /\.svg$/,
@@ -52,17 +56,11 @@ module.exports = {
         ],
     },
     plugins: [
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin(globals('client')),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                screw_ie8: true,
-                warnings: false,
-            },
+        new ExtractTextPlugin({ filename: 'style.css', allChunks: true }),
+        new webpack.LoaderOptionsPlugin({
+            postcss: () => [cssNext],
         }),
-        new ExtractTextPlugin('style.css', { allChunks: true }),
     ],
-    postcss: webpackConfig.postcss,
     resolve: webpackConfig.resolve,
 };

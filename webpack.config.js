@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const cssNext = require('postcss-cssnext');
-const cssImport = require('postcss-import');
 const globals = require('./src/config/globals');
 
 module.exports = {
@@ -73,10 +72,7 @@ module.exports = {
         new webpack.DefinePlugin(globals('client')),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.LoaderOptionsPlugin({
-            postcss: () => [
-                cssImport({ path: ['./src/app/styles'] }),
-                cssNext,
-            ],
+            postcss: () => [cssNext],
         }),
     ],
     resolve: {

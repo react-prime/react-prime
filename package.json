@@ -58,6 +58,7 @@
     "json-loader": "^0.5.4",
     "npm-run-all": "^4.0.2",
     "postcss-cssnext": "^2.10.0",
+    "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.0",
     "rimraf": "^2.6.1",
     "style-loader": "^0.16.1",

@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
-const cssNext = require('postcss-cssnext');
 const webpackConfig = require('./webpack.config');
 const globals = require('./src/config/globals');
 
@@ -42,7 +41,6 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin(globals('server')),
-        new webpack.LoaderOptionsPlugin({ postcss: () => [cssNext] }),
     ],
     resolve: webpackConfig.resolve,
 };

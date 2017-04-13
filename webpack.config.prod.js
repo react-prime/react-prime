@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = require('./webpack.config');
-const cssNext = require('postcss-cssnext');
 const globals = require('./src/config/globals');
 
 module.exports = {
@@ -57,7 +56,6 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new ExtractTextPlugin({ filename: 'style.css', allChunks: true }),
-        new webpack.LoaderOptionsPlugin({ postcss: () => [cssNext] }),
     ],
     resolve: webpackConfig.resolve,
 };

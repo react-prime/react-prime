@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const cssNext = require('postcss-cssnext');
 const globals = require('./src/config/globals');
 
 module.exports = {
@@ -51,7 +50,6 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin(globals('client')),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.LoaderOptionsPlugin({ postcss: () => [cssNext] }),
     ],
     resolve: {
         extensions: ['*', '.js', '.jsx'],

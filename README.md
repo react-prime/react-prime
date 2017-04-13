@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/JBostelaar/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/JBostelaar/react-redux-boilerplate)
 [![dependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate)
 [![devDependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate?type=dev)
+[![GitHub release](https://img.shields.io/github/release/jbostelaar/react-redux-boilerplate.svg)](https://github.com/JBostelaar/react-redux-boilerplate)
 
 ---
 
@@ -14,7 +15,7 @@
 
 ## Features
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
-* [React](https://github.com/facebook/react) - latest version `^15.2.0`
+* [React](https://github.com/facebook/react)
 * [Redux](https://github.com/rackt/redux)'s futuristic [Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html) implementation
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
 * [React Router](https://github.com/rackt/react-router)

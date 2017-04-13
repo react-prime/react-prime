@@ -24,7 +24,6 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
             },
-            { test: /\.json$/, loader: 'json-loader' },
             {
                 test: /\.css$/,
                 include: path.resolve(__dirname, 'src'),

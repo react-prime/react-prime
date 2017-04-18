@@ -31,11 +31,11 @@ module.exports = {
             { test: /\.svg$/, loader: 'babel-loader!svg-react-loader' },
             {
                 test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
-                loader: 'file-loader',
+                loader: 'file-loader=name=fonts/[hash].[ext]',
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
-                loader: 'url-loader?limit=10000&name=images/[name].[ext]',
+                loader: 'url-loader?limit=10000&name=images/[hash].[ext]',
             },
         ],
     },

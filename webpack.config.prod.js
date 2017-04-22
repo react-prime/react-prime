@@ -17,12 +17,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                include: path.resolve(__dirname, 'src'),
-            },
+            { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
             {
                 test: /\.css$/,
                 include: path.resolve(__dirname, 'src'),
@@ -39,10 +34,7 @@ module.exports = {
                     use: 'css-loader',
                 }),
             },
-            {
-                test: /\.svg$/,
-                loader: 'babel-loader!svg-react-loader',
-            },
+            { test: /\.svg$/, loader: 'babel-loader!svg-react-loader' },
             {
                 test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
                 loader: 'file-loader?name=fonts/[hash].[ext]',

@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 
 const App = ({ children }) => (
     <main>
@@ -7,7 +8,7 @@ const App = ({ children }) => (
 );
 
 App.propTypes = {
-    children: React.PropTypes.object.isRequired,
+    children: PT.shape({}),
 };
 
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 import { connect } from 'react-redux';
 import cssModules from 'react-css-modules';
 import _ from 'lodash/fp';
@@ -28,8 +29,12 @@ const Test = ({ install, test }) => (
 );
 
 Test.propTypes = {
-    install: React.PropTypes.func.isRequired,
-    test: React.PropTypes.object,
+    install: PT.func.isRequired,
+    test: PT.shape({
+        error: PT.bool,
+        loading: PT.bool,
+        passed: PT.bool,
+    }),
 };
 
 const withHOCs = _.flow([

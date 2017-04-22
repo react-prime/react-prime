@@ -39,10 +39,7 @@ Test.propTypes = {
 
 const withHOCs = _.flow([
     cssModules(styles),
-    connect(
-        ({ test }) => ({ test }),
-        { install: testInstall },
-    ),
+    connect(({ test }) => ({ test }), { install: testInstall }),
 ]);
 
 export default withHOCs(Test);

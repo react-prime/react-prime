@@ -31,7 +31,7 @@ app.use((req, res, next) => {
         res.status(200).send(renderFullPage(renderToString(
             <Provider store={store}>
                 <RouterContext {...renderProps} />
-            </Provider>
+            </Provider>,
         )));
     });
 });

@@ -3,7 +3,7 @@ import routes from 'app/routes';
 import express from 'express';
 import React from 'react';
 import path from 'path';
-import { port } from 'config/app';
+import { port } from 'config';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';

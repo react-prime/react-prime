@@ -6,10 +6,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
-    "build": "webpack -p --hide-modules --config webpack.config.prod.js",
-    "build-server": "webpack -p --hide-modules --config webpack.config.server.js",
+    "build": "NODE_ENV=production run-p clean build:client build:server",
+    "build:client": "webpack -p --hide-modules --config webpack.config.prod.js",
+    "build:server": "webpack -p --hide-modules --config webpack.config.server.js",
     "server": "node dist/server.js",
-    "prod": "NODE_ENV=production run-p clean build build-server",
     "clean": "rimraf dist/",
     "lint": "eslint src/"
   },

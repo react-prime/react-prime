@@ -16,7 +16,7 @@
 ## Features
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
 * [React](https://github.com/facebook/react)
-* [Redux](https://github.com/rackt/redux)'s futuristic [Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html) implementation
+* [Redux](https://github.com/rackt/redux)
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
 * [React Router](https://github.com/rackt/react-router)
 * [Express](http://expressjs.com)
@@ -31,14 +31,15 @@
 
 ## NPM Scripts
 * Start develop server: `$ npm start`
-* Build app for production: `$ npm run build`
-* Build server for production: `$ npm run build-server`
-* Start production server: `$ npm run server`
-* Clean build folder: `$ npm run clean`
+* Build client: `$ npm run build:client`
+* Build server: `$ npm run build:server`
+* Start server: `$ npm run server`
+* Remove build folder: `$ npm run clean`
+* Run ESLint: `$ npm run lint`
 
 **Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
 
-`$ npm run prod` (runs clean, build, build-server from the npm scripts).
+`$ npm run build` (runs clean, build:client, build:server from the npm scripts with NODE_ENV=production).
 
 ## Development Workflow
 ### Components

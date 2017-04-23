@@ -1,6 +1,8 @@
-export const TEST_PENDING = 'TEST_PENDING';
-export const TEST_SUCCESS = 'TEST_SUCCESS';
-export const TEST_FAILED = 'TEST_FAILED';
+import createAction from 'services/createAction';
+
+const TEST_PENDING = 'TEST_PENDING';
+const TEST_SUCCESS = 'TEST_SUCCESS';
+const TEST_FAILED = 'TEST_FAILED';
 
 const initialState = {
     passed: false,
@@ -8,19 +10,17 @@ const initialState = {
     loading: false,
 };
 
-export default function testReducer(state = initialState, action) {
-    switch (action.type) {
+export default (state = initialState, { type, payload }) => {
+    switch (type) {
     case TEST_SUCCESS:
         return {
             ...state,
-            passed: true,
-            error: false,
+            passed: payload.passed,
             loading: false,
         };
     case TEST_FAILED:
         return {
             ...state,
-            passed: false,
             error: true,
             loading: false,
         };
@@ -28,26 +28,20 @@ export default function testReducer(state = initialState, action) {
         return {
             ...state,
             loading: true,
+            error: false,
         };
     default:
         return state;
     }
-}
+};
 
-export function testInstallSuccess() {
-    return { type: TEST_SUCCESS };
-}
+export const testInstallSuccess = createAction(TEST_SUCCESS);
+export const testInstallFailed = createAction(TEST_FAILED);
 
-export function testInstallFailed(payload) {
-    return { type: TEST_FAILED, payload };
-}
+export const testInstall = () => (dispatch) => {
+    dispatch({ type: TEST_PENDING });
 
-export function testInstall() {
-    return (dispatch) => {
-        dispatch({ type: TEST_PENDING });
-
-        setTimeout(() => {
-            dispatch(testInstallSuccess());
-        }, 2000);
-    };
-}
+    setTimeout(() => {
+        dispatch(testInstallSuccess({ passed: true }));
+    }, 2000);
+};

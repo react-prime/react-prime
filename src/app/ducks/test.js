@@ -35,13 +35,13 @@ export default (state = initialState, { type, payload }) => {
     }
 };
 
-export const testInstallSuccess = createAction(TEST_SUCCESS);
-export const testInstallFailed = createAction(TEST_FAILED);
+export const installSuccess = createAction(TEST_SUCCESS);
+export const installFailed = createAction(TEST_FAILED);
 
-export const testInstall = () => (dispatch) => {
+export const install = () => (dispatch) => {
     dispatch({ type: TEST_PENDING });
 
     setTimeout(() => {
-        dispatch(testInstallSuccess({ passed: true }));
+        dispatch(installSuccess({ passed: true }));
     }, 2000);
 };

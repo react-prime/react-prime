@@ -1,0 +1,13 @@
+@import 'variables.css';
+
+.button {
+    background: var(--c-primary);
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--f-futura);
+}

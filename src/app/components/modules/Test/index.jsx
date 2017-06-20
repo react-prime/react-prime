@@ -32,9 +32,7 @@ Test.propTypes = {
     }),
 };
 
-const withHOCs = _.flow([
-    cssModules(styles),
+export default _.flowRight([
     connect(({ test }) => ({ test }), { install }),
-]);
-
-export default withHOCs(Test);
+    cssModules(styles),
+])(Test);

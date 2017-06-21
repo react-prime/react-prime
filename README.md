@@ -45,7 +45,7 @@
 Make sure all modules are installed:  
 `$ npm install`
 
-For deployment you have to create a bundle for production. This will create a `/dist` folder with seperate bundles for the client and the server.  
+Create a build for production, this will add a `/dist` folder to the root with all bundles.  
 `$ npm run build`
 
 Run the server file to start server:  

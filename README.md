@@ -41,6 +41,18 @@
 
 `$ npm run build` (runs clean, build:client, build:server from the npm scripts with NODE_ENV=production).
 
+## Deployment
+Make sure all modules are installed:  
+`$ npm install`
+
+For deployment you have to create a bundle for production. This will create a `/dist` folder with seperate bundles for the client and the server.  
+`$ npm run build`
+
+Run the server file to start server:  
+`$ npm run server`
+
+For production I recommend to use [PM2](http://pm2.keymetrics.io/) to run the server with advanced process management.
+
 ## Development Workflow
 ### Components
 The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
@@ -74,3 +86,10 @@ The boilerplate uses [CSSnext](http://cssnext.io/), so you can use the newest CS
 * Calculations
 * Nesting
 * Autoprefixer
+
+## Roadmap
+- [ ] Serverside data fetching
+- [ ] Initial set-up flow
+- [ ] Serverside rendering optional
+- [ ] Styled Components
+- [ ] React Router v4

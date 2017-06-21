@@ -3,6 +3,10 @@
   "version": "2.1.0",
   "description": "A starter boilerplate to create comprehensive React apps with Redux and serverside rendering.",
   "author": "jornbostelaar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JBostelaar/react-redux-boilerplate"
+  },
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",

@@ -1,5 +1,6 @@
 module.exports = (html = '') => (
     `
+        <!DOCTYPE html>
         <meta charset="utf-8">
         <title>React Redux Boilerplate</title>
         ${html ? '<link rel="stylesheet" type="text/css" href="style.css">' : ''}

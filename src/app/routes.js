@@ -1,5 +1,5 @@
-import App from 'app/components/App';
-import { Test } from 'app/components/modules';
+import App from 'components/App';
+import Test from 'modules/Test';
 
 export default [
     {

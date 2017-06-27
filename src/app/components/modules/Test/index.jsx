@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import cssModules from 'react-css-modules';
 import _ from 'lodash/fp';
 
-import { Button } from 'common';
+import Button from 'common/Button';
 import { install } from 'ducks/test';
 import LogoIcon from 'vectors/logo.svg';
 import TestPassed from './components/TestPassed';

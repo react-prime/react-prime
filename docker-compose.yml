@@ -1,0 +1,11 @@
+server:
+    image: node:8.1.2
+    command: npm run install:start
+    working_dir: /app
+    environment:
+        NPM_CONFIG_LOGLEVEL: warn
+    volumes:
+        - .:/app
+    ports:
+        - 3000:3000
+    restart: always

@@ -8,6 +8,7 @@ module.exports = {
     name: 'client',
     devtool: 'source-map',
     entry: [
+        'babel-polyfill',
         path.resolve(__dirname, 'src'),
     ],
     output: {

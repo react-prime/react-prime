@@ -1,6 +1,6 @@
 {
   "name": "React-Redux-Boilerplate",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A starter boilerplate to create comprehensive React apps with Redux and serverside rendering.",
   "author": "jornbostelaar",
   "repository": {
@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
+    "install:start": "npm i && run-p start",
     "build": "NODE_ENV=production run-p clean build:client build:server",
     "build:client": "webpack -p --hide-modules --config webpack.config.prod.js",
     "build:server": "webpack -p --hide-modules --config webpack.config.server.js",

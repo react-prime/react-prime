@@ -11,8 +11,8 @@ import renderFullPage from 'server/helpers/renderFullPage';
 import compress from 'compression';
 
 const app = express();
-app.use(express.static(path.resolve(__dirname, '../../dist')));
 app.use(compress());
+app.use(express.static(path.resolve(__dirname, '../../dist')));
 
 app.use((req, res, next) => {
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {

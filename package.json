@@ -1,6 +1,6 @@
 {
   "name": "React-Redux-Boilerplate",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A starter boilerplate to create comprehensive React apps with Redux and serverside rendering.",
   "author": "jornbostelaar",
   "repository": {

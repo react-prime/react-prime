@@ -37,12 +37,19 @@ module.exports = {
                 loader: 'babel-loader!svg-react-loader',
             },
             {
-                test: /^.*fonts\/.*\.(ttf|eot|woff(2)?|svg)(\?[a-z0-9=&.]+)?(#.+)?$/,
-                loader: 'file-loader',
-            },
-            {
                 test: /\.(jpe?g|png|gif)$/i,
                 loader: 'url-loader?limit=10000',
+            },
+            {
+                exclude: [
+                    /\.jsx?$/,
+                    /\.css$/,
+                    /\.svg$/,
+                    /\.(jpe?g|png|gif)$/i,
+                    /\.json$/,
+                ],
+                loader: 'file-loader',
+                options: { name: 'static/[name].[hash].[ext]' },
             },
         ],
     },

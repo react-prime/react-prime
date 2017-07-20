@@ -42,7 +42,7 @@ module.exports = {
                     /\.json$/,
                 ],
                 loader: 'file-loader',
-                options: { name: 'static/[name].[hash].[ext]' },
+                options: { name: 'static/[name].[ext]' },
             },
         ],
     },

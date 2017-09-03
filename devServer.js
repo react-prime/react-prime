@@ -22,7 +22,7 @@ app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
 
 app.get('*', (req, res) => {
-    res.send(renderFullPage());
+    res.send(renderFullPage({}));
 });
 
 const port = process.env.PORT || 3000;

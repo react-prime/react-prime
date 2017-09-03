@@ -1,14 +1,13 @@
 import React from 'react';
-import PT from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
+import Test from 'modules/Test';
 
-const App = ({ children }) => (
+const App = () => (
     <main>
-        {children}
+        <Switch>
+            <Route path="/" component={Test} />
+        </Switch>
     </main>
 );
-
-App.propTypes = {
-    children: PT.shape({}),
-};
 
 export default App;

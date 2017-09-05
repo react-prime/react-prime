@@ -2,7 +2,7 @@ import store from 'app/store';
 import express from 'express';
 import React from 'react';
 import path from 'path';
-import { port } from 'config';
+import { port, SSR } from 'config';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
@@ -15,13 +15,13 @@ app.use(compress());
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
 app.use((req, res) => {
-    const html = renderToString(
+    const html = SSR ? renderToString(
         <Provider store={store}>
             <StaticRouter location={req.url} context={{}}>
                 <App />
             </StaticRouter>
         </Provider>,
-    );
+    ) : ' ';
 
     res.status(200).send(renderFullPage({ html }));
 });

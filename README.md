@@ -90,6 +90,6 @@ The boilerplate uses [CSSnext](http://cssnext.io/), so you can use the newest CS
 ## Roadmap
 - [ ] Serverside data fetching
 - [ ] Initial set-up flow
-- [ ] Serverside rendering optional
 - [ ] Styled Components
-- [ ] React Router v4
+- [x] Serverside rendering optional
+- [x] React Router v4

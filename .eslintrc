@@ -29,6 +29,5 @@
         'no-console': [2, { allow: ['info', 'error']}],
         'no-nested-ternary': 0,
         'no-param-reassign': 0,
-        'no-underscore-dangle': 0,
     }
 }

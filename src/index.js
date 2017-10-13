@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 const render = () => {
     const Root = require('app/components/Root').default;
-    ReactDOM.render(<Root />, document.getElementById('app'));
+    ReactDOM.hydrate(<Root />, document.getElementById('app'));
 };
 
 if (__DEV__ && module.hot) {

@@ -1,12 +1,12 @@
 import React from 'react';
 import PT from 'prop-types';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import cssModules from 'react-css-modules';
-import _ from 'lodash/fp';
 
-import Button from 'common/Button';
 import { install } from 'ducks/test';
 import LogoIcon from 'vectors/logo.svg';
+import Button from 'common/Button';
 import TestPassed from './components/TestPassed';
 import styles from './styles.css';
 
@@ -31,7 +31,7 @@ Test.propTypes = {
     }),
 };
 
-export default _.flowRight([
+export default compose(
     connect(({ test }) => ({ test }), { install }),
     cssModules(styles),
-])(Test);
+)(Test);

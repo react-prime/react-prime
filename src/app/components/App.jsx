@@ -5,7 +5,7 @@ import Test from 'modules/Test';
 const App = () => (
     <main>
         <Switch>
-            <Route path="/" component={Test} />
+            <Route path="/" component={Test} exact />
         </Switch>
     </main>
 );

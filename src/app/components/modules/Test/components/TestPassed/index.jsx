@@ -6,7 +6,8 @@ import styles from './styles.css';
 const TestPassed = () => (
     <div>
         <p styleName="message">
-            The boilerplate is successfully installed, you&apos;re ready to start.
+            The boilerplate is successfully installed, you&apos;re ready to
+            start.
             <img src={confetti} styleName="confetti" alt="confetti" />
         </p>
         <p styleName="message">Good Luck!</p>

@@ -10,14 +10,14 @@ import LogoIcon from 'vectors/logo.svg';
 import TestPassed from './components/TestPassed';
 import styles from './styles.css';
 
-const Test = props => (
+const Test = ({ test: { passed, loading }, ...props }) => (
     <section styleName="test">
         <LogoIcon styleName="logo" />
-        {props.test.passed ? (
+        {passed ? (
             <TestPassed />
         ) : (
             <Button onClick={props.install}>
-                {props.test.loading ? 'Installing ...' : 'Test installation'}
+                {loading ? 'Installing ...' : 'Test installation'}
             </Button>
         )}
     </section>
@@ -26,7 +26,6 @@ const Test = props => (
 Test.propTypes = {
     install: PT.func.isRequired,
     test: PT.shape({
-        error: PT.bool,
         loading: PT.bool,
         passed: PT.bool,
     }),

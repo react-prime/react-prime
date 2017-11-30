@@ -3,7 +3,9 @@ import PT from 'prop-types';
 import cssModules from 'react-css-modules';
 import styles from './styles.css';
 
-const Button = ({ children, type = 'button', disabled, onClick }) => (
+const Button = ({
+    children, type = 'button', disabled, onClick,
+}) => (
     <button
         styleName="button"
         disabled={disabled}

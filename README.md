@@ -1,15 +1,15 @@
-# React Redux Boilerplate
-[![Build Status](https://travis-ci.org/JBostelaar/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/JBostelaar/react-redux-boilerplate)
-[![dependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate)
-[![devDependencies Status](https://david-dm.org/jbostelaar/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/jbostelaar/react-redux-boilerplate?type=dev)
-[![GitHub release](https://img.shields.io/github/release/jbostelaar/react-redux-boilerplate.svg)](https://github.com/JBostelaar/react-redux-boilerplate)
+# React Prime
+[![Build Status](https://travis-ci.org/JBostelaar/react-prime.svg?branch=master)](https://travis-ci.org/JBostelaar/react-prime)
+[![dependencies Status](https://david-dm.org/jbostelaar/react-prime/status.svg)](https://david-dm.org/jbostelaar/react-prime)
+[![devDependencies Status](https://david-dm.org/jbostelaar/react-prime/dev-status.svg)](https://david-dm.org/jbostelaar/react-prime?type=dev)
+[![GitHub release](https://img.shields.io/github/release/jbostelaar/react-prime.svg)](https://github.com/JBostelaar/react-prime)
 
 ---
 
 ## Getting Started
-`$ git clone https://github.com/JBostelaar/react-redux-boilerplate`
+`$ git clone https://github.com/JBostelaar/react-prime`
 
-`$ cd react-redux-boilerplate && npm install`
+`$ cd react-prime && npm install`
 
 `$ npm start` (run in development mode)
 

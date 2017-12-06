@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "react-prime",
   "version": "4.0.0",
-  "description": "A starter boilerplate to create comprehensive React apps with Redux and serverside rendering.",
+  "description": "A starter kit to create comprehensive React apps with Redux and serverside rendering.",
   "author": "jornbostelaar",
   "repository": {
     "type": "git",

@@ -7,10 +7,10 @@ const globals = require('./src/config/globals');
 module.exports = {
     name: 'client',
     devtool: 'cheap-source-map',
-    entry: [
-        'babel-polyfill',
-        path.resolve(__dirname, 'src'),
-    ],
+    entry: {
+        app: ['babel-polyfill', path.resolve(__dirname, 'src')],
+        vendor: webpackConfig.entry.vendor,
+    },
     output: {
         path: webpackConfig.output.path,
         filename: webpackConfig.output.filename,
@@ -56,6 +56,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
         new ExtractTextPlugin({ filename: 'style.css', allChunks: true }),
     ],
     resolve: webpackConfig.resolve,

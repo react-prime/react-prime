@@ -5,14 +5,25 @@ const globals = require('./src/config/globals');
 module.exports = {
     name: 'client',
     devtool: 'eval-source-map',
-    entry: [
-        'webpack-hot-middleware/client?reload=true&noInfo=true',
-        'babel-polyfill',
-        path.resolve(__dirname, 'src'),
-    ],
+    entry: {
+        app: [
+            'webpack-hot-middleware/client?reload=true&noInfo=true',
+            'babel-polyfill',
+            path.resolve(__dirname, 'src'),
+        ],
+        vendor: [
+            'prop-types',
+            'react',
+            'react-dom',
+            'react-router',
+            'react-redux',
+            'react-router-dom',
+            'redux',
+        ],
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: '[name].js',
         publicPath: '/dist/',
     },
     module: {
@@ -55,8 +66,9 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.DefinePlugin(globals('client')),
         new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.DefinePlugin(globals('client')),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
     ],
     resolve: {
         extensions: ['*', '.js', '.jsx'],

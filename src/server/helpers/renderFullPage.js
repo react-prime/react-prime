@@ -9,6 +9,7 @@ module.exports = ({ html = '' }) => (
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
         <div id="app">${html}</div>
-        <script src="${html ? '' : '/dist'}/bundle.js"></script>
+        <script src="${html ? '' : '/dist'}/vendor.js"></script>
+        <script src="${html ? '' : '/dist'}/app.js"></script>
     `
 );

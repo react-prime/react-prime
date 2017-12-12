@@ -15,7 +15,10 @@
     "build:server": "webpack -p --hide-modules --config webpack.config.server.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "bundle-analysis": "NODE_ENV=production webpack -p --config webpack.config.prod.js --profile --json > stats.json",
+    "run-analyzer": "webpack-bundle-analyzer stats.json ./dist",
+    "analyzer": "run-s bundle-analysis run-analyzer"
   },
   "keywords": [
     "react",
@@ -69,6 +72,7 @@
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.9.1",
+    "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-node-externals": "^1.6.0"

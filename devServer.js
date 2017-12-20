@@ -11,9 +11,7 @@ const compiler = webpack(config);
 
 const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    historyApiFallback: true,
-    hot: true,
-    noInfo: true,
+    logLevel: 'error',
     headers: { 'Access-Control-Allow-Origin': '*' },
     stats: { colors: true },
 });

@@ -21,15 +21,6 @@ module.exports = {
             { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
             {
                 test: /\.css$/,
-                include: path.resolve(__dirname, 'src'),
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader?modules!postcss-loader',
-                }),
-            },
-            {
-                test: /\.css$/,
-                exclude: path.resolve(__dirname, 'src'),
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: 'css-loader',

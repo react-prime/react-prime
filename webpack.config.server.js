@@ -18,16 +18,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-            {
-                test: /\.css$/,
-                loader: 'css-loader/locals?modules!postcss-loader',
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.css$/,
-                loader: 'css-loader',
-                include: /node_modules/,
-            },
+            { test: /\.css$/, loader: 'css-loader' },
             { test: /\.svg$/, loader: 'babel-loader!svg-react-loader' },
             {
                 test: /\.(jpe?g|png|gif)$/i,

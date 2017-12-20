@@ -35,12 +35,6 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
-                loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1!postcss-loader',
-            },
-            {
-                test: /\.css$/,
-                include: /node_modules/,
                 loader: 'style-loader!css-loader',
             },
             {

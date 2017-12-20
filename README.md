@@ -36,6 +36,7 @@
 * Start server: `$ npm run server`
 * Remove build folder: `$ npm run clean`
 * Run ESLint: `$ npm run lint`
+* Run webpack-bundle-analyzer: `$ npm run analyzer`
 
 **Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
 

@@ -26,7 +26,7 @@
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [ESLint](http://eslint.org) to maintain a consistent code style
-* [PostCSS](https://github.com/postcss/postcss-loader) with [CSSnext](http://cssnext.io/) for the future of CSS
+* [Styled-Components](https://www.styled-components.com)
 * Refer to `package.json` for more details
 
 ## NPM Scripts
@@ -63,30 +63,6 @@ This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux
 
 ### Redux DevTools
 To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.
-
-## Styling
-### Local styles
-This project uses local styles using the [css-loader](https://github.com/webpack-contrib/css-loader) with [react-css-modules](https://github.com/gajus/react-css-modules). The way it works is that you import your CSS stylesheet at the top of your React component.
-
-`import styles from './App.css';`
-
-With `styleName` you can define classes that match the ones you've imported from your CSS stylesheet.
-
-`<div styleName="your-class"> ... </div>`
-
-The last thing you have to do is export your component wrapped in cssModules.
-
-`export default cssModules(App, styles);`
-
-### Global styles
-You can find the global styles in the `styles` folder. In this folder you can also specify all the variables.  
-
-### CSSnext
-The boilerplate uses [CSSnext](http://cssnext.io/), so you can use the newest CSS syntax. Some [features](http://cssnext.io/features/):
-* Variables
-* Calculations
-* Nesting
-* Autoprefixer
 
 ## Roadmap
 - [ ] Serverside data fetching

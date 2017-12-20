@@ -26,7 +26,8 @@
     "express",
     "redux",
     "boilerplate",
-    "babel"
+    "babel",
+    "styled-components"
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",

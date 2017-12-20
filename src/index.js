@@ -5,13 +5,7 @@ import { SSR } from 'config';
 
 const render = () => {
     const Root = require('app/components/Root').default;
-    const node = document.getElementById('app');
-
-    if (SSR && !__DEV__) {
-        ReactDOM.hydrate(<Root />, node);
-    } else {
-        ReactDOM.render(<Root />, node);
-    }
+    ReactDOM[SSR && !__DEV__ ? 'render' : 'hydrate'](<Root />, document.getElementById('app'));
 };
 
 if (__DEV__ && module.hot) {

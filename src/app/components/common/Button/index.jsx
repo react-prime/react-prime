@@ -1,23 +1,12 @@
-import React from 'react';
-import PT from 'prop-types';
+import styled from 'styled-components';
 
-const Button = ({
-    children, type = 'button', disabled, onClick,
-}) => (
-    <button
-        disabled={disabled}
-        type={type}
-        onClick={onClick}
-    >
-        {children}
-    </button>
-);
-
-Button.propTypes = {
-    children: PT.string,
-    type: PT.string,
-    disabled: PT.bool,
-    onClick: PT.func,
-};
-
-export default Button;
+export default styled.button`
+    color: ${props => props.theme.white};
+    background: ${props => props.theme.blue};
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+`;

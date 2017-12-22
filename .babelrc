@@ -1,0 +1,9 @@
+{
+    "presets": ["env", "react", "stage-0"],
+    "plugins": [
+        "lodash",
+        ["babel-plugin-styled-components", {
+            "ssr": true
+        }]
+    ]
+}

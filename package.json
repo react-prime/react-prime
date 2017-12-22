@@ -74,19 +74,6 @@
     "webpack-hot-middleware": "^2.21.0",
     "webpack-node-externals": "^1.6.0"
   },
-  "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-0"
-    ],
-    "plugins": [
-      "lodash",
-      ["babel-plugin-styled-components", {
-        "ssr": true
-      }]
-    ]
-  },
   "engines": {
     "node": "8.9.1"
   }

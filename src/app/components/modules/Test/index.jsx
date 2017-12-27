@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import { install } from 'ducks/test';
@@ -7,8 +8,20 @@ import LogoIcon from 'vectors/logo.svg';
 import Button from 'common/Button';
 import TestPassed from './components/TestPassed';
 
+const CenteredSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+
+    svg {
+        margin: 50px 0;
+    }
+`;
+
+
 const Test = ({ test: { passed, loading }, ...props }) => (
-    <section>
+    <CenteredSection>
         <LogoIcon />
         {passed ? (
             <TestPassed />
@@ -17,7 +30,7 @@ const Test = ({ test: { passed, loading }, ...props }) => (
                 {loading ? 'Installing ...' : 'Test installation'}
             </Button>
         )}
-    </section>
+    </CenteredSection>
 );
 
 Test.propTypes = {

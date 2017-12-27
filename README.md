@@ -67,6 +67,6 @@ To use de Redux DevTools install the [Redux DevTools extension](https://chrome.g
 ## Roadmap
 - [ ] Serverside data fetching
 - [ ] Initial set-up flow
-- [ ] Styled Components
+- [x] Styled Components
 - [x] Serverside rendering optional
 - [x] React Router v4

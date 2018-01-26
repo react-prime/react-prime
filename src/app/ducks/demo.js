@@ -1,8 +1,8 @@
 import createAction from 'services/createAction';
 
-const TEST_PENDING = 'TEST_PENDING';
-const TEST_SUCCESS = 'TEST_SUCCESS';
-const TEST_FAILED = 'TEST_FAILED';
+const INSTALLATION_PENDING = 'INSTALLATION_PENDING';
+const INSTALLATION_SUCCESS = 'INSTALLATION_SUCCESS';
+const INSTALLATION_FAILED = 'INSTALLATION_FAILED';
 
 const initialState = {
     passed: false,
@@ -12,19 +12,19 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
-    case TEST_SUCCESS:
+    case INSTALLATION_SUCCESS:
         return {
             ...state,
             passed: payload.passed,
             loading: false,
         };
-    case TEST_FAILED:
+    case INSTALLATION_FAILED:
         return {
             ...state,
             error: true,
             loading: false,
         };
-    case TEST_PENDING:
+    case INSTALLATION_PENDING:
         return {
             ...state,
             loading: true,
@@ -35,11 +35,11 @@ export default (state = initialState, { type, payload }) => {
     }
 };
 
-export const installSuccess = createAction(TEST_SUCCESS);
-export const installFailed = createAction(TEST_FAILED);
+export const installSuccess = createAction(INSTALLATION_SUCCESS);
+export const installFailed = createAction(INSTALLATION_FAILED);
 
 export const install = () => (dispatch) => {
-    dispatch({ type: TEST_PENDING });
+    dispatch({ type: INSTALLATION_PENDING });
 
     setTimeout(() => {
         dispatch(installSuccess({ passed: true }));

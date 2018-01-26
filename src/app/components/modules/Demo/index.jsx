@@ -3,10 +3,10 @@ import PT from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { install } from 'ducks/test';
+import { install } from 'ducks/demo';
 import LogoIcon from 'vectors/logo.svg';
 import Button from 'common/Button';
-import TestPassed from './components/TestPassed';
+import InstallationPassed from './components/InstallationPassed';
 
 const CenteredSection = styled.section`
     display: flex;
@@ -20,11 +20,11 @@ const CenteredSection = styled.section`
 `;
 
 
-const Test = ({ test: { passed, loading }, ...props }) => (
+const Demo = ({ installation: { passed, loading }, ...props }) => (
     <CenteredSection>
         <LogoIcon />
         {passed ? (
-            <TestPassed />
+            <InstallationPassed />
         ) : (
             <Button onClick={props.install}>
                 {loading ? 'Installing ...' : 'Test installation'}
@@ -33,14 +33,14 @@ const Test = ({ test: { passed, loading }, ...props }) => (
     </CenteredSection>
 );
 
-Test.propTypes = {
+Demo.propTypes = {
     install: PT.func.isRequired,
-    test: PT.shape({
+    installation: PT.shape({
         loading: PT.bool,
         passed: PT.bool,
     }),
 };
 
 export default connect(state => ({
-    test: state.test,
-}), { install })(Test);
+    installation: state.demo,
+}), { install })(Demo);

@@ -7,10 +7,10 @@ const Image = styled.img`
     margin-left: 5px;
 `;
 
-const TestPassed = () => (
+const InstallationPassed = () => (
     <Fragment>
         <p>
-            The boilerplate is successfully installed, you&apos;re ready to
+            React Prime is successfully installed, you&apos;re ready to
             start.
             <Image src={confetti} alt="confetti" />
         </p>
@@ -18,4 +18,4 @@ const TestPassed = () => (
     </Fragment>
 );
 
-export default TestPassed;
+export default InstallationPassed;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Test from 'modules/Test';
+import Demo from 'modules/Demo';
 
 const App = () => (
     <main>
         <Switch>
-            <Route path="/" component={Test} exact />
+            <Route path="/" component={Demo} exact />
         </Switch>
     </main>
 );

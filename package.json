@@ -18,7 +18,7 @@
     "lint": "eslint src/",
     "analyzer:build": "NODE_ENV=production webpack -p --config webpack.config.prod.js --profile --json > stats.json",
     "analyzer:run": "webpack-bundle-analyzer stats.json ./dist",
-    "analyzer": "run-s bundle-analysis run-analyzer"
+    "analyzer": "run-s analyzer:build analyzer:run"
   },
   "keywords": [
     "react",

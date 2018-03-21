@@ -11,15 +11,6 @@ module.exports = {
             'babel-polyfill',
             path.resolve(__dirname, 'src'),
         ],
-        vendor: [
-            'prop-types',
-            'react',
-            'react-dom',
-            'react-router',
-            'react-redux',
-            'react-router-dom',
-            'redux',
-        ],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -27,7 +18,7 @@ module.exports = {
         publicPath: '/dist/',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -78,7 +69,6 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin(globals('client')),
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
     ],
     resolve: {
         extensions: ['*', '.js', '.jsx'],

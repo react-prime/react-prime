@@ -4,6 +4,7 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
+    mode: 'development',
     devtool: 'eval-source-map',
     entry: {
         app: [

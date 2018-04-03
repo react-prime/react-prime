@@ -6,6 +6,7 @@ const globals = require('./src/config/globals');
 module.exports = {
     name: 'server',
     devtool: 'cheap-source-map',
+    mode: 'production',
     target: 'node',
     node: { __dirname: true },
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],

@@ -5,6 +5,7 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
+    mode: 'production',
     devtool: 'cheap-source-map',
     entry: {
         app: ['babel-polyfill', path.resolve(__dirname, 'src')],

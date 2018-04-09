@@ -10,7 +10,6 @@ const app = express();
 const compiler = webpack(config);
 
 const middleware = webpackMiddleware(compiler, {
-    publicPath: config.output.publicPath,
     logLevel: 'error',
     headers: { 'Access-Control-Allow-Origin': '*' },
     stats: { colors: true },

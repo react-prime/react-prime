@@ -10,9 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
-    "build": "NODE_ENV=production run-p clean build:client build:server",
-    "build:client": "webpack -p --hide-modules --config webpack.config.prod.js",
-    "build:server": "webpack -p --hide-modules --config webpack.config.server.js",
+    "build": "rimraf dist/ && webpack -p --hide-modules --config webpack.config.prod.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
     "lint": "eslint src/",
@@ -73,6 +71,7 @@
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-hot-middleware": "^2.21.2",
+    "webpack-merge": "^4.1.2",
     "webpack-node-externals": "^1.6.0"
   },
   "engines": {

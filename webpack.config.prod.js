@@ -1,30 +1,26 @@
 const path = require('path');
 const webpack = require('webpack');
-const webpackConfig = require('./webpack.config');
+const nodeExternals = require('webpack-node-externals');
 const globals = require('./src/config/globals');
+const merge = require('./webpack.config.common');
 
-module.exports = {
-    name: 'client',
-    mode: 'production',
-    devtool: 'cheap-source-map',
+const prodConfig = {
     entry: {
         app: ['babel-polyfill', path.resolve(__dirname, 'src')],
-    },
-    module: webpackConfig.module,
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    chunks: 'all',
-                },
-            },
-        },
     },
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
     ],
-    resolve: webpackConfig.resolve,
 };
+
+const serverConfig = {
+    target: 'node',
+    node: { __dirname: true },
+    externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
+    entry: { server: './src/server/index.js' },
+    module: { rules: [{ test: /\.css$/, loader: 'css-loader' }] },
+    plugins: [new webpack.DefinePlugin(globals('server'))],
+};
+
+module.exports = [merge(prodConfig), merge(serverConfig)];

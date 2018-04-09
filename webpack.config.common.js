@@ -3,7 +3,6 @@ const webpackMerge = require('webpack-merge');
 
 const baseConfig = {
     mode: 'production',
-    devtool: 'cheap-source-map',
     module: {
         rules: [
             {

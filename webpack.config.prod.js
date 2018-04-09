@@ -10,7 +10,6 @@ const prodConfig = {
     },
     plugins: [
         new webpack.DefinePlugin(globals('client')),
-        new webpack.optimize.ModuleConcatenationPlugin(),
     ],
 };
 

@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const merge = require('./webpack.config.common');
+const merge = require('./webpack.config.base');
 const globals = require('./src/config/globals');
 
 const devConfig = {

@@ -15,7 +15,6 @@ const devConfig = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin(globals('client')),
     ],
 };

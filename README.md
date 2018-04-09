@@ -31,16 +31,11 @@
 
 ## NPM Scripts
 * Start develop server: `$ npm start`
-* Build client: `$ npm run build:client`
-* Build server: `$ npm run build:server`
+* Create production build: `$ npm run build`
 * Start server: `$ npm run server`
 * Remove build folder: `$ npm run clean`
 * Run ESLint: `$ npm run lint`
 * Run webpack-bundle-analyzer: `$ npm run analyzer`
-
-**Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
-
-`$ npm run build` (runs clean, build:client, build:server from the npm scripts with NODE_ENV=production).
 
 ## Deployment
 Make sure all modules are installed:  

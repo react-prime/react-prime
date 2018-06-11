@@ -38,7 +38,7 @@ export default (state = initialState, { type, payload }) => {
 export const installSuccess = createAction(INSTALLATION_SUCCESS);
 export const installFailed = createAction(INSTALLATION_FAILED);
 
-export const install = () => dispatch => {
+export const install = () => (dispatch) => {
   dispatch({ type: INSTALLATION_PENDING });
 
   setTimeout(() => {

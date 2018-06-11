@@ -9,6 +9,7 @@ const baseConfig = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+                options: { forceEnv: 'client' },
             },
             {
                 test: /\.css$/,

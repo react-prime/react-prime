@@ -13,7 +13,17 @@ const prodConfig = {
 const serverConfig = {
     name: 'server',
     entry: { server: [path.resolve(__dirname, 'src/server')] },
-    module: { rules: [{ test: /\.css$/, loader: 'css-loader' }] },
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: { forceEnv: 'server' },
+            },
+            { test: /\.css$/, loader: 'css-loader' },
+        ],
+    },
     plugins: [new webpack.DefinePlugin(globals('server'))],
     target: 'node',
     node: { __dirname: true },

@@ -1,9 +1,9 @@
 {
-    "presets": ["env", "react", "stage-0"],
-    "plugins": [
-        "lodash",
-        ["babel-plugin-styled-components", {
-            "ssr": true
-        }]
-    ]
+  "presets": ["env", "react", "stage-0"],
+  "plugins": [
+    "lodash",
+    ["babel-plugin-styled-components", {
+      "ssr": true
+    }]
+  ]
 }

@@ -5,43 +5,43 @@ const INSTALLATION_SUCCESS = 'INSTALLATION_SUCCESS';
 const INSTALLATION_FAILED = 'INSTALLATION_FAILED';
 
 const initialState = {
-    passed: false,
-    error: false,
-    loading: false,
+  passed: false,
+  error: false,
+  loading: false,
 };
 
 export default (state = initialState, { type, payload }) => {
-    switch (type) {
+  switch (type) {
     case INSTALLATION_SUCCESS:
-        return {
-            ...state,
-            passed: payload.passed,
-            loading: false,
-        };
+      return {
+        ...state,
+        passed: payload.passed,
+        loading: false,
+      };
     case INSTALLATION_FAILED:
-        return {
-            ...state,
-            error: true,
-            loading: false,
-        };
+      return {
+        ...state,
+        error: true,
+        loading: false,
+      };
     case INSTALLATION_PENDING:
-        return {
-            ...state,
-            loading: true,
-            error: false,
-        };
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
     default:
-        return state;
-    }
+      return state;
+  }
 };
 
 export const installSuccess = createAction(INSTALLATION_SUCCESS);
 export const installFailed = createAction(INSTALLATION_FAILED);
 
 export const install = () => (dispatch) => {
-    dispatch({ type: INSTALLATION_PENDING });
+  dispatch({ type: INSTALLATION_PENDING });
 
-    setTimeout(() => {
-        dispatch(installSuccess({ passed: true }));
-    }, 2000);
+  setTimeout(() => {
+    dispatch(installSuccess({ passed: true }));
+  }, 2000);
 };

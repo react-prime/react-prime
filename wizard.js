@@ -3,8 +3,6 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const stream = require('stream');
-const readline = require('readline');
 const path = require('path');
 const _ = require('lodash');
 const util = require('util');

@@ -51,16 +51,22 @@ const questions = [
         default: '',
     },
     {
+        type: 'input',
+        name: 'author',
+        message: 'Project author(s)',
+        default: '',
+    },
+    {
         type: 'confirm',
         name: 'ssr',
         message: 'Do you want to use Server Side Rendering?',
-        default: false,
+        default: true,
     },
     {
         type: 'confirm',
         name: 'apihelper',
         message: 'Do you want to install the apiHelper?',
-        default: false,
+        default: true,
     },
 ];
 
@@ -95,6 +101,15 @@ inquirer.prompt(questions).then((answers) => {
             case 'description':
                 try {
                     await writeToFile('package.json', /"description": "(.*?)"/, `"description": "${answer}"`);
+                } catch (err) {
+                    console.error(err);
+                    process.exit(0);
+                }
+            break;
+            
+            case 'author':
+                try {
+                    await writeToFile('package.json', /"author": "(.*?)"/, `"description": "${answer}"`);
                 } catch (err) {
                     console.error(err);
                     process.exit(0);

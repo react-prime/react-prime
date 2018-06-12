@@ -81,7 +81,13 @@ inquirer.prompt(questions).then((answers) => {
                 }
             break;
 
-            case 'apihelper': {}
+            case 'apihelper': {
+                // Remove apiHelper.js
+                if (answer === false) {
+                    fs.unlinkSync(dirPath('src/app/services/apiHelper.js'));
+                    fs.unlinkSync(dirPath('src/config/api.js'));
+                }
+            }
             break;
 
             default:
@@ -89,12 +95,5 @@ inquirer.prompt(questions).then((answers) => {
         }
     });
 
-    // console.log(JSON.stringify(answers, null, '  '));
-
     console.log('Configuration done!');
 });
-
-// ssr
-// project name (title, package.json, readme)
-// apiHelper
-//

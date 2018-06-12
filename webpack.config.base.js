@@ -82,6 +82,6 @@ const baseConfig = {
     },
 };
 
-const merge = (...config) => webpackMerge(baseConfig, ...config);
+const merge = (...config) => webpackMerge.smart(baseConfig, ...config);
 
 module.exports = merge;

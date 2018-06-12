@@ -45,6 +45,12 @@ const questions = [
         default: '0.0.1',
     },
     {
+        type: 'input',
+        name: 'description',
+        message: 'Project description',
+        default: '',
+    },
+    {
         type: 'confirm',
         name: 'ssr',
         message: 'Do you want to use Server Side Rendering?',
@@ -79,7 +85,16 @@ inquirer.prompt(questions).then((answers) => {
 
             case 'version':
                 try {
-                    await writeToFile('package.json', /"version": "....."/, `"version": "${answer}"`);
+                    await writeToFile('package.json', /"version": "(.*?)"/, `"version": "${answer}"`);
+                } catch (err) {
+                    console.error(err);
+                    process.exit(0);
+                }
+            break;
+            
+            case 'description':
+                try {
+                    await writeToFile('package.json', /"description": "(.*?)"/, `"description": "${answer}"`);
                 } catch (err) {
                     console.error(err);
                     process.exit(0);

@@ -1,12 +1,37 @@
 /* eslint-disable */
 'use strict';
 
-var inquirer = require('inquirer');
-var fs = require('fs');
-var path = require('path');
-var _ = require('lodash');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const stream = require('stream');
+const readline = require('readline');
+const path = require('path');
+const _ = require('lodash');
+const util = require('util');
 
-var questions = [
+// Wrap readFile in a promise
+const readFileAsync = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
+
+// File helpers
+const readFile = (file) => readFileAsync(file, 'utf8');
+
+const writeFile = (file, result) => writeFileAsync(file, result, 'utf8', (err) => {
+    if (err) console.error(err);
+});
+
+const writeToFile = async (filePath, regexString, writeString) => {
+    const file = dirPath(filePath);
+    const data = await readFile(file);
+    const result = data.replace(regexString, writeString);
+    writeFile(file, result);
+}
+
+// Path resolve helper
+const dirPath = (subPath) => path.resolve(__dirname, subPath);
+
+// Wizard questions
+const questions = [
     {
         type: 'input',
         name: 'name',
@@ -27,39 +52,37 @@ var questions = [
     },
 ];
 
-inquirer.prompt(questions).then(answers => {
+// Answer logic
+inquirer.prompt(questions).then((answers) => {
     console.log('Configuring boilerplate...');
 
-    console.log(answers);
-
-    _.forEach(Object.keys(answers), answerName => {
+    _.forEach(Object.keys(answers), async (answerName) => {
         const answer = answers[answerName];
 
         switch (answerName) {
+            case 'name':
+                try {
+                    // Readme
+                    await writeToFile('README.md', /React Prime/, answer);
+                    // renderFullPage
+                    await writeToFile('src/server/helpers/renderFullPage.js', /React Redux Boilerplate/, answer);
+                } catch (err) {
+                    console.error(err);
+                    process.exit(0);
+                }
+            break;
+            
             case 'ssr':
-                const file = path.resolve(__dirname, 'src/config/index.js');
-
-                fs.readFile(file, 'utf8', function (err, data) {
-                    if (err) {
-                        return console.error(err);
-                    }
-
-                    var result = data;
-                    result = data.replace(/SSR = (false|true)/g, `SSR = ${answer ? 'true' : 'false'}`);
-
-                    fs.writeFile(file, result, 'utf8', function (err) {
-                        if (err){
-                            return console.log(err);
-                        }
-                    });
-                });
+                try {
+                    await writeToFile('src/config/index.js', /SSR = (false|true)/, `SSR = ${answer.toString()}`);
+                } catch (err) {
+                    console.error(err);
+                    process.exit(0);
+                }
             break;
 
-            case 'name':
-                break;
-
-            case 'apihelper':
-                break;
+            case 'apihelper': {}
+            break;
 
             default:
                 console.error('Error: Answers defaulted! Answer:', answerName);

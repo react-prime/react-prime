@@ -39,6 +39,12 @@ const questions = [
         default: '',
     },
     {
+        type: 'input',
+        name: 'version',
+        message: 'Project version',
+        default: '0.0.1',
+    },
+    {
         type: 'confirm',
         name: 'ssr',
         message: 'Do you want to use Server Side Rendering?',
@@ -62,10 +68,18 @@ inquirer.prompt(questions).then((answers) => {
         switch (answerName) {
             case 'name':
                 try {
-                    // Readme
                     await writeToFile('README.md', /React Prime/, answer);
-                    // renderFullPage
                     await writeToFile('src/server/helpers/renderFullPage.js', /React Redux Boilerplate/, answer);
+                    await writeToFile('package.json', /react-prime/, answer.replace(/\W/, '-'));
+                } catch (err) {
+                    console.error(err);
+                    process.exit(0);
+                }
+            break;
+
+            case 'version':
+                try {
+                    await writeToFile('package.json', /"version": "....."/, `"version": "${answer}"`);
                 } catch (err) {
                     console.error(err);
                     process.exit(0);

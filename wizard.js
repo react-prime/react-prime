@@ -5,24 +5,25 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-const util = require('util');
 
 // Wrap readFile in a promise
-const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisify(fs.writeFile);
-
 // File helpers
-const readFile = (file) => readFileAsync(file, 'utf8');
+const readFile = (file) => fs.readFileSync(file, 'utf8');
 
-const writeFile = (file, result) => writeFileAsync(file, result, 'utf8', (err) => {
+const writeFile = (file, result) => fs.writeFileSync(file, result, 'utf8', (err) => {
     if (err) console.error(err);
 });
 
-const writeToFile = async (filePath, regexString, writeString) => {
-    const file = dirPath(filePath);
-    const data = await readFile(file);
-    const result = data.replace(regexString, writeString);
-    writeFile(file, result);
+const writeToFile = (filePath, regexString, writeString) => {
+    try {
+        const file = dirPath(filePath);
+        const data = readFile(file);
+        const result = data.replace(regexString, writeString);
+        writeFile(file, result);
+    } catch (err) {
+        console.error(err);
+        process.exit(0);
+    }
 }
 
 // Path resolve helper
@@ -52,7 +53,7 @@ const questions = [
         type: 'input',
         name: 'author',
         message: 'Project author(s)',
-        default: '',
+        default: 'Label A',
     },
     {
         type: 'confirm',
@@ -72,55 +73,30 @@ const questions = [
 inquirer.prompt(questions).then((answers) => {
     console.log('Configuring boilerplate...');
 
-    _.forEach(Object.keys(answers), async (answerName) => {
+    _.forEach(Object.keys(answers), (answerName) => {
         const answer = answers[answerName];
 
         switch (answerName) {
             case 'name':
-                try {
-                    await writeToFile('README.md', /React Prime/, answer);
-                    await writeToFile('src/server/helpers/renderFullPage.js', /React Redux Boilerplate/, answer);
-                    await writeToFile('package.json', /react-prime/, answer.replace(/\W/, '-'));
-                } catch (err) {
-                    console.error(err);
-                    process.exit(0);
-                }
+                writeToFile('README.md', /React Prime/, answer);
+                writeToFile('src/server/helpers/renderFullPage.js', /React Redux Boilerplate/, answer);
+                writeToFile('package.json', /react-prime/, answer.replace(/\W/, '-'));
+            break;
+
+            case 'author':
+                writeToFile('package.json', /"author": "(.*?)"/, `"author": "${answer}"`);
+            break;
+
+            case 'description':
+                writeToFile('package.json', /"description": "(.*?)"/, `"description": "${answer}"`);
             break;
 
             case 'version':
-                try {
-                    await writeToFile('package.json', /"version": "(.*?)"/, `"version": "${answer}"`);
-                } catch (err) {
-                    console.error(err);
-                    process.exit(0);
-                }
-            break;
-            
-            case 'description':
-                try {
-                    await writeToFile('package.json', /"description": "(.*?)"/, `"description": "${answer}"`);
-                } catch (err) {
-                    console.error(err);
-                    process.exit(0);
-                }
-            break;
-            
-            case 'author':
-                try {
-                    await writeToFile('package.json', /"author": "(.*?)"/, `"description": "${answer}"`);
-                } catch (err) {
-                    console.error(err);
-                    process.exit(0);
-                }
+                writeToFile('package.json', /"version": "(.*?)"/, `"version": "${answer}"`);
             break;
             
             case 'ssr':
-                try {
-                    await writeToFile('src/config/index.js', /SSR = (false|true)/, `SSR = ${answer.toString()}`);
-                } catch (err) {
-                    console.error(err);
-                    process.exit(0);
-                }
+                writeToFile('src/config/index.js', /SSR = (false|true)/, `SSR = ${answer.toString()}`);
             break;
 
             case 'apihelper': {

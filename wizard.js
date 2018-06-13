@@ -43,6 +43,7 @@ const questions = [
         name: 'version',
         message: 'Project version',
         default: '0.0.1',
+        validate: (answer) => /\d*?\.\d*?\.\d*/.test(answer),
     },
     {
         type: 'input',

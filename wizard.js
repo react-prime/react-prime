@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
+const cp = require('child_process');
 
 // Wrap readFile in a promise
 // File helpers
@@ -135,5 +136,18 @@ inquirer.prompt(questions).then((answers) => {
         }
     });
 
-    console.log('Configuration done!');
+    if (answers.apihelper === true) {
+        console.log('Installing qs package...');
+        cp.exec('npm i -S qs', (err, stdout, stderr) => {
+            if (err) {
+                console.error('Error running npm install script');
+            }
+          
+            console.log(`${stdout}`);
+            console.log(`${stderr}`);
+            console.log('Configuration done!');
+          });
+    } else {
+        console.log('Configuration done!');
+    }
 });

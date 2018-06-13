@@ -67,20 +67,31 @@ const questions = [
         message: 'Do you want to install the apiHelper?',
         default: true,
     },
+    ...['DEV', 'ACC', 'PROD'].reduce((all, env) => ([
+        ...all,
+        {
+            // Only ask these questions when apihelper answer is true
+            when: (answers) => answers.apihelper,
+            type: 'input',
+            name: `apiurl_${env}`,
+            message: `${env} API Host URL`,
+            default: '',
+        }
+    ]), []),
 ];
 
 // Answer logic
 inquirer.prompt(questions).then((answers) => {
     console.log('Configuring boilerplate...');
 
-    _.forEach(Object.keys(answers), (answerName) => {
-        const answer = answers[answerName];
+    _.forEach(Object.keys(answers), (question) => {
+        const answer = answers[question];
 
-        switch (answerName) {
+        switch (question) {
             case 'name':
                 writeToFile('README.md', /React Prime/, answer);
                 writeToFile('src/server/helpers/renderFullPage.js', /React Redux Boilerplate/, answer);
-                writeToFile('package.json', /react-prime/, answer.replace(/\W/, '-'));
+                writeToFile('package.json', /"name": "(.*?)"/, `"name": "${answer.replace(/\W/, '-')}"`);
             break;
 
             case 'author':
@@ -108,8 +119,19 @@ inquirer.prompt(questions).then((answers) => {
             }
             break;
 
+            case 'apiurl_DEV':
+            case 'apiurl_ACC':
+            case 'apiurl_PROD':
+                const env = question.split('_')[1];
+                writeToFile(
+                    'src/config/api.js',
+                    new RegExp(`\\[__${env}__\\]: '(.*?)'`),
+                    `[__${env}__]: '${answer}'`,
+                );
+            break;
+
             default:
-                console.error('Error: Answers defaulted! Answer:', answerName);
+                console.error('Error: Answers defaulted! question:', question);
         }
     });
 

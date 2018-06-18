@@ -31,10 +31,10 @@ const writeToFile = (filePath, regexString, writeString) => {
 const dirPath = (subPath) => path.resolve(__dirname, subPath);
 
 // Wizard timeout
-(function() {
+(() => {
     // Timeout after no user input for some time
     const timer = setTimeout(() => {
-        console.error('\n🛑 Stopped wizard because of no user input.');
+        console.log('\n🛑 Stopped wizard because of no user input.');
         process.exit(0);
     }, 6000);
 

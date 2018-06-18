@@ -30,6 +30,19 @@ const writeToFile = (filePath, regexString, writeString) => {
 // Path resolve helper
 const dirPath = (subPath) => path.resolve(__dirname, subPath);
 
+// Wizard timeout
+(function() {
+    // Timeout after no user input for some time
+    const timer = setTimeout(() => {
+        console.error('\n🛑 Stopped wizard because of no user input.');
+        process.exit(0);
+    }, 6000);
+
+    // Cancel timeout on user input
+    const stdin = process.openStdin();
+    stdin.addListener('data', () => clearTimeout(timer));
+})();
+
 // Wizard questions
 const questions = [
     {
@@ -73,7 +86,7 @@ const questions = [
         ...all,
         {
             // Only ask these questions when apihelper answer is true
-            when: (answers) => answers.apihelper,
+            when: answers => answers.apihelper,
             type: 'input',
             name: `apiurl_${env}`,
             message: `${env} API Host URL`,

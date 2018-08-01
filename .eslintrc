@@ -1,35 +1,37 @@
 {
-    'extends': 'airbnb',
-    'parser': 'babel-eslint',
-    'settings': {
-        'import/resolver': {
-            webpack: { config: 'webpack.config.base.js' },
-        },
-    },
-    'plugins': ['react'],
-    'globals': {
-        '__DEV__': false,
-        '__ACC__': false,
-        '__PROD__': false,
-        '__CLIENT__': false,
-        '__SERVER__': false,
-    },
-    'env': {
-        'browser': true,
-        'node': true,
-    },
-    'rules': {
-        'react/require-default-props': 0,
-        'react/forbid-prop-types': 0,
-        'react/jsx-indent': ['error', 4],
-        'react/jsx-indent-props': ['error', 4],
-        'react/jsx-filename-extension': 0,
-        'jsx-a11y/href-no-hash': 'off',
-        'consistent-return': 0,
-        'indent': ['error', 4],
-        'max-len': 0,
-        'no-console': [2, { allow: ['info', 'error']}],
-        'no-nested-ternary': 0,
-        'no-param-reassign': 0,
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.base.js"
+      }
     }
+  },
+  "plugins": ["react"],
+  "globals": {
+    "__DEV__": false,
+    "__ACC__": false,
+    "__PROD__": false,
+    "__CLIENT__": false,
+    "__SERVER__": false
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-filename-extension": 0,
+    "jsx-a11y/href-no-hash": "off",
+    "consistent-return": 0,
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "max-len": 0,
+    "no-console": [2, { "allow": ["info", "error"] }],
+    "no-nested-ternary": 0,
+    "no-param-reassign": 0
+  }
 }

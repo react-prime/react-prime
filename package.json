@@ -16,7 +16,8 @@
     "lint": "eslint src/",
     "analyzer:build": "NODE_ENV=production webpack -p --config webpack.config.prod.js --profile --json > stats.json",
     "analyzer:run": "webpack-bundle-analyzer stats.json ./dist",
-    "analyzer": "run-s analyzer:build analyzer:run"
+    "analyzer": "run-s analyzer:build analyzer:run",
+    "postinstall": "node wizard.js"
   },
   "keywords": [
     "react",
@@ -62,6 +63,7 @@
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
+    "inquirer": "^6.0.0",
     "npm-run-all": "^4.1.2",
     "rimraf": "^2.6.2",
     "style-loader": "^0.20.3",

@@ -10,19 +10,19 @@ const app = express();
 const compiler = webpack(config);
 
 const middleware = webpackMiddleware(compiler, {
-    logLevel: 'error',
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    stats: { colors: true },
+  logLevel: 'error',
+  headers: { 'Access-Control-Allow-Origin': '*' },
+  stats: { colors: true },
 });
 
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
 
 app.get('*', (req, res) => {
-    res.send(renderFullPage({}));
+  res.send(renderFullPage({}));
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}/`);
+  console.log(`Listening at http://localhost:${port}/`);
 });

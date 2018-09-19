@@ -6,7 +6,7 @@ let middleware = applyMiddleware(thunk);
 const reducers = combineReducers({ ...appReducers });
 
 if (__DEV__ && __CLIENT__ && typeof window.devToolsExtension === 'function') {
-    middleware = compose(middleware, window.devToolsExtension());
+  middleware = compose(middleware, window.devToolsExtension());
 }
 
 export default createStore(reducers, middleware);

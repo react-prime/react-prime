@@ -11,13 +11,13 @@ import App from './App';
 globalStyling();
 
 const Root = () => (
-    <Provider store={store}>
-        <ThemeProvider theme={theme}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </ThemeProvider>
-    </Provider>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
+  </Provider>
 );
 
 export default Root;

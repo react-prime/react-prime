@@ -14,14 +14,14 @@ app.use(express.static(path.resolve(__dirname, '../../dist')));
 
 const sheet = new ServerStyleSheet();
 app.use((req, res) => {
-    const html = SSR
-        ? renderToString(<ServerRoot location={req.url} sheet={sheet.instance} />)
-        : ' ';
+  const html = SSR
+    ? renderToString(<ServerRoot location={req.url} sheet={sheet.instance} />)
+    : ' ';
 
-    const styleTags = sheet.getStyleTags();
-    res.status(200).send(renderFullPage({ html, styleTags }));
+  const styleTags = sheet.getStyleTags();
+  res.status(200).send(renderFullPage({ html, styleTags }));
 });
 
 app.listen(port, () => {
-    console.info(`Listening on port ${port}`);
+  console.info(`Listening on port ${port}`);
 });

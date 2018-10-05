@@ -14,7 +14,6 @@
 `$ npm start` (run in development mode)
 
 ## Features
-* [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
 * [React](https://github.com/facebook/react)
 * [Redux](https://github.com/rackt/redux)
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
@@ -38,13 +37,13 @@
 * Run webpack-bundle-analyzer: `$ npm run analyzer`
 
 ## Deployment
-Make sure all modules are installed:  
+Make sure all modules are installed:
 `$ npm install`
 
-Create a build for production, this will add a `/dist` folder to the root with all bundles.  
+Create a build for production, this will add a `/dist` folder to the root with all bundles.
 `$ npm run build`
 
-Run the server file to start server:  
+Run the server file to start server:
 `$ npm run server`
 
 For production I recommend to use [PM2](http://pm2.keymetrics.io/) to run the server with advanced process management.
@@ -60,7 +59,6 @@ This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux
 To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.
 
 ## Roadmap
-- [ ] Serverside data fetching
 - [ ] Initial set-up flow
 - [x] Styled Components
 - [x] Serverside rendering optional

@@ -13,15 +13,9 @@ const prodConfig = {
 const serverConfig = {
   name: 'server',
   entry: { server: [path.resolve(__dirname, 'src/server')] },
-  output: {
-    filename: 'server.js',
-    path: path.join(__dirname, '/dist'),
-  },
-  module: { rules: [{ test: /\.css$/, loader: 'css-loader' }] },
-  plugins: [new webpack.DefinePlugin(globals('server'))],
   target: 'node',
   node: { __dirname: true },
   externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
 };
 
-module.exports = [merge(prodConfig), merge(serverConfig)];
+module.exports = [merge(prodConfig), serverConfig];

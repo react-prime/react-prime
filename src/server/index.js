@@ -8,7 +8,7 @@ app.use(compress());
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
 app.use((req, res) => {
-  res.sendFile('/index.html');
+  res.sendFile('index.html', { root: path.join(__dirname, '../../dist') });
 });
 
 app.listen(port, () => {

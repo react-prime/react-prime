@@ -1,8 +1,14 @@
 const path = require('path');
 const webpackMerge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const baseConfig = {
   mode: 'production',
+  output: {
+    filename: '[name].[hash].js',
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -45,12 +51,21 @@ const baseConfig = {
           /\.svg$/,
           /\.(jpe?g|png|gif)$/i,
           /\.json$/,
+          /\.html$/,
+          /\.ejs$/,
         ],
         loader: 'file-loader',
         options: { name: 'static/[name].[ext]' },
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/server/index-template.ejs'),
+      filename: 'index.html',
+      favicon: path.resolve(__dirname, './src/app/static/favicon.ico'),
+    }),
+  ],
   optimization: {
     splitChunks: {
       cacheGroups: {

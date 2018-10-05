@@ -6,7 +6,6 @@ const globals = require('./src/config/globals');
 const devConfig = {
   mode: 'development',
   devtool: 'eval-source-map',
-  output: { publicPath: '/' },
   entry: {
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',

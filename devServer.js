@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.dev.js');
-const renderFullPage = require('./src/server/helpers/renderFullPage');
 
 const app = express();
 const compiler = webpack(config);
@@ -19,7 +18,8 @@ app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
 
 app.get('*', (req, res) => {
-  res.send(renderFullPage({}));
+  const htmlBuffer = middleware.fileSystem.readFileSync(`${config.output.path}/index.html`);
+  res.send(htmlBuffer.toString());
 });
 
 const port = process.env.PORT || 3000;

@@ -17,11 +17,6 @@ const middleware = webpackMiddleware(compiler, {
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler));
 
-app.get('*', (req, res) => {
-  const htmlBuffer = middleware.fileSystem.readFileSync(`${config.output.path}/index.html`);
-  res.send(htmlBuffer.toString());
-});
-
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/`);

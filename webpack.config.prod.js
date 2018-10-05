@@ -13,6 +13,10 @@ const prodConfig = {
 const serverConfig = {
   name: 'server',
   entry: { server: [path.resolve(__dirname, 'src/server')] },
+  output: {
+    filename: 'server.js',
+    path: path.join(__dirname, '/dist'),
+  },
   module: { rules: [{ test: /\.css$/, loader: 'css-loader' }] },
   plugins: [new webpack.DefinePlugin(globals('server'))],
   target: 'node',

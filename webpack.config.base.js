@@ -40,7 +40,7 @@ const baseConfig = {
             loader: 'file-loader?name=static/[name].[ext]',
           },
           {
-            loader: 'url-loader?limit=10000',
+            loader: 'url-loader?limit=10000&name=static/images/[hash].[ext]',
           },
         ],
       },

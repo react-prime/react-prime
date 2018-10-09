@@ -13,7 +13,8 @@
     "__SERVER__": false
   },
   "rules": {
-    "semi": ["error", "always"],
-    "no-console": [2, { "allow": ["info", "error"]}]
+    "arrow-parens": 2,
+    "no-console": [2, { "allow": ["info", "error"]}],
+    "semi": ["error", "always"]
   }
 }

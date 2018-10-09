@@ -1,4 +1,10 @@
 {
-  "presets": ["env", "react", "stage-0"],
-  "plugins": ["lodash", "babel-plugin-styled-components"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    "lodash",
+    "babel-plugin-styled-components",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from"
+  ]
 }

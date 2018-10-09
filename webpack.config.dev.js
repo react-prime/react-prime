@@ -9,7 +9,7 @@ const devConfig = {
   entry: {
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
-      'babel-polyfill',
+      '@babel/polyfill',
       path.resolve(__dirname, 'src'),
     ],
   },

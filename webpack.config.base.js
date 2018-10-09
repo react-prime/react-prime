@@ -22,15 +22,7 @@ const baseConfig = {
       },
       {
         test: /\.svg$/,
-        oneOf: [
-          {
-            resourceQuery: /external/,
-            loader: 'url-loader?limit=10000',
-          },
-          {
-            loader: 'babel-loader!svg-react-loader',
-          },
-        ],
+        use: ['@svgr/webpack', 'url-loader'],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,

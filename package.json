@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "@svgr/webpack": "^3.1.0",
     "compression": "^1.7.3",
     "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
@@ -41,8 +42,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^3.4.9",
-    "svg-react-loader": "^0.4.5"
+    "styled-components": "^3.4.9"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

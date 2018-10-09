@@ -5,7 +5,7 @@
 * boilerplate, this action creator must be used.
 */
 
-export default type => (payload, meta) => ({
+export default (type) => (payload, meta) => ({
   type,
   payload,
   error: payload instanceof Error,

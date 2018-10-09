@@ -41,6 +41,6 @@ Demo.propTypes = {
   }),
 };
 
-export default connect(state => ({
+export default connect((state) => ({
   installation: state.demo,
 }), { install })(Demo);

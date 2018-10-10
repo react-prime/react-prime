@@ -22,7 +22,14 @@ const baseConfig = {
       },
       {
         test: /\.svg$/,
+        issuer: {
+          test: /\.jsx?$/
+        },
         use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader',
       },
       {
         test: /\.(jpe?g|png|gif)$/i,

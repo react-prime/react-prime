@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { install } from 'ducks/demo';
 import LogoIcon from 'vectors/logo.svg';
 import Button from 'common/Button';
+import Anchor from 'common/Anchor';
 import InstallationPassed from './components/InstallationPassed';
 
 const CenteredSection = styled.section`
@@ -19,8 +20,7 @@ const CenteredSection = styled.section`
   }
 `;
 
-
-const Demo = ({ installation: { passed, loading }, ...props }) => (
+const Prime = ({ installation: { passed, loading }, ...props }) => (
   <CenteredSection>
     <LogoIcon />
     {passed ? (
@@ -30,10 +30,12 @@ const Demo = ({ installation: { passed, loading }, ...props }) => (
         {loading ? 'Installing ...' : 'Test installation'}
       </Button>
     )}
+
+    <Anchor to="/demo">Go to demo page</Anchor>
   </CenteredSection>
 );
 
-Demo.propTypes = {
+Prime.propTypes = {
   install: PT.func.isRequired,
   installation: PT.shape({
     loading: PT.bool,
@@ -43,4 +45,4 @@ Demo.propTypes = {
 
 export default connect((state) => ({
   installation: state.demo,
-}), { install })(Demo);
+}), { install })(Prime);

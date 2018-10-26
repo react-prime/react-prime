@@ -1,7 +1,9 @@
+import PT from 'prop-types';
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 import { Link } from 'react-router-dom';
 
-export default styled(Link)`
+const Anchor = styled(Link)`
   position: fixed;
   right: 0;
   bottom: 0;
@@ -11,6 +13,23 @@ export default styled(Link)`
   padding: 20px;
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
   color: ${(props) => props.theme.white};
-  background: ${(props) => props.theme.blue};
+  background: ${(props) => props.theme[props.variant]};
+
+  ${media.desktop`
+    &:hover {
+      text-decoration: underline;
+    }
+  `}
 `;
+
+Anchor.propTypes = {
+  variant: PT.oneOf(['blue', 'green']),
+};
+
+Anchor.defaultProps = {
+  variant: 'blue',
+};
+
+export default Anchor;

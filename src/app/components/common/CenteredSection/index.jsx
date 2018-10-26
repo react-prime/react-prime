@@ -1,6 +1,7 @@
+import PT from 'prop-types';
 import styled from 'styled-components';
 
-export default styled.section`
+const CenteredSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +11,7 @@ export default styled.section`
     margin: 50px 0;
 
     path {
-      fill: ${(props) => props.theme.blue};
+      fill: ${(props) => props.theme[props.variant]};
       fill-rule: nonzero;
 
       &:nth-of-type(2) {
@@ -19,3 +20,13 @@ export default styled.section`
     }
   }
 `;
+
+CenteredSection.propTypes = {
+  variant: PT.oneOf(['blue', 'green']),
+};
+
+CenteredSection.defaultProps = {
+  variant: 'blue',
+};
+
+export default CenteredSection;

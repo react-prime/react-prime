@@ -19,6 +19,10 @@ const CenteredSection = styled.section`
       }
     }
   }
+
+  p > a {
+    color: ${(props) => props.theme[props.variant]};
+  }
 `;
 
 CenteredSection.propTypes = {

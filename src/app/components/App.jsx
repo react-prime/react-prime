@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Demo from 'modules/Demo';
+
+import Loading from 'common/Loading';
+
+const Prime = lazy(() => import('modules/Prime'));
+const Demo = lazy(() => import('modules/Demo'));
 
 const App = () => (
   <main>
-    <Switch>
-      <Route path="/" component={Demo} exact />
-    </Switch>
+    <Suspense fallback={<Loading>Loading...</Loading>}>
+      <Switch>
+        <Route path="/" component={Prime} exact />
+        <Route path="/demo" component={Demo} />
+      </Switch>
+    </Suspense>
   </main>
 );
 

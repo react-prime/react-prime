@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { install } from 'ducks/demo';
 import LogoIcon from 'vectors/logo.svg';
-import Anchor from 'common/Anchor';
+import PageLink from 'common/PageLink';
 import Button from 'common/Button';
 import CenteredSection from 'common/CenteredSection';
 import InstallationPassed from './components/InstallationPassed';
@@ -20,7 +20,7 @@ const Prime = ({ installation: { passed, loading }, ...props }) => (
       </Button>
     )}
 
-    <Anchor to="/demo">Go to demo page</Anchor>
+    <PageLink to="/demo">Go to demo page</PageLink>
   </CenteredSection>
 );
 

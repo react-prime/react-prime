@@ -13,10 +13,40 @@
     "__SERVER__": false
   },
   "rules": {
+    "array-bracket-spacing": ["error", "never"],
     "arrow-parens": 2,
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "block-spacing": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "import/first": "error",
+    "import/no-duplicates": "error",
+    "jsx-quotes": ["error", "prefer-double"],
+    "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
+    "keyword-spacing": ["error", {
+      "before": true,
+      "after": true,
+      "overrides": {
+        "return": { "after": true },
+        "throw": { "after": true },
+        "case": { "after": true }
+      }
+    }],
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
     "no-console": [2, { "allow": ["info", "error"]}],
-    "semi": ["error", "always"],
+    "no-trailing-spaces": ["error"],
+    "object-curly-spacing": ["error", "always"],
+    "prefer-const": ["error"],
+    "quotes": ["error", "single"],
+    "react/no-unused-prop-types": 2,
     "react/prop-types": 2,
-    "react/no-unused-prop-types": 2
+    "semi": ["error", "always"],
+    "space-before-blocks": "error",
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "space-in-parens": ["error", "never"],
+    "space-infix-ops": "error"
   }
 }

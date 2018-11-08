@@ -3,6 +3,9 @@
   "settings": {
     "import/resolver": {
       "webpack": { "config": "webpack.config.base.js" }
+    },
+    "react": {
+      "version": "16.6.0"
     }
   },
   "globals": {

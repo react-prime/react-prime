@@ -11,8 +11,7 @@ import InstallationPassed from './components/InstallationPassed';
 
 class Prime extends React.Component {
   componentDidMount() {
-    import(/* webpackChunkName: "Demo" */'modules/Demo')
-      .then((res) => console.log('demo loaded', res));
+    import(/* webpackChunkName: "Demo" */'modules/Demo');
   }
 
   render() {

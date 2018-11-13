@@ -7,8 +7,7 @@ import CenteredSection from 'common/CenteredSection';
 
 class Demo extends React.Component {
   componentDidMount() {
-    import(/* webpackChunkName: "Prime" */'modules/Prime')
-      .then((res) => console.log('prime loaded', res));
+    import(/* webpackChunkName: "Prime" */'modules/Prime');
   }
 
   render() {

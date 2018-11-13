@@ -11,6 +11,4 @@ module.exports = (type) => ({
   __TEST__: appEnv === 'test',
   __ACC__: appEnv === 'acceptation',
   __PROD__: appEnv === 'production',
-  __CLIENT__: type === 'client',
-  __SERVER__: type === 'server',
 });

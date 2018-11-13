@@ -10,10 +10,9 @@
   },
   "globals": {
     "__DEV__": false,
+    "__TEST__": false,
     "__ACC__": false,
-    "__PROD__": false,
-    "__CLIENT__": false,
-    "__SERVER__": false
+    "__PROD__": false
   },
   "rules": {
     "array-bracket-spacing": ["error", "never"],

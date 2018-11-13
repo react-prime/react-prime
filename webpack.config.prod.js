@@ -16,6 +16,7 @@ const serverConfig = {
   target: 'node',
   node: { __dirname: true },
   externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
+  plugins: [new webpack.DefinePlugin(globals('client'))],
 };
 
 module.exports = [merge(prodConfig), serverConfig];

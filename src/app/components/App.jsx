@@ -3,8 +3,10 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import GlobalStyle from 'styles';
 
 import Loading from 'common/Loading';
-const Prime = lazy(() => import(/* webpackChunkName: "Prime" */'modules/Prime'));
-const Demo = lazy(() => import(/* webpackChunkName: "Demo" */'modules/Demo'));
+// const Prime = lazy(() => import(/* webpackChunkName: "Prime" */'modules/Prime'));
+// const Demo = lazy(() => import(/* webpackChunkName: "Demo" */'modules/Demo'));
+const Prime = lazy(() => import('modules/Prime'));
+const Demo = lazy(() => import('modules/Demo'));
 
 const App = () => (
   <main>

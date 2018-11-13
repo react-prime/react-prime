@@ -64,6 +64,7 @@ const baseConfig = {
       template: path.resolve(__dirname, './src/server/template.ejs'),
       filename: 'index.html',
       favicon: path.resolve(__dirname, './src/app/static/favicon.ico'),
+      chunksSortMode: 'none',
     }),
   ],
   optimization: {

@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import PT from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -11,12 +11,8 @@ import InstallationPassed from './components/InstallationPassed';
 
 class Prime extends React.Component {
   componentDidMount() {
-    lazy(() => import(/* webpackChunkName: "Demo" */'modules/Demo'));
-    import(/* webpackChunkName: "Demo" */'modules/Demo');
-    import('modules/Demo')
-      .then((res) => {
-        console.log(res);
-      });
+    import(/* webpackChunkName: "Demo" */'modules/Demo')
+      .then((res) => console.log('demo loaded', res));
   }
 
   render() {
@@ -38,21 +34,6 @@ class Prime extends React.Component {
     );
   }
 }
-
-// const Prime = ({ installation: { passed, loading }, ...props }) => (
-//   <CenteredSection>
-//     <LogoIcon />
-//     {passed ? (
-//       <InstallationPassed />
-//     ) : (
-//       <Button onClick={props.install}>
-//         {loading ? 'Installing ...' : 'Test installation'}
-//       </Button>
-//     )}
-
-//     <PageLink to="/demo">Go to demo page</PageLink>
-//   </CenteredSection>
-// );
 
 Prime.propTypes = {
   install: PT.func.isRequired,

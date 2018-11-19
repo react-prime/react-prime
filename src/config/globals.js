@@ -1,7 +1,7 @@
 const env = process.env.NODE_ENV || 'development';
 const appEnv = process.env.APP_ENV || 'development';
 
-module.exports = (type) => ({
+module.exports = {
   'process.env': {
     NODE_ENV: JSON.stringify(env),
     APP_ENV: JSON.stringify(appEnv),
@@ -11,4 +11,4 @@ module.exports = (type) => ({
   __TEST__: appEnv === 'test',
   __ACC__: appEnv === 'acceptation',
   __PROD__: appEnv === 'production',
-});
+};

@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -60,10 +61,10 @@ const baseConfig = {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/server/template.ejs'),
       filename: 'index.html',
-      favicon: path.resolve(__dirname, './src/app/static/favicon.ico'),
       chunksSortMode: 'none',
     }),
   ],

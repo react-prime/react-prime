@@ -10,7 +10,7 @@ const devConfig = {
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
       '@babel/polyfill',
-      paths.resolveSrc('app'),
+      paths.resolveSrc(),
     ],
   },
   plugins: [

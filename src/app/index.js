@@ -11,7 +11,7 @@ const render = () => {
 };
 
 if (__DEV__ && module.hot) {
-  module.hot.accept('./app/components/Root', render);
+  module.hot.accept('./components/Root', render);
 }
 
 render();

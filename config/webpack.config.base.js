@@ -63,7 +63,7 @@ const baseConfig = {
   plugins: [
     new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
-      template: paths.resolveSrc('server/template.ejs'),
+      template: paths.resolveSrc('app/template.ejs'),
       filename: 'index.html',
       chunksSortMode: 'none',
     }),

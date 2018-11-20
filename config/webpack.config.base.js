@@ -63,7 +63,7 @@ const baseConfig = {
   plugins: [
     new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
-      template: paths.resolveSrc('app/template.ejs'),
+      template: paths.resolveSrc('template.ejs'),
       filename: 'index.html',
       chunksSortMode: 'none',
     }),
@@ -82,18 +82,17 @@ const baseConfig = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      app: paths.resolveSrc('app'),
-      common: paths.resolveSrc('app/components/common'),
-      components: paths.resolveSrc('app/components'),
-      config: paths.resolveSrc('app/config'),
-      ducks: paths.resolveSrc('app/ducks'),
-      fonts: paths.resolveSrc('app/static/fonts'),
-      images: paths.resolveSrc('app/static/images'),
-      modules: paths.resolveSrc('app/components/modules'),
-      server: paths.resolveSrc('server'),
-      services: paths.resolveSrc('app/services'),
-      styles: paths.resolveSrc('app/styles'),
-      vectors: paths.resolveSrc('app/static/vectors'),
+      app: paths.resolveSrc(),
+      common: paths.resolveSrc('components/common'),
+      components: paths.resolveSrc('components'),
+      config: paths.resolveSrc('config'),
+      ducks: paths.resolveSrc('ducks'),
+      fonts: paths.resolveSrc('static/fonts'),
+      images: paths.resolveSrc('static/images'),
+      modules: paths.resolveSrc('components/modules'),
+      services: paths.resolveSrc('services'),
+      styles: paths.resolveSrc('styles'),
+      vectors: paths.resolveSrc('static/vectors'),
     },
   },
 };

@@ -7,7 +7,7 @@ const paths = require('./paths');
 
 const prodConfig = {
   name: 'client',
-  entry: { app: ['@babel/polyfill', paths.resolveSrc('app')] },
+  entry: { app: ['@babel/polyfill', paths.resolveSrc()] },
   plugins: [
     new CopyWebpackPlugin([{ from: paths.resolveRoot('server/index.js'), to: 'server.js' }]),
     new webpack.DefinePlugin(globals),

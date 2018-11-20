@@ -6,7 +6,7 @@ import registerServiceWorker from 'services/registerServiceWorker';
 if (!__DEV__) registerServiceWorker();
 
 const render = () => {
-  const Root = require('app/components/Root').default;
+  const Root = require('./components/Root').default;
   ReactDOM.render(<Root />, document.getElementById('app'));
 };
 

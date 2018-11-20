@@ -1,7 +1,7 @@
-const path = require('path');
 const webpack = require('webpack');
 const merge = require('./webpack.config.base');
-const globals = require('./src/config/globals');
+const globals = require('./globals');
+const paths = require('./paths');
 
 const devConfig = {
   mode: 'development',
@@ -10,7 +10,7 @@ const devConfig = {
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
       '@babel/polyfill',
-      path.resolve(__dirname, 'src/app'),
+      paths.resolveSrc('app'),
     ],
   },
   plugins: [

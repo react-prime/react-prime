@@ -2,7 +2,7 @@
   "extends": "react-app",
   "settings": {
     "import/resolver": {
-      "webpack": { "config": "webpack.config.base.js" }
+      "webpack": { "config": "config/webpack.config.base.js" }
     },
     "react": {
       "version": "latest"

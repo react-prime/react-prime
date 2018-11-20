@@ -6,7 +6,7 @@ const paths = require('./paths');
 const baseConfig = {
   mode: 'production',
   output: {
-    filename: 'static/js/[name].[chunkhash:8].js',
+    filename: 'static/js/[name].[hash].js',
     path: paths.resolveRoot('dist'),
     publicPath: '/',
   },

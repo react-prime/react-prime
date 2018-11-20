@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "node devServer.js",
+    "start": "node server/devServer.js",
     "build": "rimraf dist/ && webpack -p --hide-modules --config config/webpack.config.prod.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",

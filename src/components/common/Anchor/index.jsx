@@ -1,20 +1,18 @@
 import PT from 'prop-types';
 import styled from 'styled-components';
 
-const PageLink = styled.a.attrs({
+const Anchor = styled.a.attrs({
   target: '_blank',
   rel: 'noopener noreferrer',
   href: (props) => props.href,
 })`
-  color: ${(props) => props.theme[props.variant]};
+  color: ${(props) => props.theme.black};
+  text-decoration: none;
+  border-bottom: 2px solid ${(props) => props.theme.prime};
 `;
 
-PageLink.propTypes = {
-  variant: PT.oneOf(['blue', 'green']),
+Anchor.propTypes = {
+  href: PT.string,
 };
 
-PageLink.defaultProps = {
-  variant: 'green',
-};
-
-export default PageLink;
+export default Anchor;

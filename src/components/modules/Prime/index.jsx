@@ -1,47 +1,53 @@
 import React from 'react';
-import PT from 'prop-types';
-import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-import { install } from 'ducks/demo';
-import LogoIcon from 'vectors/logo.svg';
-import PageLink from 'common/PageLink';
-import Button from 'common/Button';
-import CenteredSection from 'common/CenteredSection';
-import InstallationPassed from './components/InstallationPassed';
+import Anchor from 'common/Anchor';
+import Logo from 'vectors/logo.svg';
+import GithubLogo from 'images/github-logo.png';
 
-class Prime extends React.Component {
-  componentDidMount() {
-    import(/* webpackChunkName: "Demo" */'modules/Demo');
+const PrimeHeader = styled.header`
+  text-align: center;
+  padding: 50px 10px;
+  margin: 0 0 50px;
+  background: ${(props) => props.theme.black};
+
+  & > svg {
+    width: 250px;
   }
+`;
 
-  render() {
-    const { installation: { passed, loading }, ...props } = this.props;
+const PrimeContent = styled.section`
+  text-align: center;
+  padding: 0 10px;
+  line-height: 25px;
+`;
 
-    return (
-      <CenteredSection>
-        <LogoIcon />
-        {passed ? (
-          <InstallationPassed />
-        ) : (
-            <Button onClick={props.install}>
-              {loading ? 'Installing ...' : 'Test installation'}
-            </Button>
-          )}
+const GithubLink = styled.a`
+  width: 20px;
+  height: 20px;
+  display: inline-block;
 
-        <PageLink to="/demo">Go to demo page</PageLink>
-      </CenteredSection>
-    );
+  & > img {
+    width: 100%;
   }
-}
+`;
 
-Prime.propTypes = {
-  install: PT.func.isRequired,
-  installation: PT.shape({
-    loading: PT.bool,
-    passed: PT.bool,
-  }),
-};
+const Prime = () => (
+  <>
+    <PrimeHeader>
+      <Logo />
+    </PrimeHeader>
+    <PrimeContent>
+      <p>Created by <Anchor href="https://github.com/JBostelaar">@JBostelaar</Anchor> and maintained by <Anchor href="https://labela.nl/">LabelA</Anchor></p>
+      <GithubLink
+        href="https://github.com/JBostelaar/react-prime"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={GithubLogo} alt="github" />
+      </GithubLink>
+    </PrimeContent>
+  </>
+);
 
-export default connect((state) => ({
-  installation: state.demo,
-}), { install })(Prime);
+export default Prime;

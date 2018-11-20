@@ -7,7 +7,7 @@ const merge = require('./webpack.config.base');
 
 const prodConfig = {
   name: 'client',
-  entry: { app: ['@babel/polyfill', path.resolve(__dirname, 'src')] },
+  entry: { app: ['@babel/polyfill', path.resolve(__dirname, 'src/app')] },
   plugins: [
     new webpack.DefinePlugin(globals),
     new GenerateSW({

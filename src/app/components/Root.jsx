@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import theme from 'styles/theme';
-import 'app/static/favicon.ico';
 import App from './App';
 
 const Root = () => (

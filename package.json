@@ -10,11 +10,11 @@
   "license": "MIT",
   "scripts": {
     "start": "node devServer.js",
-    "build": "rimraf dist/ && webpack -p --hide-modules --config webpack.config.prod.js",
+    "build": "rimraf dist/ && webpack -p --hide-modules --config config/webpack.config.prod.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
     "lint": "eslint --ext .jsx --ext .js src/",
-    "analyzer:build": "NODE_ENV=production webpack -p --config webpack.config.prod.js --profile --json > stats.json",
+    "analyzer:build": "NODE_ENV=production webpack -p --config config/webpack.config.prod.js --profile --json > stats.json",
     "analyzer:run": "webpack-bundle-analyzer stats.json ./dist",
     "analyzer": "run-s analyzer:build analyzer:run"
   },

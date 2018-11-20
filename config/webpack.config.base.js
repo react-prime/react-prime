@@ -1,13 +1,13 @@
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const paths = require('./paths');
 
 const baseConfig = {
   mode: 'production',
   output: {
     filename: '[name].[hash].js',
-    path: path.join(__dirname, 'dist'),
+    path: paths.resolveRoot('dist'),
     publicPath: '/',
   },
   module: {
@@ -63,7 +63,7 @@ const baseConfig = {
   plugins: [
     new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/server/template.ejs'),
+      template: paths.resolveSrc('server/template.ejs'),
       filename: 'index.html',
       chunksSortMode: 'none',
     }),
@@ -82,18 +82,18 @@ const baseConfig = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      app: path.resolve(__dirname, './src/app'),
-      common: path.resolve(__dirname, './src/app/components/common'),
-      components: path.resolve(__dirname, './src/app/components'),
-      config: path.resolve(__dirname, './src/config'),
-      ducks: path.resolve(__dirname, './src/app/ducks'),
-      fonts: path.resolve(__dirname, './src/app/static/fonts'),
-      images: path.resolve(__dirname, './src/app/static/images'),
-      modules: path.resolve(__dirname, './src/app/components/modules'),
-      server: path.resolve(__dirname, './src/server'),
-      services: path.resolve(__dirname, './src/app/services'),
-      styles: path.resolve(__dirname, './src/app/styles'),
-      vectors: path.resolve(__dirname, './src/app/static/vectors'),
+      app: paths.resolveSrc('app'),
+      common: paths.resolveSrc('app/components/common'),
+      components: paths.resolveSrc('app/components'),
+      config: paths.resolveSrc('app/config'),
+      ducks: paths.resolveSrc('app/ducks'),
+      fonts: paths.resolveSrc('app/static/fonts'),
+      images: paths.resolveSrc('app/static/images'),
+      modules: paths.resolveSrc('app/components/modules'),
+      server: paths.resolveSrc('server'),
+      services: paths.resolveSrc('app/services'),
+      styles: paths.resolveSrc('app/styles'),
+      vectors: paths.resolveSrc('app/static/vectors'),
     },
   },
 };

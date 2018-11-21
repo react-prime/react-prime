@@ -28,8 +28,7 @@ npm start
 * [Code splitting](https://reactjs.org/docs/code-splitting.html)
 * [Babel](http://babeljs.io) for ES6 and ES7
 * [Webpack](https://webpack.js.org/) for bundling
-* [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
-* [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
+* [Webpack Dev Server](https://github.com/webpack/webpack-dev-server)
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [ESLint](http://eslint.org) to maintain a consistent code style
 * Refer to `package.json` for more details

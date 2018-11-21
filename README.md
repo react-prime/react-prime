@@ -11,7 +11,7 @@
 ---
 
 ## Quick start
-Use [create-react-prime](https://www.npmjs.com/package/create-react-prime).
+Use [create-react-prime](https://www.npmjs.com/package/create-react-prime) for easy install.
 ```
 npx create-react-prime my-app
 cd my-app
@@ -19,18 +19,19 @@ npm start
 ```
 
 ## Features
-* [React](https://github.com/facebook/react)
-* [Redux](https://github.com/rackt/redux)
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
-* [React Router](https://github.com/rackt/react-router)
-* [Express](http://expressjs.com)
+* [React Router](https://reacttraining.com/react-router/)
+* [Styled-Components](https://www.styled-components.com)
+* [Workbox](https://developers.google.com/web/tools/workbox/) for offline support and caching
+* [Code splitting](https://reactjs.org/docs/code-splitting.html)
 * [Babel](http://babeljs.io) for ES6 and ES7
-* [Webpack](http://webpack.github.io) for bundling
+* [Webpack](https://webpack.js.org/) for bundling
 * [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [ESLint](http://eslint.org) to maintain a consistent code style
-* [Styled-Components](https://www.styled-components.com)
 * Refer to `package.json` for more details
 
 ## NPM Scripts

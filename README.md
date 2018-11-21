@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/JBostelaar/react-prime/blob/master/src/static/images/prime-logo.png" alt="prime-logo" width="250px" />
+</p>
+
 # React Prime
 [![Build Status](https://travis-ci.org/JBostelaar/react-prime.svg?branch=master)](https://travis-ci.org/JBostelaar/react-prime)
 [![dependencies Status](https://david-dm.org/jbostelaar/react-prime/status.svg)](https://david-dm.org/jbostelaar/react-prime)
@@ -6,12 +10,13 @@
 
 ---
 
-## Getting Started
-`$ git clone https://github.com/JBostelaar/react-prime`
-
-`$ cd react-prime && npm install`
-
-`$ npm start` (run in development mode)
+## Quick start
+Use [create-react-prime](https://www.npmjs.com/package/create-react-prime).
+```
+npx create-react-prime my-app
+cd my-app
+npm start
+```
 
 ## Features
 * [React](https://github.com/facebook/react)

@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "node server/devServer.js",
+    "start": "webpack-dev-server --config config/webpack.config.dev.js",
     "build": "rimraf dist/ && webpack -p --hide-modules --config config/webpack.config.prod.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
@@ -71,8 +71,7 @@
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-middleware": "^3.4.0",
-    "webpack-hot-middleware": "^2.24.3",
+    "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4",
     "workbox-webpack-plugin": "3.6.3"
   },

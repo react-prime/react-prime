@@ -7,16 +7,17 @@ const devConfig = {
   mode: 'development',
   devtool: 'eval-source-map',
   entry: {
-    app: [
-      'webpack-hot-middleware/client?reload=true&noInfo=true',
-      '@babel/polyfill',
-      paths.resolveSrc(),
-    ],
+    app: ['@babel/polyfill', paths.resolveSrc()],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin(globals),
   ],
+  devServer: {
+    hot: true,
+    port: process.env.PORT || 3000,
+    stats: 'minimal',
+  },
 };
 
 module.exports = merge(devConfig);

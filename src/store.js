@@ -5,8 +5,8 @@ import * as appReducers from 'ducks';
 let middleware = applyMiddleware(thunk);
 const reducers = combineReducers({ ...appReducers });
 
-if (__DEV__ && typeof window.devToolsExtension === 'function') {
-  middleware = compose(middleware, window.devToolsExtension());
+if (__DEV__ && window.__REDUX_DEVTOOLS_EXTENSION__) {
+  middleware = compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__());
 }
 
 export default createStore(reducers, middleware);

@@ -22,15 +22,12 @@
     "comma-dangle": ["error", "always-multiline"],
     "import/first": "error",
     "import/no-duplicates": "error",
-    "import/order": ["error", {        
-      "groups": [        
-        "external",        
-        "internal",        
-        "index",        
-        "parent",        
-        "sibling",        
-        "builtin"        
-      ]        
+    "import/order": ["error", {
+      "groups": [
+        "builtin",
+        "external",
+        "internal"
+      ]
     }],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],

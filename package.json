@@ -25,6 +25,19 @@
     "babel",
     "styled-components"
   ],
+  "browserslist": {
+    "production": [
+      "> 0.2%",
+      "ie 11",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "compression": "^1.7.3",

@@ -26,7 +26,10 @@ const baseConfig = {
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'url-loader?limit=10000',
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            }
           },
           {
             loader: '@svgr/webpack',
@@ -38,10 +41,17 @@ const baseConfig = {
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'file-loader?name=static/[name].[ext]',
+            loader: 'file-loader',
+            options: {
+              name: 'static/[name].[ext]',
+            },
           },
           {
-            loader: 'url-loader?limit=10000&name=static/images/[hash].[ext]',
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'static/images/[hash].[ext]',
+            }
           },
         ],
       },

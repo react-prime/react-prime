@@ -4,6 +4,7 @@ const { GenerateSW } = require('workbox-webpack-plugin');
 const globals = require('./globals');
 const merge = require('./webpack.config.base');
 const paths = require('./paths');
+const pjson = require('../package.json');
 
 const prodConfig = {
   name: 'client',
@@ -12,7 +13,7 @@ const prodConfig = {
     new CopyWebpackPlugin([{ from: paths.resolveRoot('server/index.js'), to: 'server.js' }]),
     new webpack.DefinePlugin(globals),
     new GenerateSW({
-      cacheId: 'prime',
+      cacheId: pjson.name,
       swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,

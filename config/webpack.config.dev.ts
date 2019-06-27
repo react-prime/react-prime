@@ -21,13 +21,9 @@ const devConfig: devServer.Configuration = merge({
   devServer: {
     host: '0.0.0.0',
     port: Number(process.env.PORT) || 3000,
-    https: true,
     hot: true,
     stats: 'minimal',
     historyApiFallback: true,
-    allowedHosts: [
-      '.localhost.me',
-    ],
   },
 });
 

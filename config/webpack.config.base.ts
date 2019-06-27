@@ -15,7 +15,7 @@ const baseConfig: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
@@ -59,7 +59,7 @@ const baseConfig: webpack.Configuration = {
       },
       {
         exclude: [
-          /\.jsx?$/,
+          /\.[tj]sx?$/,
           /\.css$/,
           /\.svg$/,
           /\.(jpe?g|png|gif)$/i,

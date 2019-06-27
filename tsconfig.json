@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "allowJs": false,
     "sourceMap": true,
     "noImplicitAny": false,
     "pretty": true,
@@ -31,7 +30,6 @@
       "styled-components": ["src/services/styled-components"]
     },
     "typeRoots": ["node_modules/@types"],
-    "types": ["cypress"],
     "lib": ["dom", "es2017"]
   }
 }

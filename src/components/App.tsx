@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, RouteComponentProps } from 'react-router-dom';
 import GlobalStyle from 'styles';
 
 const Prime = lazy(() => import('modules/Prime'));
 
-const App = () => (
+const App: React.FC<RouteComponentProps> = () => (
   <main>
     <GlobalStyle />
     <Suspense fallback={<span>loading</span>}>

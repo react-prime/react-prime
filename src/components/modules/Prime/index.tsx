@@ -9,7 +9,7 @@ const PrimeHeader = styled.header`
   text-align: center;
   padding: 50px 10px;
   margin: 0 0 50px;
-  background: ${(props) => props.theme.black};
+  background: ${(props) => props.theme.colors.black};
 
   & > svg {
     width: 250px;
@@ -32,7 +32,7 @@ const GithubLink = styled.a`
   }
 `;
 
-const Prime = () => (
+const Prime: React.FC = () => (
   <>
     <PrimeHeader>
       <Logo />

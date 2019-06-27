@@ -1,7 +1,7 @@
 const env = process.env.NODE_ENV || 'development';
 const appEnv = process.env.APP_ENV || 'development';
 
-module.exports = {
+const globals = {
   'process.env': {
     NODE_ENV: JSON.stringify(env),
     APP_ENV: JSON.stringify(appEnv),
@@ -12,3 +12,5 @@ module.exports = {
   __ACC__: appEnv === 'acceptation',
   __PROD__: appEnv === 'production',
 };
+
+export default globals;

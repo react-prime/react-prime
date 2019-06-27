@@ -1,13 +1,15 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const webpackMerge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const paths = require('./paths');
+import * as path from 'path';
+import * as webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import webpackMerge from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
-const baseConfig = {
+const baseConfig: webpack.Configuration = {
   mode: 'production',
   output: {
     filename: 'static/js/[name].[hash].js',
-    path: paths.resolveRoot('dist'),
+    path: path.resolve('dist'),
     publicPath: '/',
   },
   module: {
@@ -29,7 +31,7 @@ const baseConfig = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-            }
+            },
           },
           {
             loader: '@svgr/webpack',
@@ -51,7 +53,7 @@ const baseConfig = {
             options: {
               limit: 10000,
               name: 'static/images/[hash].[ext]',
-            }
+            },
           },
         ],
       },
@@ -73,7 +75,7 @@ const baseConfig = {
   plugins: [
     new CopyWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
-      template: paths.resolveSrc('template.ejs'),
+      template: path.resolve('src/template.ejs'),
       filename: 'index.html',
       chunksSortMode: 'none',
     }),
@@ -90,23 +92,13 @@ const baseConfig = {
     },
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      app: paths.resolveSrc(),
-      common: paths.resolveSrc('components/common'),
-      components: paths.resolveSrc('components'),
-      config: paths.resolveSrc('config'),
-      ducks: paths.resolveSrc('ducks'),
-      fonts: paths.resolveSrc('static/fonts'),
-      images: paths.resolveSrc('static/images'),
-      modules: paths.resolveSrc('components/modules'),
-      services: paths.resolveSrc('services'),
-      styles: paths.resolveSrc('styles'),
-      vectors: paths.resolveSrc('static/vectors'),
-    },
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+    plugins: [
+      new TsconfigPathsPlugin(),
+    ],
   },
 };
 
-const merge = (...config) => webpackMerge(baseConfig, ...config);
+export default baseConfig;
 
-module.exports = merge;
+export const merge = (...config: webpack.Configuration[]) => webpackMerge(baseConfig, ...config);

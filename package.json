@@ -9,13 +9,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.config.dev.js",
-    "build": "rimraf dist/ && webpack -p --hide-modules --config config/webpack.config.prod.js",
+    "start": "webpack-dev-server --config config/webpack.config.dev.ts",
+    "build": "rimraf dist/ && webpack -p --hide-modules --config config/webpack.config.prod.ts",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
-    "lint": "eslint --ext .jsx --ext .js src/",
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
     "stylelint": "stylelint './src/**/*.js*'",
-    "analyzer": "webpack -p --config config/webpack.config.prod.js --profile --json > stats.json && webpack-bundle-analyzer stats.json ./dist"
+    "analyzer": "webpack -p --config config/webpack.config.prod.ts --profile --json > stats.json && webpack-bundle-analyzer stats.json ./dist"
   },
   "keywords": [
     "react",
@@ -24,7 +24,8 @@
     "redux",
     "boilerplate",
     "babel",
-    "styled-components"
+    "styled-components",
+    "typescript"
   ],
   "browserslist": {
     "production": [

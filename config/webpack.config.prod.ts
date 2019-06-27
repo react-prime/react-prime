@@ -1,6 +1,5 @@
-import * as path from 'path';
+import path from 'path';
 import * as webpack from 'webpack';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { GenerateSW } from 'workbox-webpack-plugin';
 import globals from './globals';
 import { merge } from './webpack.config.base';
@@ -12,10 +11,6 @@ const prodConfig = {
     app: ['@babel/polyfill', path.resolve('src')],
   },
   plugins: [
-    new CopyWebpackPlugin([{
-      from: path.resolve('server/index.js'),
-      to: 'server.js',
-    }]),
     new webpack.DefinePlugin(globals),
     new GenerateSW({
       cacheId: pjson.name,

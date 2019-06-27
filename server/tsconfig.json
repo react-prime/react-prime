@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "outDir": "../dist",
+    "target": "es5",
+    "lib": [
+      "es2017"
+    ]
+  },
+  "include": ["server.ts"],
+  "exclude": []
+}

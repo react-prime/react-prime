@@ -1,4 +1,4 @@
-import * as path from 'path';
+import path from 'path';
 import * as webpack from 'webpack';
 import * as devServer from 'webpack-dev-server';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';

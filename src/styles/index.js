@@ -8,8 +8,8 @@ export default createGlobalStyle`
   }
 
   *,
-  *:after,
-  *:before {
+  *::after,
+  *::before {
     box-sizing: inherit;
   }
 

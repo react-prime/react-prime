@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": false,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "pretty": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "common/*": ["src/components/common/*"],
+      "modules/*": ["src/components/modules/*"],
+      "config/*": ["config/*"],
+      "config": ["config/index"],
+      "ducks/*": ["src/ducks/*"],
+      "ducks": ["src/ducks/index"],
+      "images/*": ["src/static/images/*"],
+      "server": ["server/index"],
+      "services/*": ["src/services/*"],
+      "store": ["src/store"],
+      "styles/*": ["src/styles/*"],
+      "styles": ["src/styles/index"],
+      "types": ["src/types/index"],
+      "vectors/*": ["src/static/vectors/*"],
+      "styled-components": ["src/services/styled-components"]
+    },
+    "typeRoots": ["node_modules/@types"],
+    "types": ["cypress"],
+    "lib": ["dom", "es2017"]
+  }
+}

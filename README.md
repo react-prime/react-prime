@@ -19,6 +19,7 @@ npm start
 ```
 
 ## Features
+* [TypeScript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions

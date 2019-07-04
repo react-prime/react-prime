@@ -2,12 +2,12 @@
   "compilerOptions": {
     "noEmit": true,
     "sourceMap": true,
-    "noImplicitAny": false,
     "pretty": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "strict": true,
     "module": "commonjs",
     "target": "esnext",
     "jsx": "react",

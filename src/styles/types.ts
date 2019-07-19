@@ -28,10 +28,8 @@ export type SubcolorFromTheme<Color extends i.ThemeColors, Subcolor extends i.Su
 
 type MediaQueryType = ThemedCssFunction<typeof theme>;
 
-export type MediaSizes = typeof sizes;
+export type MediaSizes = keyof typeof sizes;
 
 export type MediaUtils = {
-  [size in keyof typeof sizes]: MediaQueryType;
+  [size in i.MediaSizes]: MediaQueryType;
 }
-
-export type CssFnParams = Parameters<typeof css>;

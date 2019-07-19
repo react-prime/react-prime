@@ -7,12 +7,13 @@ export const sizes = {
   tablet: 768,
 } as const;
 
-export const media = (Object.keys(sizes).reduce<Partial<i.MediaUtils>>((accumulator, label) => {
+export const media = Object.keys(sizes).reduce((accumulator, _label) => {
   // use em in breakpoints to work properly cross-browser and support users
   // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
+  const label = _label as i.MediaSizes;
   const emSize = sizes[label] / 16;
 
-  accumulator[label] = (...args: i.CssFnParams) => css` @media (min-width: ${emSize}em) { ${css(...args)}; } `;
+  accumulator[label] = (...args: Parameters<typeof css>) => css` @media (min-width: ${emSize}em) { ${css(...args)}; } `;
 
   return accumulator;
-}, {}) as i.MediaUtils);
+}, {} as i.MediaUtils);

@@ -43,7 +43,7 @@ export default (state = initialState, action: ActionType<typeof dataActions>) =>
   }
 };
 
-export const getData = (): i.ThunkAction => (dispatch) => {
+export const getData: i.GetData['thunk'] = () => (dispatch) => {
   dispatch(dataActions.load());
 
   setTimeout(() => {

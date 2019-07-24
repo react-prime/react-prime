@@ -1,5 +1,4 @@
 import * as i from 'types';
-import { css } from 'styled-components';
 import theme from './theme';
 import { sizes } from './utils';
 import { ThemedCssFunction } from '../../node_modules/@types/styled-components';

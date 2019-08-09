@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://github.com/JBostelaar/react-prime/blob/master/src/static/images/prime-logo.png" alt="prime-logo" width="250px" />
+  <img src="https://github.com/react-prime/react-prime/blob/master/src/static/images/prime-logo.png" alt="prime-logo" width="250px" />
 </p>
 
 # React Prime
-[![Build Status](https://travis-ci.org/JBostelaar/react-prime.svg?branch=master)](https://travis-ci.org/JBostelaar/react-prime)
-[![dependencies Status](https://david-dm.org/jbostelaar/react-prime/status.svg)](https://david-dm.org/jbostelaar/react-prime)
-[![devDependencies Status](https://david-dm.org/jbostelaar/react-prime/dev-status.svg)](https://david-dm.org/jbostelaar/react-prime?type=dev)
-[![GitHub release](https://img.shields.io/github/release/jbostelaar/react-prime.svg)](https://github.com/JBostelaar/react-prime)
+[![Build Status](https://travis-ci.org/react-prime/react-prime.svg?branch=master)](https://travis-ci.org/react-prime/react-prime)
+[![dependencies Status](https://david-dm.org/react-prime/react-prime/status.svg)](https://david-dm.org/react-prime/react-prime)
+[![devDependencies Status](https://david-dm.org/react-prime/react-prime/dev-status.svg)](https://david-dm.org/react-prime/react-prime?type=dev)
+[![GitHub release](https://img.shields.io/github/release/react-prime/react-prime.svg)](https://github.com/react-prime/react-prime)
 
 ---
 

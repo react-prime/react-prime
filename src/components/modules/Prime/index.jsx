@@ -40,7 +40,7 @@ const Prime = () => (
     <PrimeContent>
       <p>Created by <Anchor href="https://github.com/JBostelaar">@JBostelaar</Anchor> and maintained by <Anchor href="https://labela.nl/">LabelA</Anchor></p>
       <GithubLink
-        href="https://github.com/JBostelaar/react-prime"
+        href="https://github.com/react-prime/react-prime"
         target="_blank"
         rel="noopener noreferrer"
       >

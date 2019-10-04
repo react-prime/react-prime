@@ -80,6 +80,7 @@
     "@typescript-eslint/camelcase": false,
     "@typescript-eslint/prefer-namespace-keyword": false,
     "@typescript-eslint/no-namespace": false,
-    "@typescript-eslint/no-explicit-any": false
+    "@typescript-eslint/no-explicit-any": false,
+    "@typescript-eslint/no-non-null-assertion": false
   }
 }

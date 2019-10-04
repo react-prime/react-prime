@@ -53,12 +53,12 @@
       "component": true,
       "html": true
     }],
-    "react/jsx-tag-spacing": {
+    "react/jsx-tag-spacing": ["error", {
       "closingSlash": "never",
       "beforeSelfClosing": "always",
       "afterOpening": "never",
       "beforeClosing": "never"
-    },
+    }],
     "semi": ["error", "always"],
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", {

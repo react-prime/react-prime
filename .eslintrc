@@ -47,8 +47,6 @@
     "object-curly-spacing": ["error", "always"],
     "prefer-const": ["error"],
     "quotes": ["error", "single"],
-    "react/no-unused-prop-types": 2,
-    "react/prop-types": 2,
     "react/self-closing-comp": ["error", {
       "component": true,
       "html": true

@@ -8,7 +8,6 @@ const pjson = require('../package.json');
 
 const prodConfig = {
   name: 'client',
-  entry: { app: ['@babel/polyfill', paths.resolveSrc()] },
   plugins: [
     new CopyWebpackPlugin([{ from: paths.resolveRoot('server/index.js'), to: 'server.js' }]),
     new webpack.DefinePlugin(globals),

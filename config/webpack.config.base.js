@@ -10,6 +10,7 @@ const baseConfig = {
     path: paths.resolveRoot('dist'),
     publicPath: '/',
   },
+  entry: { app: paths.resolveSrc() },
   module: {
     rules: [
       {
@@ -29,7 +30,7 @@ const baseConfig = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-            }
+            },
           },
           {
             loader: '@svgr/webpack',
@@ -51,7 +52,7 @@ const baseConfig = {
             options: {
               limit: 10000,
               name: 'static/images/[hash].[ext]',
-            }
+            },
           },
         ],
       },

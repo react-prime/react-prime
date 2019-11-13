@@ -9,4 +9,3 @@ if (!__DEV__) registerServiceWorker();
 if (__DEV__ && module.hot) module.hot.accept();
 
 ReactDOM.render(<Root />, document.getElementById('app'));
-

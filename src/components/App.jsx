@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
+
 import GlobalStyle from 'styles';
 
 const Prime = lazy(() => import('modules/Prime'));

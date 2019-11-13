@@ -51,12 +51,12 @@
       "component": true,
       "html": true
     }],
-    "react/jsx-tag-spacing": {
+    "react/jsx-tag-spacing": ["error", {
       "closingSlash": "never",
       "beforeSelfClosing": "always",
       "afterOpening": "never",
       "beforeClosing": "never"
-    },
+    }],
     "semi": ["error", "always"],
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", {
@@ -67,18 +67,21 @@
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "eol-last": ["error", "always"],
+    "@typescript-eslint/ban-ts-ignore": 0,
     "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/explicit-function-return-type": false,
-    "@typescript-eslint/no-empty-interface": false,
-    "@typescript-eslint/prefer-interface": false,
-    "@typescript-eslint/explicit-member-accessibility": [true, "no-public"],
-    "@typescript-eslint/no-use-before-define": false,
-    "@typescript-eslint/no-object-literal-type-assertion": false,
-    "@typescript-eslint/no-parameter-properties": false,
-    "@typescript-eslint/camelcase": false,
-    "@typescript-eslint/prefer-namespace-keyword": false,
-    "@typescript-eslint/no-namespace": false,
-    "@typescript-eslint/no-explicit-any": false,
-    "@typescript-eslint/no-non-null-assertion": false
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/prefer-interface": 0,
+    "@typescript-eslint/explicit-member-accessibility": ["error", {
+      "overrides": { "constructors": "no-public" }
+    }],
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/no-object-literal-type-assertion": 0,
+    "@typescript-eslint/no-parameter-properties": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/prefer-namespace-keyword": 0,
+    "@typescript-eslint/no-namespace": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-non-null-assertion": 0
   }
 }

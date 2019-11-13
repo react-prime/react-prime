@@ -12,6 +12,7 @@ const baseConfig: webpack.Configuration = {
     path: path.resolve('dist'),
     publicPath: '/',
   },
+  entry: path.resolve('src'),
   module: {
     rules: [
       {

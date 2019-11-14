@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import store from 'app/store';
 import theme from 'styles/theme';
+
 import App from './App';
 
 const Root = () => (

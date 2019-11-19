@@ -1,10 +1,17 @@
 import * as i from 'types';
+import { ThemedCssFunction } from 'styled-components';
 import theme from './theme';
 import { sizes } from './utils';
-import { ThemedCssFunction } from '../../node_modules/@types/styled-components';
+
+export type Theme = typeof theme;
+
+// Add Theme type to styled-components
+declare module 'styled-components' {
+  export interface DefaultTheme extends i.Theme {}
+}
 
 export type BaseStyled = {
-  theme?: typeof theme;
+  theme?: i.Theme;
   className?: string;
 }
 
@@ -25,7 +32,7 @@ export type SubcolorsFromColor<Color extends i.ThemeColors> = i.SubThemeColors[C
 // Ensures subcolor exists in theme
 export type SubcolorFromTheme<Color extends i.ThemeColors, Subcolor extends i.SubThemeColors[Color]> = [Color, Subcolor];
 
-type MediaQueryType = ThemedCssFunction<typeof theme>;
+type MediaQueryType = ThemedCssFunction<i.Theme>;
 
 export type MediaSizes = keyof typeof sizes;
 

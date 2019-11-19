@@ -27,8 +27,7 @@
       "styles/*": ["src/styles/*"],
       "styles": ["src/styles/index"],
       "types": ["src/types/index"],
-      "vectors/*": ["src/static/vectors/*"],
-      "styled-components": ["src/services/styled-components"]
+      "vectors/*": ["src/static/vectors/*"]
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es2017"]

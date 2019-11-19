@@ -1,3 +1,5 @@
+import 'styled-components';
+
 const theme = {
   colors: {
     prime: '#e7ff00',

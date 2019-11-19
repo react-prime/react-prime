@@ -1,5 +1,5 @@
 import * as i from 'types';
-import { ThunkAction as IThunkAction } from 'redux-thunk';
+import { ThunkAction as IThunkAction, ThunkDispatch as IThunkDispatch } from 'redux-thunk';
 
 /*
   Shape of a Redux action
@@ -11,6 +11,11 @@ export type Action<P = any> = {
   error?: boolean;
   meta?: any;
 };
+
+/*
+  Thunk Dispatch action with pre-filled generics
+*/
+export type ThunkDispatch = IThunkDispatch<i.ReduxState, any, i.Action>;
 
 /*
   Thunk action type with pre-filled generics

@@ -67,6 +67,7 @@
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "eol-last": ["error", "always"],
+    "comma-spacing": ["error", { "before": false, "after": true }],
     "@typescript-eslint/ban-ts-ignore": 0,
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": 0,

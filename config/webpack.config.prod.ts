@@ -1,4 +1,3 @@
-import path from 'path';
 import * as webpack from 'webpack';
 import { GenerateSW } from 'workbox-webpack-plugin';
 

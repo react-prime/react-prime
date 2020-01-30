@@ -5,7 +5,7 @@
   "author": "jornbostelaar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JBostelaar/react-prime"
+    "url": "https://github.com/react-prime/react-prime"
   },
   "license": "MIT",
   "scripts": {

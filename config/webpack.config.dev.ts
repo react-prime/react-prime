@@ -3,7 +3,7 @@ import * as devServer from 'webpack-dev-server';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import { merge } from './webpack.config.base';
-import globals from '../config/globals';
+import globals from './globals';
 
 const devConfig: devServer.Configuration = merge({
   mode: 'development',

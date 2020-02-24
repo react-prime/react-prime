@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle`
+const globalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     min-height: 100%;
@@ -20,3 +20,5 @@ export default createGlobalStyle`
     font-family: sans-serif;
   }
 `;
+
+export default globalStyle;

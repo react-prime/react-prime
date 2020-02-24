@@ -1,9 +1,10 @@
 {
-  "extends": "react-app",
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "react-app"
+  ],
   "settings": {
-    "import/resolver": {
-      "webpack": { "config": "config/webpack.config.base.js" }
-    },
     "react": {
       "version": "latest"
     }
@@ -29,7 +30,6 @@
         "internal"
       ]
     }],
-    "indent": ["error", 2],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
     "keyword-spacing": ["error", {
@@ -47,8 +47,6 @@
     "object-curly-spacing": ["error", "always"],
     "prefer-const": ["error"],
     "quotes": ["error", "single"],
-    "react/no-unused-prop-types": 2,
-    "react/prop-types": 2,
     "react/self-closing-comp": ["error", {
       "component": true,
       "html": true
@@ -59,7 +57,6 @@
       "afterOpening": "never",
       "beforeClosing": "never"
     }],
-    "semi": ["error", "always"],
     "space-before-blocks": "error",
     "space-before-function-paren": ["error", {
       "anonymous": "always",
@@ -68,6 +65,25 @@
     }],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
-    "eol-last": ["error", "always"]
+    "eol-last": ["error", "always"],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/prefer-interface": 0,
+    "@typescript-eslint/explicit-member-accessibility": ["error", {
+      "overrides": { "constructors": "no-public" }
+    }],
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/no-object-literal-type-assertion": 0,
+    "@typescript-eslint/no-parameter-properties": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/prefer-namespace-keyword": 0,
+    "@typescript-eslint/no-namespace": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-non-null-assertion": 0
   }
 }

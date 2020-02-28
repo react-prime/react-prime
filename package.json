@@ -16,7 +16,8 @@
     "clean": "rimraf dist/",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
     "stylelint": "stylelint './src/**/*.js*'",
-    "analyzer": "webpack -p --config config/webpack.config.prod.ts --profile --json > stats.json && webpack-bundle-analyzer stats.json ./dist"
+    "analyzer": "webpack -p --config config/webpack.config.prod.ts --profile --json > stats.json && webpack-bundle-analyzer stats.json ./dist",
+    "typecheck": "tsc"
   },
   "keywords": [
     "react",

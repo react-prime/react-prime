@@ -25,7 +25,7 @@ declare module '*.json' {
 
 // Image files
 declare module '*.svg' {
-  const value: string;
+  const value: React.ReactComponentElement;
   export = value;
 }
 declare module '*.gif' {

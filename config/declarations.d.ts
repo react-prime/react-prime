@@ -7,7 +7,8 @@ declare const __TEST__: boolean;
 
 // extend window object
 interface Window {
-  __REDUX_DEVTOOLS_EXTENSION__: Function;
+  __REDUX_DEVTOOLS_EXTENSION__: () => () => void;
+  __NEXT_REDUX_STORE__: any;
 }
 
 declare interface NodeModule {
@@ -19,13 +20,14 @@ declare interface NodeModule {
 // We have to declare how files other than .ts(x) or .js(x) are handled by our codebase because
 // Typescript does not know we are handling these files with Webpack.
 declare module '*.json' {
-  const value: object;
+  type Json = string | number | boolean | { [key: string]: Json } | Json[] | null;
+  const value: Json;
   export default value;
 }
 
 // Image files
 declare module '*.svg' {
-  const value: string;
+  const value: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   export = value;
 }
 declare module '*.gif' {
@@ -45,7 +47,7 @@ declare module '*.png' {
   export = value;
 }
 
-// Image files external import
+// Image files external import are always strings
 declare module '*.svg?external' {
   const value: string;
   export = value;

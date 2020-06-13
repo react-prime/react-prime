@@ -1,5 +1,26 @@
 import * as i from 'types';
+import { Store as ReduxStore, CombinedState } from 'redux';
 import { ThunkAction as IThunkAction, ThunkDispatch as IThunkDispatch } from 'redux-thunk';
+import * as reducers from 'ducks';
+
+/**
+ * Store type
+ */
+export type Store = ReduxStore<CombinedState<i.ReduxState>, i.ActionTypes>;
+
+/**
+ * Generates a list of all actions types
+ */
+export type ActionTypes = i.ValueOf<{
+  [Reducer in keyof typeof reducers]: Parameters<typeof reducers[Reducer]>[1];
+}>;
+
+/**
+ * Generates a union of all action names
+ */
+export type ActionTypeNames = i.ValueOf<{
+  [Reducer in keyof typeof reducers]: Parameters<typeof reducers[Reducer]>[1]['type'];
+}>;
 
 /*
   Shape of a Redux action
@@ -23,7 +44,7 @@ export type ThunkDispatch = IThunkDispatch<i.ReduxState, any, i.Action>;
 
   ExtraArguments is passed as third argument in a thunk
 */
-type ExtraArgument = {};
+type ExtraArgument = i.AnyObject;
 export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxState, ExtraArgument, i.Action>;
 
 /*

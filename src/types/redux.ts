@@ -4,19 +4,19 @@ import { ThunkAction as IThunkAction, ThunkDispatch as IThunkDispatch } from 're
 import * as reducers from 'ducks';
 
 /**
- * Store type
+ * Redux store
  */
 export type Store = ReduxStore<CombinedState<i.ReduxState>, i.ActionTypes>;
 
 /**
- * Generates a list of all actions types
+ * List of all actions types
  */
 export type ActionTypes = i.ValueOf<{
   [Reducer in keyof typeof reducers]: Parameters<typeof reducers[Reducer]>[1];
 }>;
 
 /**
- * Generates a union of all action names
+ * Union of all action names
  */
 export type ActionTypeNames = i.ValueOf<{
   [Reducer in keyof typeof reducers]: Parameters<typeof reducers[Reducer]>[1]['type'];
@@ -27,7 +27,7 @@ export type ActionTypeNames = i.ValueOf<{
   P = shape of payload
 */
 export type Action<P = any> = {
-  type: string;
+  type: i.ActionTypeNames;
   payload?: P;
   error?: boolean;
   meta?: any;
@@ -51,7 +51,7 @@ export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxSta
   Generator type for thunk actions
   Pass the function type as type argument and it will return an action for components and ducks
 */
-export type BaseThunkAction<Fn extends (...args: any) => any> = {
-  action: (...args: Parameters<Fn>) => ReturnType<Fn>;
+export type BaseThunkAction<Fn extends i.AnyFn> = {
+  action: Fn;
   thunk: (...args: Parameters<Fn>) => i.ThunkAction<ReturnType<Fn>>;
 };

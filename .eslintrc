@@ -86,7 +86,20 @@
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/explicit-module-boundary-types": [1, {
-      "allowedNames": ["render", "getInitialProps"],
+      "allowedNames": [
+        "render",
+        "componentDidMount",
+        "componentWillUnmount",
+        "shouldComponentUpdate",
+        "componentDidUpdate",
+        "componentDidCatch",
+        "getSnapshotBeforeUpdate",
+        "getDerivedStateFromProps",
+        "getDerivedStateFromError",
+        "UNSAFE_componentWillUpdate",
+        "UNSAFE_componentWillReceiveProps",
+        "UNSAFE_componentWillMount"
+      ],
       "allowDirectConstAssertionInArrowFunctions": true
     }],
     "@typescript-eslint/ban-ts-comment": [0]

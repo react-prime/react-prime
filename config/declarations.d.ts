@@ -8,7 +8,6 @@ declare const __TEST__: boolean;
 // extend window object
 interface Window {
   __REDUX_DEVTOOLS_EXTENSION__: () => () => void;
-  __NEXT_REDUX_STORE__: any;
 }
 
 declare interface NodeModule {

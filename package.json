@@ -45,15 +45,19 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "lodash": "4.17.15",
+    "lodash": "^4.17.20",
     "react": "16.12.0",
+    "react-async": "^10.0.1",
     "react-dom": "16.12.0",
+    "react-query": "^2.5.14",
     "react-redux": "^7.1.3",
     "react-router": "5.1.2",
     "react-router-dom": "^5.1.2",
     "redux": "4.0.5",
     "redux-thunk": "^2.3.0",
-    "styled-components": "5.0.0"
+    "styled-components": "5.0.0",
+    "swr": "^0.3.0",
+    "zustand": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.8.3",
@@ -107,14 +111,14 @@
     "terser-webpack-plugin": "2.3.3",
     "ts-node": "8.6.2",
     "tsconfig-paths-webpack-plugin": "3.2.0",
-    "tslint": "6.0.0",
+    "tslint": "^6.1.3",
     "typesafe-actions": "5.1.0",
     "typescript": "3.7.5",
     "url-loader": "3.0.0",
     "webpack": "4.41.5",
-    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "3.10.1",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "5.0.0"
   }

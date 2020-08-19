@@ -3,14 +3,14 @@ import { Switch, Route, withRouter, RouteComponentProps } from 'react-router-dom
 
 import GlobalStyle from 'styles';
 
-const Home = lazy(() => import('modules/Home'));
+const Overview = lazy(() => import('modules/Overview'));
 
 const App: React.FC<RouteComponentProps> = () => (
   <main>
     <GlobalStyle />
     <Suspense fallback={<span>loading</span>}>
       <Switch>
-        <Route path="/" component={Home} exact />
+        <Route path="/" component={Overview} exact />
       </Switch>
     </Suspense>
   </main>

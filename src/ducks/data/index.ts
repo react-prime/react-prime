@@ -1,8 +1,8 @@
-/**
- * This is an example file from react-prime
- */
 import * as i from 'types';
 import { ActionType, action } from 'typesafe-actions';
+
+import { endpoint, fetcher } from 'services/fetcher';
+
 import { DataState } from './types';
 
 export const dataActions = {
@@ -12,7 +12,7 @@ export const dataActions = {
 };
 
 const initialState: DataState = {
-  data: undefined,
+  data: [],
   error: false,
   loading: false,
 };
@@ -44,9 +44,17 @@ export default (state = initialState, action: ActionType<typeof dataActions>) =>
 };
 
 export const getData: i.GetData['thunk'] = () => (dispatch) => {
-  dispatch(dataActions.load());
+  new Promise((resolve, reject) => {
+    dispatch(dataActions.load());
 
-  setTimeout(() => {
-    dispatch(dataActions.success(true));
-  }, 2000);
+    return fetcher(endpoint)
+      .then((response) => {
+        dispatch(dataActions.success(response));
+        resolve(response);
+      })
+      .catch((error) => {
+        dispatch(dataActions.failed());
+        reject(error);
+      });
+  });
 };

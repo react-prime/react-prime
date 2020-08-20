@@ -9,9 +9,12 @@ import Swr from 'modules/Swr';
 const Card = styled.div`
   border: 1px solid rgb(237, 242, 247);
   border-radius: 0.25rem;
-  display: flex;
   padding: 1rem;
   width: 100%;
+
+  h1 {
+    margin: 0 0 1rem;
+  }
 `;
 
 const Container = styled.div`
@@ -24,10 +27,22 @@ const Container = styled.div`
 
 const Overview: React.FC = () => (
   <Container>
-    <Card><ReactAsync /></Card>
-    <Card><ReactQuery /></Card>
-    <Card><Redux /></Card>
-    <Card><Swr /></Card>
+    <Card>
+      <h1>React Async</h1>
+      <ReactAsync />
+    </Card>
+    <Card>
+      <h1>ReactQuery</h1>
+      <ReactQuery />
+    </Card>
+    <Card>
+      <h1>Redux</h1>
+      <Redux />
+    </Card>
+    <Card>
+      <h1>swr</h1>
+      <Swr />
+    </Card>
   </Container>
 );
 

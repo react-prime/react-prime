@@ -10,14 +10,9 @@ const Swr: React.FC = () => {
   if (error) return `Something went wrong: ${error.message}`;
   if (!repositories) return <div>loading...</div>;
 
-  return (
-    <div>
-      <h1>Swr</h1>
-      {repositories.map((repository) => (
-        <div key={repository.id}>{repository.name}</div>
-      ))}
-    </div>
-  );
+  return repositories.map((repository) => (
+    <div key={repository.id}>{repository.name}</div>
+  ));
 };
 
 export default Swr;

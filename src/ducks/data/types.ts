@@ -1,7 +1,7 @@
 import * as i from 'types';
 
 export type DataState = {
-  data?: boolean;
+  data?: any;
   error: boolean;
   loading: boolean;
 };

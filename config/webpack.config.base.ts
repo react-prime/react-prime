@@ -74,11 +74,13 @@ const baseConfig: webpack.Configuration = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin(['./public']),
+    new CopyWebpackPlugin({
+      patterns: ['./public'],
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve('src/template.ejs'),
       filename: 'index.html',
-      chunksSortMode: 'none',
+      chunksSortMode: 'auto',
     }),
   ],
   optimization: {

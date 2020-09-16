@@ -32,10 +32,8 @@ export type SubcolorsFromColor<Color extends i.ThemeColors> = i.SubThemeColors[C
 // Ensures subcolor exists in theme
 export type SubcolorFromTheme<Color extends i.ThemeColors, Subcolor extends i.SubThemeColors[Color]> = [Color, Subcolor];
 
-type MediaQueryType = ThemedCssFunction<i.Theme>;
-
 export type MediaSizes = keyof typeof sizes;
 
 export type MediaUtils = {
-  [size in i.MediaSizes]: MediaQueryType;
+  [size in i.MediaSizes]: ThemedCssFunction<i.Theme>;
 };

@@ -1,9 +1,9 @@
 import * as webpack from 'webpack';
 import { GenerateSW } from 'workbox-webpack-plugin';
 
+import pkg from '../package.json';
 import globals from './globals';
 import { merge } from './webpack.config.base';
-import pkg from '../package.json';
 
 const prodConfig = {
   name: 'client',

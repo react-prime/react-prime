@@ -1,6 +1,7 @@
 import path from 'path';
 import * as webpack from 'webpack';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as devServer from 'webpack-dev-server';
+import CopyPlugin from 'copy-webpack-plugin';
 import webpackMerge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
@@ -8,7 +9,7 @@ import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 const baseConfig: webpack.Configuration = {
   mode: 'production',
   output: {
-    filename: 'static/js/[name].[hash].js',
+    filename: 'static/js/[name].[contenthash].js',
     path: path.resolve('dist'),
     publicPath: '/',
   },
@@ -18,24 +19,26 @@ const baseConfig: webpack.Configuration = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.svg$/,
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-            },
+            use: [{
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+              },
+            }],
           },
           {
-            loader: '@svgr/webpack',
+            use: ['@svgr/webpack'],
           },
         ],
       },
@@ -44,17 +47,21 @@ const baseConfig: webpack.Configuration = {
         oneOf: [
           {
             resourceQuery: /external/,
-            loader: 'file-loader',
-            options: {
-              name: 'static/[name].[ext]',
-            },
+            use: [{
+              loader: 'file-loader',
+              options: {
+                name: 'static/[name].[ext]',
+              },
+            }],
           },
           {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              name: 'static/images/[hash].[ext]',
-            },
+            use: [{
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+                name: 'static/images/[contenthash].[ext]',
+              },
+            }],
           },
         ],
       },
@@ -68,14 +75,16 @@ const baseConfig: webpack.Configuration = {
           /\.html$/,
           /\.ejs$/,
         ],
-        loader: 'file-loader',
-        options: { name: 'static/[name].[ext]' },
+        use: [{
+          loader: 'file-loader',
+          options: { name: 'static/[name].[ext]' },
+        }],
       },
     ],
   },
   plugins: [
-    new CopyWebpackPlugin({
-      patterns: ['./public'],
+    new CopyPlugin({
+      patterns: [{ from: './public' }],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve('src/template.ejs'),
@@ -104,4 +113,7 @@ const baseConfig: webpack.Configuration = {
 
 export default baseConfig;
 
-export const merge = (...config: webpack.Configuration[]) => webpackMerge(baseConfig, ...config);
+export type WebpackConfig = webpack.Configuration & { devServer?: devServer.Configuration };
+type WebpackMergeType = (...config: WebpackConfig[]) => WebpackConfig;
+
+export const merge: WebpackMergeType = (...config) => webpackMerge(baseConfig, ...config);

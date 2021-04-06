@@ -6,6 +6,7 @@ import globals from './globals';
 
 const devConfig: WebpackConfig = merge({
   mode: 'development',
+  target: 'web',
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),

@@ -63,6 +63,7 @@
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "eol-last": ["error", "always"],
+    "import/no-anonymous-default-export": "off",
     "import/no-unresolved": [0],
     "import/named": [0],
     "import/order": ["error", {

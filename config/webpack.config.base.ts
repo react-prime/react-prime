@@ -83,6 +83,8 @@ const baseConfig: webpack.Configuration = {
     ],
   },
   plugins: [
+    // Waiting for library fix
+    // @ts-ignore
     new CopyPlugin({
       patterns: [{ from: './public' }],
     }),

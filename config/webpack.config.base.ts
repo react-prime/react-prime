@@ -8,6 +8,7 @@ import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const baseConfig: webpack.Configuration = {
   mode: 'production',
+  target: 'browserslist',
   output: {
     filename: 'static/js/[name].[contenthash].js',
     path: path.resolve('dist'),

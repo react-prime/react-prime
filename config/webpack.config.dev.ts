@@ -1,11 +1,10 @@
 import * as webpack from 'webpack';
-import * as devServer from 'webpack-dev-server';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
-import { merge } from './webpack.config.base';
+import { merge, WebpackConfig } from './webpack.config.base';
 import globals from './globals';
 
-const devConfig: devServer.Configuration = merge({
+const devConfig: WebpackConfig = merge({
   mode: 'development',
   plugins: [
     new ForkTsCheckerWebpackPlugin(),

@@ -26,10 +26,7 @@ npm start
 * [React Router](https://reacttraining.com/react-router/)
 * [Styled-Components](https://www.styled-components.com)
 * [Workbox](https://developers.google.com/web/tools/workbox/) for offline support and caching
-* [Code splitting](https://reactjs.org/docs/code-splitting.html)
-* [Babel](http://babeljs.io) for ES6 and ES7
 * [Webpack](https://webpack.js.org/) for bundling
-* [Webpack Dev Server](https://github.com/webpack/webpack-dev-server)
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [ESLint](http://eslint.org) to maintain a consistent code style
 * Refer to `package.json` for more details
@@ -52,14 +49,14 @@ Create a build for production, this will add a `/dist` folder to the root with a
 Run the server file to start server:
 `$ npm run server`
 
-For production I recommend to use [PM2](http://pm2.keymetrics.io/) to run the server with advanced process management.
+For production we recommend to use [PM2](http://pm2.keymetrics.io/) to run the server with advanced process management.
 
 ## Development Workflow
 ### Components
 The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
 
 ### Ducks
-This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.
+We make use of the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.
 
 ### Redux DevTools
 To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.

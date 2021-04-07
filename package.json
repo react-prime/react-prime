@@ -2,7 +2,8 @@
   "name": "react-prime",
   "version": "6.1.0",
   "description": "A starter kit to create comprehensive React apps with Redux",
-  "author": "jornbostelaar",
+  "author": "Label A",
+  "url" : "https://labela.nl/",
   "repository": {
     "type": "git",
     "url": "https://github.com/react-prime/react-prime"

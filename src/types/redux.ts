@@ -52,7 +52,5 @@ export type ThunkAction<ReturnType = void> = IThunkAction<ReturnType, i.ReduxSta
   Generator type for thunk actions
   Pass the function type as type argument and it will return an action for components and ducks
 */
-export type BaseThunkAction<Fn extends i.AnyFn> = {
-  action: Fn;
-  thunk: (...args: Parameters<Fn>) => i.ThunkAction<ReturnType<Fn>>;
-};
+export type BaseThunkAction<Fn extends (...args: any) => any> =
+  (...args: Parameters<Fn>) => i.ThunkAction<ReturnType<Fn>>;

@@ -8,7 +8,7 @@ import { merge } from './webpack.config.base';
 const prodConfig = {
   name: 'client',
   plugins: [
-    new webpack.DefinePlugin(globals),
+    new webpack.DefinePlugin(globals('production')),
     new GenerateSW({
       cacheId: pkg.name,
       swDest: 'sw.js',

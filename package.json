@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --config config/webpack.config.dev.ts",
-    "build": "rimraf dist/ && npm run build:server && webpack --config config/webpack.config.prod.ts",
+    "build": "rimraf dist/ && npm run build:server && webpack --progress --config config/webpack.config.prod.ts",
     "build:server": "tsc --project server/tsconfig.json",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
@@ -29,19 +29,12 @@
     "styled-components",
     "typescript"
   ],
-  "browserslist": {
-    "production": [
-      "> 0.2%",
-      "ie 11",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    "> 0.2%",
+    "ie 11",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",

@@ -10,7 +10,7 @@ const devConfig: WebpackConfig = merge({
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin(globals),
+    new webpack.DefinePlugin(globals()),
   ],
   devServer: {
     host: '0.0.0.0',

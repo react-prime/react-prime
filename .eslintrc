@@ -88,20 +88,7 @@
       "component": true,
       "html": true
     }],
-
     "react-hooks/exhaustive-deps": 0,
-
-    "@typescript-eslint/indent": [2, 2],
-    "@typescript-eslint/explicit-function-return-type": [0],
-    "@typescript-eslint/no-empty-interface": [0],
-    "@typescript-eslint/prefer-interface": [0],
-    "@typescript-eslint/explicit-member-accessibility": [0],
-    "@typescript-eslint/no-use-before-define": [0],
-    "@typescript-eslint/no-object-literal-type-assertion": [0],
-    "@typescript-eslint/no-parameter-properties": [0],
-    "@typescript-eslint/no-non-null-assertion": [0],
-    "@typescript-eslint/camelcase": [0],
-    "@typescript-eslint/ban-ts-ignore": [0],
     "@typescript-eslint/explicit-module-boundary-types": [1, {
       "allowedNames": [
         "render",
@@ -119,6 +106,19 @@
       ],
       "allowDirectConstAssertionInArrowFunctions": true
     }],
-    "@typescript-eslint/ban-ts-comment": [0]
+    "@typescript-eslint/semi": 1,
+    "@typescript-eslint/indent": [2, 2],
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/explicit-function-return-type": [0],
+    "@typescript-eslint/explicit-member-accessibility": [0],
+    "@typescript-eslint/no-empty-interface": [0],
+    "@typescript-eslint/prefer-interface": [0],
+    "@typescript-eslint/no-use-before-define": [0],
+    "@typescript-eslint/no-object-literal-type-assertion": [0],
+    "@typescript-eslint/no-parameter-properties": [0],
+    "@typescript-eslint/no-non-null-assertion": [0],
+    "@typescript-eslint/camelcase": [0],
+    "@typescript-eslint/no-redeclare": 0
   }
 }

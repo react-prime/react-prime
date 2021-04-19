@@ -1,6 +1,6 @@
 import { useDispatch as useReduxDispatch } from 'react-redux';
-import * as i from 'types';
+import store from 'store';
 
-export const useDispatch = (): i.ThunkDispatch => {
-  return useReduxDispatch<i.ThunkDispatch>();
+export const useDispatch = (): typeof store.dispatch => {
+  return useReduxDispatch<typeof store.dispatch>();
 };

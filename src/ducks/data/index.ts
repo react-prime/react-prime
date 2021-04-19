@@ -2,51 +2,47 @@
  * This is an example file from react-prime
  */
 import * as i from 'types';
-import { ActionType, action } from 'typesafe-actions';
-import { DataState } from './types';
+import { createSlice } from '@reduxjs/toolkit';
+import { getData } from './thunks';
 
-export const dataActions = {
-  load: () => action('data/GET'),
-  success: (success: boolean) => action('data/GET_SUCCESS', success),
-  failed: () => action('data/GET_FAILED'),
-} as const; // <-- Important if you don't want to explicitly type the return type of all actions
-
-const initialState: DataState = {
+const initialState: i.DataState = {
   data: undefined,
   error: false,
   loading: false,
 };
 
-export default (state = initialState, action: ActionType<typeof dataActions>): i.DataState => {
-  switch (action.type) {
-    case 'data/GET':
-      return {
-        ...state,
-        error: false,
-        loading: true,
-      };
-    case 'data/GET_SUCCESS':
-      return {
-        ...state,
-        data: action.payload,
-        error: false,
-        loading: false,
-      };
-    case 'data/GET_FAILED':
-      return {
-        ...state,
-        loading: false,
-        error: true,
-      };
-    default:
-      return state;
-  }
-};
+const dataSlice = createSlice({
+  name: 'data',
+  initialState,
+  reducers: {
+    load: (state) => {
+      state.loading = true;
+      state.error = false;
+    },
+    failed: (state) => {
+      state.loading = false;
+      state.error = true;
+    },
+  },
+  extraReducers: (builder) => {
+    // getData reducers
+    builder.addCase(getData.pending, (state) => {
+      state.loading = true;
+      state.error = false;
+    });
 
-export const getData: i.GetData = () => (dispatch) => {
-  dispatch(dataActions.load());
+    builder.addCase(getData.fulfilled, (state, { payload }) => {
+      state.data = payload;
+      state.loading = false;
+    });
 
-  setTimeout(() => {
-    dispatch(dataActions.success(true));
-  }, 2000);
-};
+    builder.addCase(getData.rejected, (state) => {
+      state.error = true;
+    });
+
+    // other reducers
+    // ...
+  },
+});
+
+export default dataSlice.reducer;

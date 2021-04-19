@@ -22,17 +22,19 @@ export const dataSlice = createSlice({
   reducers: {},
 
   // Thunk reducers go here
-  extraReducers: (builder) => {
-    // getData reducers
+  extraReducers: (reducer) => {
+    // The 'reducer' arg is a functional way to handle switch cases
+    // It provides fully automated type safety
 
+    // getData reducers
     // Payload is automatically typed to what type is returned in the getData thunk
-    builder.addCase(getData.fulfilled, (state, { payload }) => {
+    reducer.addCase(getData.fulfilled, (state, { payload }) => {
       state.data = payload;
       state.loading = false;
     });
 
     // Any throw call is redirected to this case
-    builder.addCase(getData.rejected, (state) => {
+    reducer.addCase(getData.rejected, (state) => {
       state.loading = false;
       state.error = true;
     });
@@ -42,7 +44,7 @@ export const dataSlice = createSlice({
 
     // All thunks for this slice will set loading to true
     // This is not necessarily the way to go, but is an example for how to simplify this state change
-    builder.addMatcher(isPendingAction, (state) => {
+    reducer.addMatcher(isPendingAction, (state) => {
       state.loading = true;
     });
   },

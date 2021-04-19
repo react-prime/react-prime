@@ -35,6 +35,7 @@ const GithubLink = styled.a`
 `;
 
 const Prime: React.FC = () => {
+  // Nothing changes here :)
   const dispatch = useDispatch();
 
   React.useEffect(() => {

@@ -3,3 +3,5 @@ export type DataState = {
   error: boolean;
   loading: boolean;
 };
+
+// No longer need to type thunks

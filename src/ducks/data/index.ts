@@ -3,6 +3,9 @@
  */
 import * as i from 'types';
 import { createSlice } from '@reduxjs/toolkit';
+
+import isPendingAction from 'services/isPendingAction';
+
 import { getData } from './thunks';
 
 const initialState: i.DataState = {
@@ -11,37 +14,37 @@ const initialState: i.DataState = {
   loading: false,
 };
 
-const dataSlice = createSlice({
+export const dataSlice = createSlice({
   name: 'data',
   initialState,
-  reducers: {
-    load: (state) => {
-      state.loading = true;
-      state.error = false;
-    },
-    failed: (state) => {
-      state.loading = false;
-      state.error = true;
-    },
-  },
+
+  // Any general/non-thunk reducers go here
+  reducers: {},
+
+  // Thunk reducers go here
   extraReducers: (builder) => {
     // getData reducers
-    builder.addCase(getData.pending, (state) => {
-      state.loading = true;
-      state.error = false;
-    });
 
+    // Payload is automatically typed to what type is returned in the getData thunk
     builder.addCase(getData.fulfilled, (state, { payload }) => {
       state.data = payload;
       state.loading = false;
     });
 
+    // Any throw call is redirected to this case
     builder.addCase(getData.rejected, (state) => {
+      state.loading = false;
       state.error = true;
     });
 
-    // other reducers
+    // other thunk cases
     // ...
+
+    // All thunks for this slice will set loading to true
+    // This is not necessarily the way to go, but is an example for how to simplify this state change
+    builder.addMatcher(isPendingAction, (state) => {
+      state.loading = true;
+    });
   },
 });
 

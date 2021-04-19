@@ -99,7 +99,6 @@
     "terser-webpack-plugin": "5.1.1",
     "ts-node": "9.1.1",
     "tsconfig-paths-webpack-plugin": "3.5.1",
-    "typesafe-actions": "5.1.0",
     "typescript": "4.2.3",
     "url-loader": "4.1.1",
     "webpack": "5.30.0",

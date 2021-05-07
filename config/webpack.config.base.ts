@@ -6,11 +6,15 @@ import webpackMerge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
+// Remove reference to webpack config tsconfig.json
+delete process.env.TS_NODE_PROJECT;
+
 const baseConfig: webpack.Configuration = {
   mode: 'production',
   target: 'browserslist',
   output: {
-    filename: 'static/js/[name].[contenthash].js',
+    filename: 'static/js/[name].[chunkhash].js',
+    chunkFilename: 'static/js/[name].[chunkhash].js',
     path: path.resolve('dist'),
     publicPath: '/',
   },

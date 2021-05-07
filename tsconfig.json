@@ -8,7 +8,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
-    "module": "commonjs",
+    "removeComments": false,
+    "moduleResolution": "node",
+    "module": "esnext",
     "target": "esnext",
     "jsx": "react",
     "baseUrl": ".",
@@ -30,6 +32,6 @@
       "vectors/*": ["src/static/vectors/*"]
     },
     "typeRoots": ["node_modules/@types"],
-    "lib": ["dom", "es2017"]
+    "lib": ["DOM", "DOM.Iterable", "ESNext"]
   }
 }

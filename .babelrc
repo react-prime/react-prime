@@ -8,7 +8,6 @@
     "lodash",
     "babel-plugin-styled-components",
     "@babel/plugin-syntax-dynamic-import",
-    "dynamic-import-node",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from"

@@ -10,8 +10,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --config config/webpack.config.dev.ts",
-    "build": "rimraf dist/ && npm run build:server && webpack --progress --config config/webpack.config.prod.ts",
+    "start": "TS_NODE_PROJECT=config/tsconfig.json webpack serve --config config/webpack.config.dev.ts",
+    "build": "rimraf dist/ && npm run build:server && TS_NODE_PROJECT=config/tsconfig.json webpack --progress --config config/webpack.config.prod.ts",
     "build:server": "tsc --project server/tsconfig.json",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",

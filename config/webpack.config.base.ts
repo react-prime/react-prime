@@ -70,6 +70,13 @@ const baseConfig: webpack.Configuration = {
           },
         ],
       },
+      // Fixes a @babel/runtime resolve issue https://github.com/webpack/webpack/issues/11467#issuecomment-691873586
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
       {
         exclude: [
           /\.[tj]sx?$/,

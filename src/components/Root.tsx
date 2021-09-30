@@ -1,21 +1,21 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Provider } from 'react-redux';
+import { QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 
-import store from 'store';
+import client from 'client';
 import theme from 'styles/theme';
 
 import App from './App';
 
 const Root: React.FC = () => (
-  <Provider store={store}>
+  <QueryClientProvider client={client}>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ThemeProvider>
-  </Provider>
+  </QueryClientProvider>
 );
 
 export default Root;

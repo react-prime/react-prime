@@ -21,13 +21,11 @@ npm start
 ## Features
 * [TypeScript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
-* [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
+* [React Query](https://react-query.tanstack.com/)
 * [React Router](https://reacttraining.com/react-router/)
 * [Styled-Components](https://www.styled-components.com)
 * [Workbox](https://developers.google.com/web/tools/workbox/) for offline support and caching
 * [Webpack](https://webpack.js.org/) for bundling
-* [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [ESLint](http://eslint.org) to maintain a consistent code style
 * Refer to `package.json` for more details
 
@@ -54,9 +52,3 @@ For production we recommend to use [PM2](http://pm2.keymetrics.io/) to run the s
 ## Development Workflow
 ### Components
 The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
-
-### Ducks
-We make use of the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.
-
-### Redux DevTools
-To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.

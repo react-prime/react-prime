@@ -34,12 +34,7 @@ const baseConfig: webpack.Configuration = {
         oneOf: [
           {
             resourceQuery: /external/,
-            use: [{
-              loader: 'url-loader',
-              options: {
-                limit: 10000,
-              },
-            }],
+            type: 'asset/inline',
           },
           {
             use: ['@svgr/webpack'],
@@ -51,21 +46,13 @@ const baseConfig: webpack.Configuration = {
         oneOf: [
           {
             resourceQuery: /external/,
-            use: [{
-              loader: 'file-loader',
-              options: {
-                name: 'static/[name].[ext]',
-              },
-            }],
+            type: 'asset/inline',
           },
           {
-            use: [{
-              loader: 'url-loader',
-              options: {
-                limit: 10000,
-                name: 'static/images/[contenthash].[ext]',
-              },
-            }],
+            type: 'asset/resource',
+            generator: {
+              filename: 'static/images/[name].[ext]',
+            },
           },
         ],
       },
@@ -86,10 +73,10 @@ const baseConfig: webpack.Configuration = {
           /\.html$/,
           /\.ejs$/,
         ],
-        use: [{
-          loader: 'file-loader',
-          options: { name: 'static/[name].[ext]' },
-        }],
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[name].[ext]',
+        },
       },
     ],
   },

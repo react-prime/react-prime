@@ -17,12 +17,9 @@ const baseConfig: webpack.Configuration = {
   mode: 'production',
   target: 'browserslist',
   output: {
-    filename: 'static/js/[name].[chunkhash].js',
-    chunkFilename: 'static/js/[name].[chunkhash].js',
-    path: path.resolve('dist'),
-    publicPath: '/',
+    filename: 'static/js/[name].[contenthash].js',
+    chunkFilename: 'static/js/[name].chunk.[chunkhash].js',
   },
-  entry: path.resolve('src'),
   module: {
     rules: [
       {
@@ -56,17 +53,10 @@ const baseConfig: webpack.Configuration = {
           {
             type: 'asset/resource',
             generator: {
-              filename: 'static/images/[name].[ext]',
+              filename: 'static/images/[name].[contenthash].[ext]',
             },
           },
         ],
-      },
-      // Fixes a @babel/runtime resolve issue https://github.com/webpack/webpack/issues/11467#issuecomment-691873586
-      {
-        test: /\.m?js/,
-        resolve: {
-          fullySpecified: false,
-        },
       },
       {
         exclude: [
@@ -99,8 +89,8 @@ const baseConfig: webpack.Configuration = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
+          test: /[\\/]node_modules[\\/](react|redux|styled-components)([-a-z0-9]+)?[\\/]/,
+          name: 'core',
           chunks: 'all',
         },
       },

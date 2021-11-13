@@ -1,36 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Anchor from 'common/Anchor';
 import Logo from 'vectors/logo.svg';
 import GithubLogo from 'images/github-logo.png';
 
-const PrimeHeader = styled.header`
-  text-align: center;
-  padding: 50px 10px;
-  margin: 0 0 50px;
-  background: ${(props) => props.theme.colors.black};
-
-  & > svg {
-    width: 250px;
-  }
-`;
-
-const PrimeContent = styled.section`
-  text-align: center;
-  padding: 0 10px;
-  line-height: 25px;
-`;
-
-const GithubLink = styled.a`
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-
-  & > img {
-    width: 100%;
-  }
-`;
+import { GithubLink, PrimeContent, PrimeHeader } from './styled';
 
 const Prime: React.FC = () => (
   <>

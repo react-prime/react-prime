@@ -17,6 +17,7 @@
     "paths": {
       "common/*": ["src/components/common/*"],
       "modules/*": ["src/components/modules/*"],
+      "pages/*": ["src/components/pages/*"],
       "config/*": ["config/*"],
       "config": ["config/index"],
       "ducks/*": ["src/ducks/*"],

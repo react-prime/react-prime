@@ -89,23 +89,7 @@
       "html": true
     }],
     "react-hooks/exhaustive-deps": 0,
-    "@typescript-eslint/explicit-module-boundary-types": [1, {
-      "allowedNames": [
-        "render",
-        "componentDidMount",
-        "componentWillUnmount",
-        "shouldComponentUpdate",
-        "componentDidUpdate",
-        "componentDidCatch",
-        "getSnapshotBeforeUpdate",
-        "getDerivedStateFromProps",
-        "getDerivedStateFromError",
-        "UNSAFE_componentWillUpdate",
-        "UNSAFE_componentWillReceiveProps",
-        "UNSAFE_componentWillMount"
-      ],
-      "allowDirectConstAssertionInArrowFunctions": true
-    }],
+    "@typescript-eslint/explicit-module-boundary-types": [0],
     "@typescript-eslint/semi": 1,
     "@typescript-eslint/indent": [2, 2],
     "@typescript-eslint/ban-ts-ignore": 0,

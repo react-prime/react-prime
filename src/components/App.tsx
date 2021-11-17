@@ -1,19 +1,19 @@
 import React, { lazy, Suspense } from 'react';
-import { Switch, Route, withRouter, RouteComponentProps } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from 'styles';
 
-const Prime = lazy(() => import('modules/Prime'));
+const Home = lazy(() => import('pages/Home'));
 
-const App: React.FC<RouteComponentProps> = () => (
+const App: React.FC = () => (
   <main>
     <GlobalStyle />
     <Suspense fallback={<span>loading</span>}>
-      <Switch>
-        <Route path="/" component={Prime} exact />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </Suspense>
   </main>
 );
 
-export default withRouter(App);
+export default App;

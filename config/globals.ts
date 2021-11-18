@@ -10,12 +10,12 @@ const globals = (env?: ENV): Globals => {
     },
     __DEV__: appEnv === 'development',
     __TEST__: appEnv === 'test',
-    __ACC__: appEnv === 'acceptation',
+    __ACC__: appEnv === 'acceptance',
     __PROD__: appEnv === 'production',
   };
 };
 
-type ENV = 'production' | 'acceptation' | 'development' | 'test';
+type ENV = 'production' | 'acceptance' | 'development' | 'test';
 
 type Globals = {
   'process.env': {

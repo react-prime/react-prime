@@ -23,6 +23,7 @@
       "config": ["config/index"],
       "images/*": ["src/static/images/*"],
       "hooks": ["src/services/hooks/index"],
+      "hooks/*": ["src/services/hooks/*"],
       "server": ["server/index"],
       "services/*": ["src/services/*"],
       "services": ["src/services/index"],

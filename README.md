@@ -4,8 +4,6 @@
 
 # React Prime
 [![Build Status](https://travis-ci.org/react-prime/react-prime.svg?branch=master)](https://travis-ci.org/react-prime/react-prime)
-[![dependencies Status](https://david-dm.org/react-prime/react-prime/status.svg)](https://david-dm.org/react-prime/react-prime)
-[![devDependencies Status](https://david-dm.org/react-prime/react-prime/dev-status.svg)](https://david-dm.org/react-prime/react-prime?type=dev)
 [![GitHub release](https://img.shields.io/github/release/react-prime/react-prime.svg)](https://github.com/react-prime/react-prime)
 
 ---

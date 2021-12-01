@@ -49,4 +49,25 @@ For production we recommend to use [PM2](http://pm2.keymetrics.io/) to run the s
 
 ## Development Workflow
 ### Components
-The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
+The components are separated in `common`, `modules` and `pages`.
+- The `common` folder includes components are self-contained and can be used through the entire app
+- The `modules` are bundled components which depend on each other.
+- The `pages` folder contain top level pages of the application
+
+### Queries
+To manage data throughout the while application this boilerplate makes use of [React Query](https://react-query.tanstack.com/). A simple query is similar to the following code snippet:
+
+```typescript
+export const useGetItems = () => {
+  return useQuery<ServerResponse, Error, ReselectedData>(
+    'items', // either a string, or an array
+    async () => await api.get({ path: '/users' }),
+    {
+      select: (response) => {
+        // format or select parts of the response
+        return response;
+      }
+    },
+  );
+};
+```

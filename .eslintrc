@@ -89,7 +89,7 @@
       "html": true
     }],
     "react-hooks/exhaustive-deps": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/explicit-module-boundary-types": [0],
     "@typescript-eslint/semi": 1,
     "@typescript-eslint/indent": [2, 2],
     "@typescript-eslint/ban-ts-ignore": 0,

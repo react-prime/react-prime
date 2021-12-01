@@ -5,7 +5,7 @@ import pkg from '../package.json';
 import globals from './globals';
 import { merge } from './webpack.config.base';
 
-const prodConfig = {
+const prodConfig: webpack.Configuration = {
   name: 'client',
   plugins: [
     new webpack.DefinePlugin(globals('production')),

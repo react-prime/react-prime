@@ -1,6 +1,6 @@
 {
   "name": "react-prime",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "A starter kit to create comprehensive React apps with React Query",
   "author": "Label A",
   "url": "https://labela.nl/",
@@ -10,8 +10,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "TS_NODE_PROJECT=config/tsconfig.json webpack serve --config config/webpack.config.dev.ts",
-    "build": "rimraf dist/ && npm run build:server && TS_NODE_PROJECT=config/tsconfig.json webpack --progress --config config/webpack.config.prod.ts",
+    "start": "NODE_ENV=development TS_NODE_PROJECT=config/tsconfig.json webpack serve --config config/webpack.config.dev.ts",
+    "build": "rimraf dist/ && NODE_ENV=production npm run build:server && NODE_ENV=production TS_NODE_PROJECT=config/tsconfig.json webpack --progress --config config/webpack.config.prod.ts",
     "build:server": "tsc --project server/tsconfig.json",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
@@ -31,7 +31,6 @@
   ],
   "browserslist": [
     "> 0.2%",
-    "ie 11",
     "not dead",
     "not op_mini all"
   ],

@@ -1,9 +1,10 @@
 const globals = (env?: ENV): Globals => {
   const appEnv = process.env.APP_ENV || env || 'development';
+  const nodeEnv = (env == null || env === 'development') ? 'development' : 'production';
 
   return {
     'process.env': {
-      NODE_ENV: JSON.stringify(env || 'development'),
+      NODE_ENV: JSON.stringify(nodeEnv),
       APP_ENV: JSON.stringify(appEnv),
       PORT: process.env.PORT || 3000,
     },

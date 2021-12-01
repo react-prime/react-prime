@@ -5,7 +5,6 @@ declare const __PROD__: boolean;
 declare const __ACC__: boolean;
 declare const __TEST__: boolean;
 
-// extend window object
 declare interface NodeModule {
   hot: {
     accept(path?: string, callback?: () => void): void;

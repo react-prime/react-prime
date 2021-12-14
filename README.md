@@ -4,8 +4,6 @@
 
 # React Prime
 [![Build Status](https://travis-ci.org/react-prime/react-prime.svg?branch=master)](https://travis-ci.org/react-prime/react-prime)
-[![dependencies Status](https://david-dm.org/react-prime/react-prime/status.svg)](https://david-dm.org/react-prime/react-prime)
-[![devDependencies Status](https://david-dm.org/react-prime/react-prime/dev-status.svg)](https://david-dm.org/react-prime/react-prime?type=dev)
 [![GitHub release](https://img.shields.io/github/release/react-prime/react-prime.svg)](https://github.com/react-prime/react-prime)
 
 ---
@@ -21,13 +19,11 @@ npm start
 ## Features
 * [TypeScript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
-* [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
+* [React Query](https://react-query.tanstack.com/)
 * [React Router](https://reacttraining.com/react-router/)
 * [Styled-Components](https://www.styled-components.com)
 * [Workbox](https://developers.google.com/web/tools/workbox/) for offline support and caching
 * [Webpack](https://webpack.js.org/) for bundling
-* [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [ESLint](http://eslint.org) to maintain a consistent code style
 * Refer to `package.json` for more details
 
@@ -53,10 +49,25 @@ For production we recommend to use [PM2](http://pm2.keymetrics.io/) to run the s
 
 ## Development Workflow
 ### Components
-The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
+The components are separated in `common`, `modules` and `pages`.
+- The `common` folder includes components are self-contained and can be used through the entire app
+- The `modules` are bundled components which depend on each other.
+- The `pages` folder contain top level pages of the application
 
-### Ducks
-We make use of the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.
+### Queries
+To manage data throughout the while application this boilerplate makes use of [React Query](https://react-query.tanstack.com/). A simple query is similar to the following code snippet:
 
-### Redux DevTools
-To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.
+```typescript
+export const useGetItems = () => {
+  return useQuery<ServerResponse, Error, ReselectedData>(
+    'items', // either a string, or an array
+    async () => await api.get({ path: '/users' }),
+    {
+      select: (response) => {
+        // format or select parts of the response
+        return response;
+      }
+    },
+  );
+};
+```

@@ -89,7 +89,7 @@ const baseConfig: webpack.Configuration = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/](react|redux|styled-components)([-a-z0-9]+)?[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-query|styled-components)([-a-z0-9]+)?[\\/]/,
           name: 'core',
           chunks: 'all',
         },

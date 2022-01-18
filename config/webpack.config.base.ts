@@ -20,6 +20,7 @@ const baseConfig: webpack.Configuration = {
   output: {
     filename: 'static/js/[name].[contenthash].js',
     chunkFilename: 'static/js/[name].chunk.[chunkhash].js',
+    publicPath: '/',
   },
   module: {
     rules: [

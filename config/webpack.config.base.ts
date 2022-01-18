@@ -1,5 +1,6 @@
 import path from 'path';
 import * as webpack from 'webpack';
+import * as devServer from 'webpack-dev-server';
 import CopyPlugin from 'copy-webpack-plugin';
 import webpackMerge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -106,6 +107,6 @@ const baseConfig: webpack.Configuration = {
 
 export default baseConfig;
 
-type WebpackMergeType = (...config: webpack.Configuration[]) => webpack.Configuration;
+type WebpackMergeType = (...config: webpack.Configuration[]) => webpack.Configuration & devServer.Configuration;
 
 export const merge: WebpackMergeType = (...config) => webpackMerge(baseConfig, ...config);

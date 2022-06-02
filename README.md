@@ -6,6 +6,8 @@
 [![Build Status](https://travis-ci.org/react-prime/react-prime.svg?branch=master)](https://travis-ci.org/react-prime/react-prime)
 [![GitHub release](https://img.shields.io/github/release/react-prime/react-prime.svg)](https://github.com/react-prime/react-prime)
 
+⚠️**This repository has been moved to the [Prime Monorepo](https://github.com/LabelA/prime-monorepo/tree/main/boilerplates/react-web)**.
+
 ---
 
 ## Quick start
